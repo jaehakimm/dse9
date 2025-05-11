@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDP / Customer Segmentation</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Prompt', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Course Header -->
+    <div class="bg-sky-500 text-white p-12 rounded-lg mx-auto my-8">
+      <div class="relative">
+        <!-- Main text content -->
+        <div class="z-10 relative flex justify-center">
+          <h1 class="text-5xl font-bold">CDP / Customer Segmentation</h1>
+        </div>
+
+        <!-- Circle decoration -->
+        <div class="absolute top-0 right-0 w-32 h-32 bg-sky-400 rounded-full opacity-30"></div>
+      </div>
+    </div>
+
+    <!-- Course Content -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-8">
+      <!-- Section 1: CDP คืออะไร -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-database text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">CDP คืออะไร?</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            CDP หรือ Customer Data Platform คือระบบที่รวบรวมข้อมูลลูกค้าจากหลายแหล่ง เช่น เว็บไซต์ แอปพลิเคชัน POS
+            และโซเชียลมีเดีย มารวมไว้ในที่เดียว
+            เพื่อสร้างมุมมองแบบ 360 องศาของลูกค้าแต่ละราย
+          </p>
+
+          <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-4">
+            <h4 class="font-medium text-blue-700 mb-2">ตัวอย่าง:</h4>
+            <p class="text-sm text-gray-700">
+              สมมติว่าคุณเป็นเจ้าของร้านค้าออนไลน์ที่มีทั้งเว็บไซต์และแอปพลิเคชันมือถือ หากไม่มี CDP
+              คุณจะต้องรวบรวมข้อมูลลูกค้าจากหลายแหล่งด้วยตนเอง เช่น
+              การดึงข้อมูลจากระบบ POS, การวิเคราะห์พฤติกรรมการใช้งานแอปพลิเคชัน และการติดตามการเข้าชมเว็บไซต์
+              ซึ่งใช้เวลานานและอาจเกิดข้อผิดพลาดได้ง่าย
+              แต่ด้วย CDP คุณสามารถรวมข้อมูลทั้งหมดไว้ในที่เดียว ทำให้สามารถวิเคราะห์พฤติกรรมลูกค้าแบบ 360 องศาได้ทันที
+              เช่น
+              การระบุว่าลูกค้าคนใดที่ซื้อสินค้าผ่านแอปพลิเคชันและกลับมาซื้อซ้ำผ่านเว็บไซต์ในช่วงโปรโมชั่น
+            </p>
+          </div>
+
+          <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+            <div class="text-blue-500 mr-3">
+              <i class="fas fa-info-circle mt-1"></i>
+            </div>
+            <div class="text-sm text-blue-700">
+              CDP ช่วยให้องค์กรสามารถเข้าใจลูกค้าได้ดีขึ้นโดยการรวมข้อมูลจากทุกจุดที่ลูกค้ามีปฏิสัมพันธ์กับแบรนด์
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Data Analytics คืออะไร -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-chart-bar text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Data Analytics คืออะไร?</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            Data Analytics คือกระบวนการวิเคราะห์ข้อมูลตั้งแต่อดีตจนถึงปัจจุบัน เพื่อค้นหาข้อมูลเชิงลึก แนวโน้ม
+            ความสัมพันธ์ และพยากรณ์สิ่งที่จะเกิดขึ้นในอนาคต โดยอาศัยเทคโนโลยีสมัยใหม่ เช่น AI, Machine Learning
+            และเครื่องมือเฉพาะทาง
+          </p>
+
+          <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-4">
+            <h4 class="font-medium text-blue-700 mb-2">ประโยชน์ต่อธุรกิจ:</h4>
+            <p class="text-sm text-gray-700">
+              การทำ Data Analytics ไม่ได้จำกัดเฉพาะธุรกิจขนาดใหญ่
+              ธุรกิจขนาดกลางและเล็กก็สามารถนำไปใช้วิเคราะห์และวางแผนธุรกิจได้เช่นกัน เพราะ "การรู้ข้อมูล" เปรียบเสมือนมี
+              "เข็มทิศ" ในการนำทางธุรกิจ
+            </p>
+          </div>
+
+          <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+            <div class="text-blue-500 mr-3">
+              <i class="fas fa-lightbulb mt-1"></i>
+            </div>
+            <div class="text-sm text-blue-700">
+              Data Analytics ช่วยให้การตัดสินใจทางธุรกิจแม่นยำขึ้น พัฒนาประสิทธิภาพองค์กร
+              และสร้างความได้เปรียบในการแข่งขันในยุคดิจิทัล
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-history text-sm"></i>
+                </div>
+                <h3 class="font-medium">Descriptive Analytics</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">วิเคราะห์และสรุปสิ่งที่เกิดขึ้นในอดีต เช่น รายงานยอดขาย
+                รายงานผลการดำเนินงาน หรือพฤติกรรมการใช้งานเว็บไซต์ เพื่อเข้าใจภาพรวมของสถานการณ์</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-search text-sm"></i>
+                </div>
+                <h3 class="font-medium">Diagnostic Analytics</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">วิเคราะห์หาสาเหตุและความสัมพันธ์ของเหตุการณ์ เช่น
+                ความสัมพันธ์ระหว่างกิจกรรมทางการตลาดกับยอดขาย เพื่อเข้าใจว่าทำไมสิ่งต่าง ๆ จึงเกิดขึ้น</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-chart-line text-sm"></i>
+                </div>
+                <h3 class="font-medium">Predictive Analytics</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">วิเคราะห์และพยากรณ์สิ่งที่น่าจะเกิดขึ้นในอนาคต โดยใช้ข้อมูลในอดีต
+                ร่วมกับเทคนิคทางสถิติหรือ AI เช่น การทำนายยอดขายในไตรมาสถัดไป</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-magic text-sm"></i>
+                </div>
+                <h3 class="font-medium">Prescriptive Analytics</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">วิเคราะห์เชิงลึกเพื่อแนะนำทางเลือกที่ดีที่สุด พร้อมพิจารณาข้อดี
+                ข้อเสีย และผลกระทบของแต่ละทางเลือก เช่น การแนะนำกลยุทธ์ทางการตลาด</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: ประโยชน์ของ CDP -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-check text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ประโยชน์ของ CDP ในการทำ Segmentation</h2>
+        </div>
+
+        <div class="ml-11">
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-layer-group text-sm"></i>
+                </div>
+                <h3 class="font-medium">รวบรวมข้อมูลอย่างเป็นระบบ</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">รวมข้อมูลลูกค้าจากหลายช่องทางได้อย่างเป็นระบบ</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-brain text-sm"></i>
+                </div>
+                <h3 class="font-medium">เข้าใจพฤติกรรมเชิงลึก</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">วิเคราะห์พฤติกรรมลูกค้าอย่างละเอียดเพื่อดึงข้อมูลเชิงลึก</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-users text-sm"></i>
+                </div>
+                <h3 class="font-medium">แบ่งกลุ่มลูกค้าแม่นยำ</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">สามารถแบ่งกลุ่มลูกค้า (Segmentation) ได้อย่างแม่นยำ</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-bullseye text-sm"></i>
+                </div>
+                <h3 class="font-medium">การตลาดเฉพาะบุคคล</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">ช่วยทำการตลาดแบบเฉพาะบุคคล (Personalized Marketing)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Elbow Method Visualization -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-chart-line text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Visualization: Elbow Method</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            กราฟ Elbow Method ใช้สำหรับหาจำนวนกลุ่มลูกค้าที่เหมาะสม (Optimal k) สำหรับการทำ Clustering
+          </p>
+          <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-6">
+            <h4 class="font-medium text-blue-700 mb-2">ตัวอย่าง:</h4>
+            <p class="text-sm text-gray-700">
+              สมมติว่าคุณต้องการแบ่งกลุ่มลูกค้าตามพฤติกรรมการซื้อสินค้า หากไม่มี Elbow Method
+              คุณอาจต้องลองแบ่งกลุ่มลูกค้าด้วยจำนวนกลุ่มที่แตกต่างกัน
+              และวิเคราะห์ผลลัพธ์ด้วยตนเอง ซึ่งอาจทำให้เสียเวลาและได้ผลลัพธ์ที่ไม่แม่นยำ
+              แต่ด้วย Elbow Method คุณสามารถใช้กราฟเพื่อระบุจำนวนกลุ่มที่เหมาะสมที่สุด เช่น
+              การระบุว่าควรแบ่งลูกค้าออกเป็น 3 กลุ่ม
+              ได้แก่ ลูกค้าประจำ, ลูกค้าซื้อครั้งเดียว, และลูกค้าที่ซื้อเฉพาะช่วงโปรโมชั่น
+            </p>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg p-4 mb-6">
+            <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*wESu0Tv09wSm5cJVk7eBLw.png"
+              alt="Elbow Method Chart" class="mx-auto rounded-lg shadow-sm">
+            <p class="text-sm text-gray-500 text-center mt-2">
+              กราฟ Elbow Method แสดงความสัมพันธ์ระหว่าง k (จำนวนกลุ่ม)
+              และ Sum of Squared Distances<br>
+              <a href="https://www.tableau.com/chart/what-is-bubble-chart" target="_blank"
+                class="text-green-600 hover:text-green-800 font-medium transition-colors duration-200 mt-1">
+                ที่มา: Medium
+              </a>
+            </p>
+
+            <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-5 max-w-3xl mx-auto">
+              <h4 class="text-base font-semibold text-blue-800 mb-3 flex items-center">
+                <i class="fas fa-info-circle mr-2"></i>คำอธิบายภาพและสรุปผล
+              </h4>
+              <ol class="list-decimal ml-6 text-gray-800 text-sm space-y-2">
+                <li>
+                  <span class="font-medium text-blue-900">แผงด้านบน:</span>
+                  ตัวอย่างการจัดกลุ่มข้อมูล (Clustering) ด้วยจำนวนคลัสเตอร์ที่ต่างกัน ได้แก่ <span
+                    class="font-semibold text-blue-700">2, 3, 5, 10 และ 25 คลัสเตอร์</span>
+                  โดยแต่ละแผงแสดงการกระจายตัวของข้อมูลหลังการจัดกลุ่ม
+                </li>
+                <li>
+                  <span class="font-medium text-blue-900">แผงกลาง:</span>
+                  การประเมินผลด้วย <span class="font-semibold text-blue-700">Elbow Method</span> ซึ่งเป็นเทคนิคการหา
+                  "จำนวนคลัสเตอร์ที่เหมาะสม" โดยดูจากกราฟของค่า inertia (หรือ WCSS) กับจำนวนคลัสเตอร์
+                  จุดที่กราฟเริ่มเปลี่ยนจากชันเป็นแบน ("จุดศอก" หรือ elbow) คือจำนวนคลัสเตอร์ที่เหมาะสมที่สุด
+                  (เส้นสีแดง)
+                </li>
+                <li>
+                  <span class="font-medium text-blue-900">แผงล่างสุด:</span>
+                  การประเมินด้วย <span class="font-semibold text-blue-700">BIC Method (Bayesian Information
+                    Criterion)</span> ซึ่งเป็นอีกวิธีหนึ่งที่ใช้เลือกจำนวนคลัสเตอร์ โดยมองหาจำนวนคลัสเตอร์ที่ทำให้ค่า
+                  BIC สูงที่สุดหรือเปลี่ยนแปลงน้อยที่สุด (เส้นสีแดง)
+                </li>
+              </ol>
+              <div class="mt-4">
+                <span class="font-semibold text-blue-800">สรุปสิ่งที่เห็นในภาพ:</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li><span class="font-medium text-blue-700">Elbow Method:</span> มักเลือกจำนวนคลัสเตอร์ประมาณ <span
+                      class="font-semibold">3-6</span> แล้วแต่กรณี</li>
+                  <li><span class="font-medium text-blue-700">BIC Method:</span> อาจเลือกจำนวนคลัสเตอร์ประมาณ <span
+                      class="font-semibold">2-25</span> แล้วแต่ลักษณะของข้อมูล</li>
+                  <li><span class="font-medium text-blue-700">เมื่อใช้ 25 คลัสเตอร์:</span>
+                    ข้อมูลกระจายตัวมากขึ้นและแต่ละกลุ่มเล็กลง</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg p-4 mb-6">
+            <h3 class="text-lg font-semibold text-blue-800 mb-4">
+              <i class="fas fa-chart-bubble mr-2"></i>ตัวอย่างการ Cluster ในแต่ละค่าของ k
+            </h3>
+            <iframe src="https://marimo.app/l/gpeybj?embed=true&mode=read" width="100%" height="1400" class="rounded-lg border"
+              frameborder="0"></iframe>
+          </div>
+
+          <!-- Pros & Cons -->
+          <div class="grid md:grid-cols-2 gap-6 mb-4">
+            <div class="bg-sky-100 rounded-lg border-l-4 border-sky-500 p-4">
+              <h3 class="text-black font-medium mb-2 flex items-center">
+                <i class="fas fa-thumbs-up mr-2 text-black"></i>ข้อดีของ Elbow Method
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ง่ายต่อการทำความเข้าใจและใช้งาน</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>เป็นวิธีที่มีประสิทธิภาพในการหาจำนวนกลุ่มที่เหมาะสม</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>สามารถแสดงผลเป็นภาพได้ชัดเจน</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ใช้ทรัพยากรคอมพิวเตอร์น้อย</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>เป็นที่นิยมใช้กันอย่างแพร่หลายในงาน Data Science</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-sky-100 rounded-lg border-l-4 border-sky-500 p-4">
+              <h3 class="text-black font-medium mb-2 flex items-center">
+                <i class="fas fa-thumbs-down mr-2"></i>ข้อเสียของ Elbow Method
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>บางครั้งจุด Elbow ไม่ชัดเจน ทำให้ยากต่อการตัดสินใจ</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ไม่เหมาะกับข้อมูลที่มีความซับซ้อนสูง</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>อาจให้ผลลัพธ์ที่แตกต่างกันในแต่ละครั้งที่รันอัลกอริทึม</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ต้องใช้ร่วมกับเทคนิคอื่นเพื่อยืนยันความถูกต้อง</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>อาจไม่เหมาะสมกับข้อมูลที่มีความหนาแน่นแตกต่างกันมาก</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Bubble Chart -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-chart-pie text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Visualization: Bubble Chart</h2>
+        </div>
+
+        <div class="ml-11">
+          <div class="space-y-6 mb-6">
+            <!-- คำอธิบายหลัก -->
+            <div class="bg-white rounded-lg border border-gray-200 p-6">
+              <h3 class="text-lg font-semibold text-blue-800 mb-4">
+                <i class="fas fa-chart-bubble mr-2"></i>Bubble Chart คืออะไร?
+              </h3>
+              <p class="text-gray-700">กราฟที่แสดงข้อมูลหลายมิติในภาพเดียว โดยใช้วงกลมที่มีขนาดแตกต่างกัน (Bubbles)
+                เพื่อสื่อความหมาย</p>
+            </div>
+
+            <!-- องค์ประกอบของ Bubble Chart -->
+            <div class="bg-sky-100 rounded-lg border border-sky-200 p-6">
+              <h4 class="font-medium text-blue-800 mb-3">
+                <i class="fas fa-puzzle-piece mr-2"></i>องค์ประกอบหลัก 4 ส่วน
+              </h4>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white rounded p-3 border border-blue-100">
+                  <h5 class="font-medium text-blue-700 mb-2">📊 แกน X</h5>
+                  <p class="text-sm text-gray-600">แสดงค่าตัวแปรที่ 1 เช่น รายได้, ยอดขาย</p>
+                </div>
+                <div class="bg-white rounded p-3 border border-blue-100">
+                  <h5 class="font-medium text-blue-700 mb-2">📈 แกน Y</h5>
+                  <p class="text-sm text-gray-600">แสดงค่าตัวแปรที่ 2 เช่น จำนวนลูกค้า, กำไร</p>
+                </div>
+                <div class="bg-white rounded p-3 border border-blue-100">
+                  <h5 class="font-medium text-blue-700 mb-2">⭕ ขนาดฟอง</h5>
+                  <p class="text-sm text-gray-600">แสดงค่าตัวแปรที่ 3 เช่น จำนวนธุรกรรม</p>
+                </div>
+                <div class="bg-white rounded p-3 border border-blue-100">
+                  <h5 class="font-medium text-blue-700 mb-2">🎨 สีของฟอง</h5>
+                  <p class="text-sm text-gray-600">แยกประเภทหรือกลุ่ม เช่น ประเภทธุรกิจ</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ตัวอย่างการใช้งาน -->
+            <div class="bg-sky-100 rounded-lg border border-sky-200 p-6">
+              <h4 class="font-medium text-blue-800 mb-3">
+                <i class="fas fa-lightbulb mr-2"></i>ตัวอย่างการใช้งานจริง: วิเคราะห์สินเชื่อธุรกิจ
+              </h4>
+              <div class="bg-white rounded-lg p-4 mb-4">
+                <ul class="space-y-2 text-sm text-gray-700">
+                  <li class="flex items-center">
+                    <i class="fas fa-arrow-right text-blue-800 mr-2"></i>
+                    <b class="mr-2">แกน X:</b> รายได้เฉลี่ยต่อธุรกิจ
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-arrow-right text-blue-800 mr-2"></i>
+                    <b class="mr-2">แกน Y:</b> จำนวนลูกค้าในแต่ละหมวดหมู่
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-circle text-blue-800 mr-2"></i>
+                    <b class="mr-2">ขนาดฟอง:</b> จำนวนสินเชื่อที่ปล่อย
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-palette text-blue-800 mr-2"></i>
+                    <b class="mr-2">สีฟอง:</b> ประเภทธุรกิจ (อาหาร, ค้าปลีก, เกษตร)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example -->
+          <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-2">
+            <h4 class="font-medium text-blue-700 mb-2">ตัวอย่าง:</h4>
+            <p class="text-sm text-gray-700">
+              ถ้าเราพูดถึงเรื่องสินเชื่อ หลายคนอาจนึกถึงการกู้บ้าน กู้รถ หรือกู้เงินเพื่อทำธุรกิจเล็กๆ
+              แต่เคยสงสัยไหมครับว่า... ประเภทของสินเชื่อไหนที่มีคนกู้เยอะที่สุดจริงๆ?
+              วันนี้เรามีข้อมูลดี ๆ มาฝาก ผ่านการนำเสนอด้วย Bubble Chart ที่เห็นแล้วเข้าใจได้ทันทีในพริบตาเดียว!
+            </p>
+          </div>
+
+          <!-- Image Placeholder -->
+          <div class="bg-white border border-gray-200 rounded-lg p-4 mb-6">
+            <img src="https://www.tableau.com/sites/default/files/2022-05/bubble-chart-3.png" alt="Bubble Chart Example"
+              class="mx-auto rounded-lg shadow-sm">
+            <p class="text-sm text-gray-500 text-center mt-2">
+              ตัวอย่าง Bubble Chart แสดงจำนวนการกู้ยืมในแต่ละประเภท<br>
+              <a href="https://www.tableau.com/chart/what-is-bubble-chart" target="_blank"
+                class="text-green-600 hover:text-green-800 font-medium transition-colors duration-200 mt-1">
+                ที่มา: Tableau
+              </a>
+            </p>
+            <div class="mt-6 bg-sky-100 border border-sky-200 rounded-lg p-5 max-w-3xl mx-auto">
+              <h4 class="text-base font-semibold text-blue-800 mb-3 flex items-center">
+                <i class="fas fa-info-circle mr-2"></i>คำอธิบายภาพ Bubble Chart
+              </h4>
+              <p class="text-gray-800 text-sm mb-3">
+                ในภาพ เราใช้ <span class="font-semibold text-blue-800">ขนาดของวงกลม</span>
+                เพื่อแทนจำนวนของสินเชื่อในแต่ละหมวดหมู่ — วงกลมยิ่งใหญ่ แปลว่ามีคนกู้เยอะ! และยังมีการ <span
+                  class="font-semibold text-blue-800">ใช้สีแยกกลุ่ม</span> ตามประเภทสินเชื่อ เช่น สินค้า บริการ แรงงาน
+                และศิลปะ
+              </p>
+              <div class="bg-white rounded-md border border-gray-100 p-4 mb-3">
+                <span class="font-semibold text-blue-800">หมวดหมู่เด่น ๆ ที่เห็นได้ชัด ได้แก่:</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>🥇 <span class="font-medium">Food (อาหาร)</span> — <span class="font-semibold">129,087</span>
+                    สินเชื่อ (ใหญ่ที่สุดในภาพ!)</li>
+                  <li>🥈 <span class="font-medium">Retail (ค้าปลีก)</span> — <span class="font-semibold">113,576</span>
+                    สินเชื่อ</li>
+                  <li>🥉 <span class="font-medium">Agriculture (เกษตรกรรม)</span> — <span
+                      class="font-semibold">102,304</span> สินเชื่อ</li>
+                  <li>ส่วนหมวดที่ตามมา ได้แก่ Services, Clothing, และ Housing เป็นต้น</li>
+                </ul>
+              </div>
+              <div class="mb-3">
+                <span class="font-semibold text-blue-800">สรุปแบบสั้น ๆ ง่าย ๆ</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>คนจำนวนมากกู้เงินเพื่อทำธุรกิจเกี่ยวกับ <span class="font-medium">"อาหาร"</span> และ <span
+                      class="font-medium">"ค้าปลีก"</span> มากที่สุด</li>
+                  <li>ธุรกิจเกษตรกรรมก็ไม่น้อยหน้า มีผู้ขอสินเชื่อจำนวนมากเช่นกัน</li>
+                  <li>กลุ่มบริการ (Services) และศิลปะ (Arts) มีขนาดวงกลมเล็กกว่า แต่ก็มีบทบาทเฉพาะกลุ่ม</li>
+                </ul>
+              </div>
+              <div class="mb-3">
+                <span class="font-semibold text-blue-800">แล้วทำไมเรื่องนี้ถึงสำคัญ?</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>ธนาคารและสถาบันการเงินออกแบบผลิตภัณฑ์ให้ตรงใจลูกค้า</li>
+                  <li>นักลงทุนเลือกลงทุนในธุรกิจที่มีแนวโน้มเติบโตสูง</li>
+                  <li>ผู้ประกอบการเห็นโอกาสทางการตลาดในหมวดหมู่ที่ยังไม่อิ่มตัว</li>
+                </ul>
+              </div>
+              <div class="mt-2 text-blue-800 font-medium italic">
+                "การดูแค่ตัวเลขบางครั้งอาจน่าเบื่อ แต่พอเปลี่ยนมาใช้ภาพแบบนี้ ทั้งเข้าใจง่าย สนุก และได้ไอเดียใหม่ ๆ
+                เพียบ!"
+              </div>
+            </div>
+          </div>
+
+          <!-- Pros & Cons -->
+          <div class="grid md:grid-cols-2 gap-6 mb-4">
+            <div class="bg-sky-100 rounded-lg border-l-4 border-sky-500 p-4">
+              <h3 class="text-black font-medium mb-2 flex items-center">
+                <i class="fas fa-thumbs-up mr-2"></i>ข้อดีของ Bubble Chart
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>สามารถแสดงข้อมูลหลายมิติในกราฟเดียว</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ช่วยให้เห็นความสัมพันธ์ระหว่างตัวแปรได้ชัดเจน</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>เหมาะสำหรับการเปรียบเทียบข้อมูลในกลุ่มต่างๆ</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-sky-100 rounded-lg border-l-4 border-sky-500 p-4">
+              <h3 class="text-black font-medium mb-2 flex items-center">
+                <i class="fas fa-thumbs-down mr-2"></i>ข้อเสียของ Bubble Chart
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>อาจทำให้ข้อมูลดูซับซ้อนเกินไปหากมีหลายฟอง</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ยากต่อการเปรียบเทียบขนาดของฟองที่ใกล้เคียงกัน</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ต้องการการตีความที่แม่นยำเพื่อหลีกเลี่ยงความเข้าใจผิด</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Case Studies -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-briefcase text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Case Studies: การประยุกต์ใช้ CDP</h2>
+        </div>
+
+        <div class="ml-11">
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Case Study 1 -->
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-4">
+                <img src="https://logo.clearbit.com/starbucks.com" alt="Starbucks" class="w-12 h-12 rounded-full mr-4">
+                <div>
+                  <h3 class="font-semibold text-gray-900">Starbucks</h3>
+                  <p class="text-sm text-gray-600">Personalized Marketing Campaign</p>
+                </div>
+              </div>
+              <p class="text-gray-700 text-sm mb-4">
+                Starbucks ใช้ CDP ในการรวบรวมข้อมูลจาก Mobile App, การ์ดสมาชิก และประวัติการสั่งซื้อ
+                เพื่อสร้างแคมเปญการตลาดแบบเฉพาะบุคคล ส่งผลให้ยอดขายเพิ่มขึ้น 20%
+              </p>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-4">
+                <img src="https://logo.clearbit.com/netflix.com" alt="Netflix" class="w-12 h-12 rounded-full mr-4">
+                <div>
+                  <h3 class="font-semibold text-gray-900">Netflix</h3>
+                  <p class="text-sm text-gray-600">Content Recommendation System</p>
+                </div>
+              </div>
+              <p class="text-gray-700 text-sm mb-4">
+                Netflix ใช้ CDP ในการวิเคราะห์พฤติกรรมการรับชมของผู้ใช้ เพื่อแนะนำคอนเทนต์ที่เหมาะสม
+                ส่งผลให้อัตราการรับชมเพิ่มขึ้น 35%
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Quiz -->
+      <div class="p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-question text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Quiz: ทดสอบความเข้าใจ</h2>
+        </div>
+
+        <div class="ml-11" id="quiz-container">
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">1. CDP มีความสำคัญกับการตลาดอย่างไร?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ทำให้เก็บข้อมูลลูกค้าอย่างปลอดภัย</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ช่วยสร้างกลยุทธ์การตลาดแบบ Personalized</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>เพิ่มจำนวนสินค้าคงคลัง</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ลดต้นทุนการผลิต</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">2. Elbow Method ใช้สำหรับอะไร?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>คำนวณราคาสินค้า</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>หาเวลาที่ลูกค้าจะซื้อของ</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>หาจำนวนกลุ่มที่เหมาะสมในการทำ Clustering</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>เปรียบเทียบรายได้รายเดือน</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">3. ข้อมูลแบบไหนที่มักถูกรวบรวมใน CDP?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ข้อมูลการซื้อของลูกค้า</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ประวัติพนักงาน</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>งบการเงินของบริษัท</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ราคาหุ้นตลาดหลักทรัพย์</span>
+              </label>
+            </div>
+          </div>
+
+          <button id="submit-quiz"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            ส่งคำตอบ
+          </button>
+
+          <div id="quiz-result" class="mt-6 hidden"></div>
+          <div id="quiz-feedback" class="mt-4 p-4 rounded-lg hidden"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const submitButton = document.getElementById('submit-quiz');
+      const quizResult = document.getElementById('quiz-result');
+      const quizFeedback = document.getElementById('quiz-feedback');
+
+      const correctAnswers = {
+        q1: 'b',
+        q2: 'c',
+        q3: 'a'
+      };
+
+      submitButton.addEventListener('click', function () {
+        let score = 0;
+        let answeredAll = true;
+
+        // Check answers
+        Object.keys(correctAnswers).forEach(question => {
+          const selected = document.querySelector(`input[name="${question}"]:checked`);
+
+          if (!selected) {
+            answeredAll = false;
+            return;
+          }
+
+          const isCorrect = selected.value === correctAnswers[question];
+
+          if (isCorrect) score++;
+
+          // Style all answers
+          document.querySelectorAll(`input[name="${question}"]`).forEach(input => {
+            const label = input.parentElement;
+
+            if (input.value === correctAnswers[question]) {
+              // Correct answer
+              label.classList.remove('hover:bg-gray-100');
+              label.classList.add('bg-green-50', 'border', 'border-green-200');
+
+              // Add icon
+              const icon = document.createElement('i');
+              icon.className = 'fas fa-check-circle text-green-500 ml-2';
+              label.querySelector('span').appendChild(document.createTextNode(' '));
+              label.querySelector('span').appendChild(icon);
+            }
+            else if (input.checked && input.value !== correctAnswers[question]) {
+              // Incorrect selected answer
+              label.classList.remove('hover:bg-gray-100');
+              label.classList.add('bg-red-50', 'border', 'border-red-200');
+
+              // Add icon
+              const icon = document.createElement('i');
+              icon.className = 'fas fa-times-circle text-red-500 ml-2';
+              label.querySelector('span').appendChild(document.createTextNode(' '));
+              label.querySelector('span').appendChild(icon);
+            }
+
+            // Disable all inputs
+            input.disabled = true;
+          });
+        });
+
+        if (!answeredAll) {
+          alert('กรุณาเลือกคำตอบทุกข้อ');
+          return;
+        }
+
+        // Hide submit button
+        submitButton.classList.add('hidden');
+
+        // Show score
+        quizResult.classList.remove('hidden');
+        quizResult.innerHTML = `
+          <div class="text-center">
+            <div class="text-5xl font-bold ${score === 3 ? 'text-green-500' : score === 2 ? 'text-yellow-500' : 'text-red-500'}">${score}/3</div>
+            <p class="mt-2 text-gray-600">คะแนนของคุณ</p>
+          </div>
+        `;
+
+        // Show feedback
+        quizFeedback.classList.remove('hidden');
+
+        if (score === 3) {
+          quizFeedback.classList.add('bg-green-50', 'border-l-4', 'border-green-500');
+          quizFeedback.innerHTML = `
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-trophy text-green-500 text-lg"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-green-800">ยอดเยี่ยม! 🎉</h3>
+                <div class="mt-2 text-green-700">
+                  <p>คุณเข้าใจเรื่อง CDP และ Customer Segmentation อย่างดี คุณพร้อมที่จะเรียนรู้เนื้อหาขั้นสูงต่อไป</p>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (score === 2) {
+          quizFeedback.classList.add('bg-yellow-50', 'border-l-4', 'border-yellow-500');
+          quizFeedback.innerHTML = `
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-thumbs-up text-yellow-500 text-lg"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-yellow-800">ดี! 👍</h3>
+                <div class="mt-2 text-yellow-700">
+                  <p>คุณเข้าใจหลักการพื้นฐานได้ดี แต่ยังมีบางส่วนที่ควรทบทวน ลองกลับไปอ่านเนื้อหาอีกครั้ง</p>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          quizFeedback.classList.add('bg-red-50', 'border-l-4', 'border-red-500');
+          quizFeedback.innerHTML = `
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-book text-red-500 text-lg"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-red-800">พยายามต่อไป! 📚</h3>
+                <div class="mt-2 text-red-700">
+                  <p>ลองทบทวนเนื้อหาทั้งหมดอีกครั้งเพื่อความเข้าใจที่มากขึ้น โดยเฉพาะหัวข้อเกี่ยวกับ CDP และการใช้ Elbow Method</p>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        // Add retry button
+        setTimeout(() => {
+          const retryButton = document.createElement('button');
+          retryButton.className = 'mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors';
+          retryButton.innerHTML = '<i class="fas fa-redo mr-2"></i>ลองอีกครั้ง';
+          retryButton.onclick = resetQuiz;
+
+          quizFeedback.appendChild(retryButton);
+        }, 1000);
+      });
+
+      function resetQuiz() {
+        // Clear all radio selections
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+          input.checked = false;
+          input.disabled = false;
+
+          // Reset label styling
+          const label = input.parentElement;
+          label.classList.remove('bg-green-50', 'bg-red-50', 'border', 'border-green-200', 'border-red-200');
+          label.classList.add('hover:bg-gray-100');
+
+          // Remove icons
+          const span = label.querySelector('span');
+          while (span.querySelector('i')) {
+            span.removeChild(span.querySelector('i'));
+          }
+
+          // Fix any text issues from icon removal
+          span.textContent = span.textContent.trim();
+        });
+
+        // Hide results and feedback
+        quizResult.classList.add('hidden');
+        quizFeedback.classList.add('hidden');
+
+        // Show submit button
+        submitButton.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+
+</html>

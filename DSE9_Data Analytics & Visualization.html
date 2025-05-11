@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Analytics & Visualization</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Prompt', 'sans-serif'],
+                }
+            }
+        }
+    }
+  </script>
+  <style>
+    body {
+        font-family: 'Prompt', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Course Header -->
+    <div class="bg-sky-500 text-white p-12 rounded-lg mx-auto my-8">
+      <div class="relative">
+          <!-- Main text content -->
+          <div class="z-10 relative flex justify-center">
+              <h1 class="text-5xl font-bold">Data Analytics & Visualization</h1>
+          </div>
+          
+          <!-- Circle decoration -->
+          <div class="absolute top-0 right-0 w-32 h-32 bg-sky-400 rounded-full opacity-30"></div>
+      </div>
+    </div>
+
+    <!-- Course Content -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-8">
+      <!-- Section 1: Data Analytics คืออะไร -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-question text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Data Analytics คืออะไร?</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            Data Analytics คือกระบวนการวิเคราะห์ข้อมูลตั้งแต่อดีตจนถึงปัจจุบัน เพื่อค้นหาข้อมูลเชิงลึก แนวโน้ม ความสัมพันธ์ และพยากรณ์สิ่งที่จะเกิดขึ้นในอนาคต โดยอาศัยเทคโนโลยีสมัยใหม่ เช่น AI, Machine Learning และเครื่องมือเฉพาะทาง เพื่อช่วยให้การตัดสินใจทางธุรกิจแม่นยำขึ้น พัฒนาประสิทธิภาพองค์กร และสร้างความได้เปรียบในการแข่งขันในยุคดิจิทัล การทำ Data Analytics ไม่ได้จำกัดเฉพาะธุรกิจขนาดใหญ่ ธุรกิจขนาดกลางและเล็กก็สามารถนำไปใช้วิเคราะห์และวางแผนธุรกิจได้เช่นกัน เพราะ "การรู้ข้อมูล" เปรียบเสมือนมี "เข็มทิศ" ในการนำทางธุรกิจ
+          </p>
+
+        
+        </div>
+      </div>
+
+      <!-- Section 2: ประเภทของ Data Analytics -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-database text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ประเภทของ Data Analytics</h2>
+        </div>
+
+        <div class="ml-11">
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-layer-group text-sm"></i>
+                </div>
+                <h3 class="font-medium">Descriptive Analytics</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">วิเคราะห์และสรุปสิ่งที่เกิดขึ้นในอดีต เช่น รายงานยอดขาย รายงานผลการดำเนินงาน หรือพฤติกรรมการใช้งานเว็บไซต์ เพื่อเข้าใจภาพรวมของสถานการณ์</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-users text-sm"></i>
+                </div>
+                <h3 class="font-medium"> Diagnostic Analytics</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">วิเคราะห์หาสาเหตุและความสัมพันธ์ของเหตุการณ์ เช่น ความสัมพันธ์ระหว่างกิจกรรมทางการตลาดกับยอดขาย เพื่อเข้าใจว่าทำไมสิ่งต่าง ๆ จึงเกิดขึ้น</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-brain text-sm"></i>
+                </div>
+                <h3 class="font-medium">Predictive Analytics</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">วิเคราะห์และพยากรณ์สิ่งที่น่าจะเกิดขึ้นในอนาคต โดยใช้ข้อมูลในอดีต ร่วมกับเทคนิคทางสถิติหรือ AI เช่น การทำนายยอดขายในไตรมาสถัดไป หรือแนวโน้มการลาออกของลูกค้า</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-bullseye text-sm"></i>
+                </div>
+                <h3 class="font-medium">Prescriptive Analytics</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">วิเคราะห์เชิงลึกเพื่อแนะนำทางเลือกที่ดีที่สุด พร้อมพิจารณาข้อดี ข้อเสีย และผลกระทบของแต่ละทางเลือก เช่น การแนะนำกลยุทธ์ทางการตลาดที่เหมาะสมที่สุด</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: ความสำคัญของ Data Analytics -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-database text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ความสำคัญของ Data Analytics</h2>
+        </div>
+
+        <div class="ml-11">
+          <ul class="list-disc ml-6 text-gray-700 space-y-2">
+            <li>ช่วยตัดสินใจบนพื้นฐานข้อมูลจริง (Data-driven Decision)</li>
+            <li>เข้าใจลูกค้าได้ลึกขึ้น (Customer Insights)</li>
+            <li>ปรับปรุงกระบวนการทำงาน (Process Optimization)</li>
+            <li>สร้างความได้เปรียบในการแข่งขัน (Competitive Advantage)</li>
+            <li>ลดความเสี่ยงและป้องกันการฉ้อโกง (Risk & Fraud Detection)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 4: กระบวนการวิเคราะห์ข้อมูล (Data Analysis) -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-cogs text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">กระบวนการวิเคราะห์ข้อมูล (Data Analysis)</h2>
+  </div>
+
+  <div class="bg-white border border-gray-200 rounded-lg p-4 mb-6">
+    <img style="width: 50%;" src="https://hightouch.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fpwmfmi47%2Fproduction%2Ffc8996445e3e02612eaf8268ec2e16cc90cbaad9-2269x2269.png&w=1920&q=75&dpl=dpl_CTNhHPxk7jmSGqRbTAssLkXEfCtP" 
+    alt="data pre process" class="mx-auto rounded-lg shadow-sm">
+    <p class="text-sm text-gray-500 text-center mt-2">
+
+  <div class="ml-11">
+    <div class="mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2 flex items-center">
+        <i class="fas fa-question-circle text-sky-500 mr-2"></i>1. การตั้งคำถามและกำหนดกลุ่มข้อมูล
+      </h4>
+      <p class="text-gray-700">เริ่มจากการตั้งคำถามและวัตถุประสงค์ของการวิเคราะห์ พร้อมกำหนดกลุ่มข้อมูลที่ต้องการใช้</p>
+    </div>
+
+    <div class="mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2 flex items-center">
+        <i class="fas fa-database text-sky-500 mr-2"></i>2. การรวบรวมข้อมูล
+      </h4>
+      <p class="text-gray-700">รวบรวมข้อมูลจากแหล่งต่าง ๆ เช่น แบบสอบถาม ฐานข้อมูลภายใน หรือผู้เชี่ยวชาญ</p>
+    </div>
+
+    <div class="mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2 flex items-center">
+        <i class="fas fa-broom text-sky-500 mr-2"></i>3. การทำความสะอาดและจัดระเบียบข้อมูล
+      </h4>
+      <p class="text-gray-700">ลบข้อมูลที่ผิดพลาด ซ้ำซ้อน หรือขาดหาย เพื่อให้ข้อมูลพร้อมสำหรับการวิเคราะห์</p>
+    </div>
+
+    <div class="mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2 flex items-center">
+        <i class="fas fa-chart-line text-sky-500 mr-2"></i>4. การวิเคราะห์ข้อมูล
+      </h4>
+      <p class="text-gray-700">เลือกวิธีการวิเคราะห์ที่เหมาะสมตามวัตถุประสงค์ เพื่อหาข้อมูลเชิงลึกหรือข้อสรุปที่ชัดเจน</p>
+    </div>
+
+    <div class="mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2 flex items-center">
+        <i class="fas fa-chart-pie text-sky-500 mr-2"></i>5. การตีความและนำเสนอข้อมูล
+      </h4>
+      <p class="text-gray-700">แปลงข้อมูลให้อยู่ในรูปแบบที่เข้าใจง่าย เช่น การทำ Data Visualization เพื่อให้ผู้รับสารเข้าใจสิ่งที่ต้องการสื่อสารได้ทันที</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: สิ่งที่จะได้จากการวิเคราะห์ข้อมูลอย่างต่อเนื่อง -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-check text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">สิ่งที่จะได้จากการวิเคราะห์ข้อมูลอย่างต่อเนื่อง</h2>
+  </div>
+
+  <div class="ml-11">
+    <ul class="list-disc ml-6 text-gray-700 space-y-2">
+      <li>วิเคราะห์สถานการณ์ปัจจุบัน เช่น พฤติกรรมลูกค้า</li>
+      <li>ทำนายอนาคต เช่น ออกแบบและพัฒนาสินค้าใหม่</li>
+      <li>วางกลยุทธ์ให้ประสบความสำเร็จ</li>
+      <li>ให้คำแนะนำที่เหมาะสมตามข้อมูลที่วิเคราะห์</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Section 6: Analytics vs Analysis ต่างกันอย่างไร -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-question text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">Analytics vs Analysis ต่างกันอย่างไร ?</h2>
+  </div>
+
+  <div class="ml-11">
+    <div class="grid md:grid-cols-2 gap-4 mb-4">
+      <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+        <div class="flex items-center mb-2">
+          <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+            <i class="fas fa-layer-group text-sm"></i>
+          </div>
+          <h3 class="font-medium">Data Analysis</h3>
+        </div>
+        <p class="text-sm text-gray-600 ml-10">คือ การนำเอาข้อมูลที่มีอยู่แล้วมาวิเคราะห์ เพื่อหาสาเหตุของปัญหาของสิ่งที่เกิดขึ้นแล้วในอดีต เฝและทำให้ทราบถึงปัจจัยและต้นตอของสาเหตุที่แท้จริง จะประกอบไปด้วย 2 ส่วนที่สำคัญคือ การวิเคราะห์ตลาด (Market Analysis) และ การทำเหมืองข้อมูล (Data Mining)</p>
+      </div>
+
+      <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+        <div class="flex items-center mb-2">
+          <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+            <i class="fas fa-bullseye text-sm"></i>
+          </div>
+          <h3 class="font-medium">Data Analytics</h3>
+        </div>
+        <p class="text-sm text-gray-600 ml-10">คือ การนำข้อมูลที่มีอยู่ในปัจจุบัน หรือในอดีตมาวิเคราะห์ และทำนายอนาคต ซึ่งต้องใช้วิธีการวิเคราะห์ข้อมูลทั้ง 4 รูปแบบ ได้แก่ การวิเคราะห์ข้อมูลแบบพื้นฐาน (Descriptive Analytics) , การวิเคราะห์ข้อมูลแบบเชิงวินิจฉัย (Diagnostic Analytics), การวิเคราะห์แบบพยากรณ์ (Predictive Analytics) และการวิเคราะห์แบบให้คำแนะนำ (Prescriptive Analytics) จึงจะทำให้ได้คำตอบ</p>
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- Section 7: Data Visualization คืออะไร -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-question text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Data Visualization คืออะไร?</h2>
+        </div>
+
+        <img style="width: 60%;" src="https://venngage-wordpress.s3.amazonaws.com/uploads/2020/06/What-is-Data-Visualization-Blog-Header.jpg" 
+          alt="Data Visualization" class="mx-auto rounded-lg shadow-sm">
+        <p class="text-sm text-gray-500 text-center mt-2">
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            <strong>Data Visualization</strong> คือ การนำข้อมูลที่ผ่านการวิเคราะห์มาแสดงในรูปแบบภาพ เพื่อช่วยให้เข้าใจข้อมูลได้ง่ายขึ้น เห็นประเด็นสำคัญอย่างชัดเจน และตัดสินใจได้รวดเร็ว
+          </p>
+      </div>
+  
+          <!-- Pros & Cons -->
+          <div class="grid md:grid-cols-2 gap-6 mb-4">
+            <div class="bg-sky-100 rounded-lg border-l-4 border-sky-500 p-4">
+              <h3 class="text-black font-medium mb-2 flex items-center">
+                <i class="fas fa-thumbs-up mr-2 text-black"></i>ข้อดีของการทำ Data Visualization
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ข้อมูลน่าสนใจมากขึ้น</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>เข้าใจข้อมูลได้ง่าย</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ตัดสินใจได้อย่างรวดเร็ว</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ประหยัดเวลาการทำความเข้าใจ</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-sky-100 rounded-lg border-l-4 border-sky-500 p-4">
+              <h3 class="text-black font-medium mb-2 flex items-center">
+                <i class="fas fa-thumbs-down mr-2"></i>ผลเสียของการทำ Data Visualization ไม่ถูกต้อง
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>การตีความข้อมูลผิดพลาด</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span>ใช้เวลาทำความเข้าใจนาน</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-sky-500 mt-1 mr-2"></i>
+                  <span> ตัดสินใจช้าหรือผิดพลาด</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+             <!-- Section 8: ประเภทของ Data Visualization -->
+  <div class="p-6 border-b border-gray-200">
+    <div class="flex items-center mb-4">
+      <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+        <i class="fas fa-briefcase text-sm"></i>
+      </div>
+    <h2 class="text-xl font-semibold text-sky-500">ประเภทของ Data Visualization</h2>
+  </div>
+
+  <div class="ml-11">
+    <div class="mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2 flex items-center">
+        <i class="fas fa-chart-line text-sky-500 mr-2"></i>1. กราฟ (Graphs)
+      </h4>
+      <p class="text-gray-700">แสดงแนวโน้มและการเปลี่ยนแปลงของข้อมูลตามกาลเวลา</p>
+    </div>
+
+    <div class="mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2 flex items-center">
+        <i class="fas fa-chart-pie text-sky-500 mr-2"></i>2. แผนภูมิ (Charts)
+      </h4>
+      <p class="text-gray-700">เปรียบเทียบข้อมูลระหว่างหมวดหมู่ต่าง ๆ เช่น กราฟแท่ง หรือกราฟวงกลม</p>
+    </div>
+
+    <div class="mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2 flex items-center">
+        <i class="fas fa-question-circle text-sky-500 mr-2"></i>3. แผนที่ (Maps)
+      </h4>
+      <p class="text-gray-700">นำเสนอข้อมูลบนแผนที่ เช่น Heat Maps เพื่อแสดงความหนาแน่นหรือปริมาณในแต่ละพื้นที่</p>
+    </div>
+
+    <div class="mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2 flex items-center">
+        <i class="fas fa-broom text-sky-500 mr-2"></i>4. อินโฟกราฟิก (Infographics)
+      </h4>
+      <p class="text-gray-700">ใช้กราฟิกและการเล่าเรื่อง (Storytelling) เพื่อสื่อสารข้อมูลให้เข้าใจง่าย</p>
+    </div>
+    
+    <div class="mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2 flex items-center">
+        <i class="fas fa-database text-sky-500 mr-2"></i>5. แดชบอร์ด (Dashboards)
+      </h4>
+      <p class="text-gray-700">สรุปข้อมูลจากหลายแหล่งให้อยู่ในหน้าจอเดียวเพื่อดูภาพรวมทั้งหมดได้รวดเร็ว</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: องค์ประกอบหลักของ Data Visualization -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-database text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">องค์ประกอบหลักของ Data Visualization</h2>
+  </div>
+
+  <div class="ml-11">
+    <ol class="list-disc ml-6 text-gray-700 space-y-2">
+      <li><strong> ข้อมูล (Information)</strong> : เลือกข้อมูลที่สำคัญและเกี่ยวข้อง</li>
+      <li><strong> เรื่องราว (Story)</strong> : เรียบเรียงข้อมูลอย่างมีลำดับ</li>
+      <li><strong> เป้าหมาย (Goal)</strong> : กำหนดวัตถุประสงค์ที่ชัดเจน</li>
+      <li><strong> รูปแบบการนำเสนอ (Visual Form)</strong> : เลือกประเภทของ Visualization ให้เหมาะสม</li>
+    </ol>
+  </div>
+</div>
+
+<!-- Section 11: 5 เครื่องมือยอดนิยมสำหรับทำ Data Visualization -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-cogs text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">5 เครื่องมือยอดนิยมสำหรับทำ Data Visualization</h2>
+  </div>
+
+  <div class="ml-11">
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Case Study 1 -->
+      <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center mb-4">
+          <img style="width: 60%;" src="https://race.nstru.ac.th/home_ex/blog/pic/cover/s6942.jpg" alt="gg data Studio">
+          <div>
+            <h3 class="font-semibold text-gray-900">Google Data Studio</h3>
+          </div>
+        </div>
+        <p class="text-gray-700 text-sm mb-4">
+          ฟรี ใช้งานง่าย เชื่อมต่อข้อมูล Google ได้ดี
+        </p>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center mb-4">
+          <img style="width: 60%;" src="https://www.fusionsol.com/wp-content/uploads/sites/2/2025/02/Power-BI-7-870x440-1.jpg" alt="power bi">
+          <div>
+            <h3 class="font-semibold text-gray-900">Microsoft Power BI</h3>
+          </div>
+        </div>
+        <p class="text-gray-700 text-sm mb-4">
+          รองรับข้อมูลขนาดใหญ่และทำงานร่วมกันผ่าน Cloud
+        </p>
+      </div>
+
+      <!-- Case Study 3 -->
+      <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center mb-4">
+          <img style="width: 60%;" src="https://s.isanook.com/hi/0/ud/320/1604995/zoho-ana.jpg?ip/crop/w1200h700/q80/webp" alt="zoho">
+          <div>
+            <h3 class="font-semibold text-gray-900">Zoho Analytics</h3>
+          </div>
+        </div>
+        <p class="text-gray-700 text-sm mb-4">
+          เหมาะกับ CRM และ Big Data        
+        </p>
+      </div>
+
+      <!-- Case Study 4 -->
+      <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center mb-4">
+          <img style="width: 60%;" src="https://cdns.tblsft.com/sites/default/files/pages/tableau_server_dashboard_0.png" alt="Tableau">
+          <div>
+            <h3 class="font-semibold text-gray-900">Tableau</h3>
+          </div>
+        </div>
+        <p class="text-gray-700 text-sm mb-4">
+          ใช้งานง่าย รองรับทั้ง macOS และ Windows
+        </p>
+      </div>
+
+      <!-- Case Study 5 -->
+      <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+        <div class="flex items-center mb-4">
+          <img style="width: 60%;" src="https://cdn.prod.website-files.com/65968f6c0ae3d59f66045fde/65968f6c0ae3d59f66046182_Original-logo.svg" alt="endloops">
+          <div>
+            <h3 class="font-semibold text-gray-900">Endlessloop</h3>
+          </div>
+        </div>
+        <p class="text-gray-700 text-sm mb-4">
+          เน้นการวิเคราะห์ Growth Hacking อย่างมีประสิทธิภาพ
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Section 12: ประเภทของกราฟที่นิยมใช้ -->
+    <div class="p-6 border-b border-gray-200">
+      <div class="flex items-center mb-4">
+        <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+          <i class="fas fa-chart-pie text-sm"></i>
+        </div>
+        <h2 class="text-xl font-semibold text-sky-500">ประเภทของกราฟที่นิยมใช้</h2>
+      </div>
+  <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 2rem;">
+      <thead>
+          <tr style="background-color: var(--primary-light);">
+              <th style="border: 1px solid var(--divider); padding: 8px; text-align: center; width: 50%;">ประเภท</th>
+              <th style="border: 1px solid var(--divider); padding: 8px; text-align: center; width: 50%;">รายละเอียด</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  <strong>กราฟแท่ง (Bar Charts)</strong>
+                  <br>
+                  <img style="width: 40%; margin-top: 8px;" src="https://www.9experttraining.com/sites/default/files/images/articles/Artwork-01_0.png" alt="barchart">
+              </td>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  เปรียบเทียบข้อมูลหรือแสดงการเปลี่ยนแปลงตามเวลา
+              </td>
+          </tr>
+          <tr>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  <strong>กราฟแท่งแบบต่อกัน (Stacked Column/Bar)</strong>
+                  <br>
+                  <img style="width: 40%; margin-top: 8px;" src="https://i0.wp.com/reportingengineer.com/wp-content/uploads/2017/07/stackedcolumnwithdash.jpg?resize=769%2C428&ssl=1" alt="stack barchart">
+              </td>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  แสดงการรวมของข้อมูลหลายชุด
+              </td>
+          </tr>
+          <tr>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  <strong>กราฟวงกลม (Pie Charts)</strong>
+                  <br>
+                  <img style="width: 40%; margin-top: 8px;" src="https://i0.wp.com/reportingengineer.com/wp-content/uploads/2017/01/piechart_basic.png?resize=467%2C318&ssl=1" alt="piechart">
+              </td>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  เปรียบเทียบสัดส่วนข้อมูลขนาดเล็ก (ไม่เกิน 5 หมวดหมู่)
+              </td>
+          </tr>
+          <tr>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  <strong>กราฟเส้น (Line Charts)</strong>
+                  <br>
+                  <img style="width: 40%; margin-top: 8px;" src="https://learn.microsoft.com/th-th/power-bi/visuals/media/power-bi-line-charts/line-chart-6.png" alt="linechart">
+              </td>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  แสดงแนวโน้มของข้อมูลแบบต่อเนื่องตามเวลา
+              </td>
+          </tr>
+          <tr>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  <strong>กราฟพื้นที่ (Area Charts)</strong>
+                  <br>
+                  <img style="width: 40%; margin-top: 8px;" src="https://bdi.or.th/wp-content/uploads/2021/03/Picture13-1024x465.png" alt="areachart">
+              </td>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  แสดงแนวโน้มพร้อมปริมาณข้อมูล
+              </td>
+          </tr>
+          <tr>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  <strong>กราฟจุด (Scatter Plots)</strong>
+                  <br>
+                  <img style="width: 40%; margin-top: 8px;" src="https://oarkm.oas.psu.ac.th/sites/default/files/users/komgrit.r/scatter.JPG" alt="scatter plot">
+              </td>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  แสดงความสัมพันธ์ระหว่างตัวแปรสองชุด
+              </td>
+          </tr>
+          <tr>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  <strong>Bubble Charts</strong>
+                  <br>
+                  <img style="width: 40%; margin-top: 8px;" src="https://img.uxcel.com/practices/bubble-1593163028291/a-1722523460198-2x.jpg" alt="Bubble chart">
+              </td>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  เปรียบเทียบข้อมูลที่จัดอันดับ โดยใช้ขนาดฟองอากาศแทนปริมาณ
+              </td>
+          </tr>
+          <tr>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  <strong>Heat Maps</strong>
+                  <br>
+                  <img style="width: 40%; margin-top: 8px;" src="https://stpltrsrcscmnprdwus001.blob.core.windows.net/rsrcs/srm/images/heat-map/10.4135_9781529777024-fig1.jpg" alt="Heat Maps">
+              </td>
+              <td style="border: 1px solid var(--divider); padding: 8px; text-align: center; vertical-align: middle;">
+                  แสดงข้อมูลแบบจำแนกด้วยความเข้มของสี
+              </td>
+          </tr>
+      </tbody>
+  </table>
+
+  <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+    <div class="text-blue-500 mr-3">
+      <i class="fas fa-info-circle mt-1"></i>
+    </div>
+    <div class="text-sm text-blue-700">
+      การสร้างกราฟที่ดีควรสอดคล้องกับวัตถุประสงค์ของการนำเสนอ ช่วยให้เห็นแนวโน้มและผลลัพธ์ได้อย่างชัดเจน รวดเร็ว และเข้าใจง่าย
+    </div>
+  </div>
+</div>
+
+<!-- Section 13: LLM สำหรับ Data Analytics -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-chart-line text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">LLM สำหรับ Data Analytics</h2>
+  </div>
+
+  <div class="ml-11">
+    <p class="text-gray-700 mb-4">
+      ปัจจุบัน Large Language Models (LLMs) ได้เข้ามามีบทบาทสำคัญในการช่วยวิเคราะห์ข้อมูลและสร้างภาพข้อมูล ทำให้นักวิเคราะห์ข้อมูลสามารถทำงานได้รวดเร็วและมีประสิทธิภาพมากขึ้น
+    </p>
+  </div>
+</div>
+
+      <!-- Section 14: ประโยชน์ของ LLM ในงาน Data Analytics -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-check text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ประโยชน์ของ LLM ในงาน Data Analytics</h2>
+        </div>
+
+        <div class="ml-11">
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-layer-group text-sm"></i>
+                </div>
+                <h3 class="font-medium">ช่วยสร้าง code สำหรับการวิเคราะห์และแสดงผลข้อมูล</h3>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-brain text-sm"></i>
+                </div>
+                <h3 class="font-medium">ช่วยตั้งสมมติฐานและคิดมุมมองในการวิเคราะห์</h3>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-users text-sm"></i>
+                </div>
+                <h3 class="font-medium">แปลงข้อมูลดิบให้เป็นข้อมูลเชิงลึกที่เข้าใจง่าย</h3>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-bullseye text-sm"></i>
+                </div>
+                <h3 class="font-medium">ช่วยในการทำความสะอาดข้อมูลและจัดการกับ missing values</h3>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-layer-group text-sm"></i>
+                </div>
+                <h3 class="font-medium">แนะนำเทคนิคการวิเคราะห์ที่เหมาะสมกับชุดข้อมูล</h3>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+  <!-- Section: Prompt Templates สำหรับการวิเคราะห์ข้อมูล -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-terminal text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">Prompt Templates สำหรับการวิเคราะห์ข้อมูล</h2>
+  </div>
+
+  <div class="ml-11">
+    <p class="text-gray-700 mb-4">
+      การเขียน prompt ที่ดีจะช่วยให้ได้ผลลัพธ์ที่มีคุณภาพจาก LLM ต่อไปนี้เป็นตัวอย่าง prompt templates ที่สามารถนำไปปรับใช้ได้
+    </p>
+
+    <!-- Example 1 -->
+    <div class="bg-white rounded-lg border border-gray-200 p-4 mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2">Prompt Template: การตั้งสมมติฐาน</h4>
+      <pre class="bg-gray-100 p-4 rounded-lg text-sm text-gray-800 overflow-auto">
+<code>ฉันมีชุดข้อมูลเกี่ยวกับ [ประเภทข้อมูล] และต้องการตั้งสมมติฐานเพื่อวิเคราะห์ความสัมพันธ์ระหว่าง [ตัวแปร X] และ [ตัวแปร Y]
+
+คอลัมน์ในชุดข้อมูลประกอบด้วย: [รายชื่อคอลัมน์ทั้งหมด]
+
+ช่วยตั้งสมมติฐานที่น่าสนใจ 3-5 ข้อ พร้อมอธิบายเหตุผลและวิธีการทดสอบสมมติฐานนั้นๆ รวมถึงแนะนำ visualization ที่เหมาะสม</code>
+      </pre>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="bg-white rounded-lg border border-gray-200 p-4 mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2">Prompt Template: การวิเคราะห์ข้อมูลเบื้องต้น</h4>
+      <pre class="bg-gray-100 p-4 rounded-lg text-sm text-gray-800 overflow-auto">
+<code>ฉันมีชุดข้อมูลต่อไปนี้:                
+ช่วยวิเคราะห์ข้อมูลเบื้องต้นโดย:
+1. อธิบายลักษณะของข้อมูลแต่ละคอลัมน์
+2. ระบุปัญหาที่อาจพบในข้อมูล (missing values, outliers)
+3. แนะนำการทำ data preprocessing ที่เหมาะสม
+4. เสนอคำถามที่น่าสนใจที่สามารถวิเคราะห์จากข้อมูลนี้
+5. แนะนำ visualizations ที่เหมาะสมสำหรับการสำรวจข้อมูล</code>
+      </pre>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="bg-white rounded-lg border border-gray-200 p-4 mb-6">
+      <h4 class="text-lg font-medium text-gray-800 mb-2">Prompt Template: การแปลงโจทย์เป็นโค้ด</h4>
+      <pre class="bg-gray-100 p-4 rounded-lg text-sm text-gray-800 overflow-auto">
+<code>ฉันต้องการวิเคราะห์ว่า [คำอธิบายโจทย์] โดยใช้ Python
+
+ข้อมูลของฉันอยู่ในตัวแปร df และมีคอลัมน์ต่อไปนี้:
+[รายชื่อคอลัมน์และประเภทข้อมูล]
+
+ช่วยเขียนโค้ด Python โดยใช้ pandas, matplotlib และ seaborn เพื่อ:
+1. ทำความสะอาดข้อมูลที่จำเป็น
+2. วิเคราะห์ความสัมพันธ์
+3. สร้างกราฟที่เหมาะสม
+4. แสดงผลลัพธ์พร้อมคำอธิบาย</code>
+      </pre>
+    </div>
+
+  </div>
+
+    <!-- Section: Use Cases และ Visualization -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-lightbulb text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">Use Cases และ Visualization</h2>
+  </div>
+
+  <!-- Use Case 1 -->
+  <div class="mb-8">
+    <h3 class="text-lg font-medium text-gray-800 mb-2">Use Case 1: เพศมีผลต่อพฤติกรรมการใช้จ่ายหรือไม่?</h3>
+    <p class="text-gray-700 mb-4">
+      การวิเคราะห์ว่าเพศมีผลต่อพฤติกรรมการใช้จ่ายหรือไม่เป็นคำถามที่พบบ่อยในการวิเคราะห์ข้อมูลผู้บริโภค ต่อไปนี้เป็นตัวอย่างวิธีการวิเคราะห์
+    </p>
+    <div class="code-editor bg-gray-50 rounded-lg border border-gray-200 p-4">
+      <div class="code-header flex justify-between items-center mb-2">
+        <span class="text-sm font-medium text-gray-800">Python Code</span>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-1 px-4 rounded-md shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" onclick="runCode(this)">
+          Run
+        </button>
+      </div>
+      <textarea class="code-area w-full h-40 p-2 border border-gray-300 rounded-lg text-sm font-mono text-gray-800">
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# สร้างข้อมูลตัวอย่าง
+data = {
+    'gender': ['Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female'] * 10,
+    'spending': [120, 150, 90, 180, 100, 200, 80, 170, 110, 190] * 10
+}
+
+df = pd.DataFrame(data)
+
+# สร้าง barplot
+plt.figure(figsize=(8, 5))
+sns.barplot(x='gender', y='spending', data=df, hue='gender', legend=False)
+plt.title('Average Spending by Gender')
+plt.xlabel('Gender')
+plt.ylabel('Average Spending ($)')
+      </textarea>
+      <div class="output mt-4 p-4 bg-gray-100 rounded-lg text-sm text-gray-800 overflow-auto"></div>
+    </div>
+  </div>
+
+  <!-- Use Case 2 -->
+  <div class="mb-8">
+    <h3 class="text-lg font-medium text-gray-800 mb-2">Use Case 2: รายได้สัมพันธ์กับพฤติกรรมการซื้อหรือไม่?</h3>
+    <p class="text-gray-700 mb-4">
+      การหาความสัมพันธ์ระหว่างรายได้และพฤติกรรมการซื้อจะช่วยให้เข้าใจกลุ่มเป้าหมายได้ดียิ่งขึ้น
+    </p>
+    <div class="code-editor bg-gray-50 rounded-lg border border-gray-200 p-4">
+      <div class="code-header flex justify-between items-center mb-2">
+        <span class="text-sm font-medium text-gray-800">Python Code</span>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-1 px-4 rounded-md shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" onclick="runCode(this)">
+          Run
+        </button>
+      </div>
+      <textarea class="code-area w-full h-40 p-2 border border-gray-300 rounded-lg text-sm font-mono text-gray-800">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# สร้างข้อมูลตัวอย่าง
+np.random.seed(42)
+n = 200
+
+# สร้างรายได้จากการแจกแจงปกติ
+income = np.random.normal(50000, 15000, n)
+income = np.clip(income, 10000, 100000)  # จำกัดช่วงรายได้
+
+# สร้างจำนวนการซื้อโดยมีความสัมพันธ์กับรายได้ + noise
+purchase_count = 5 + 0.0003 * income + np.random.normal(0, 3, n)
+purchase_count = np.clip(purchase_count.astype(int), 0, 20)
+
+# สร้างมูลค่าการซื้อเฉลี่ยต่อครั้งโดยมีความสัมพันธ์กับรายได้ + noise
+avg_purchase = 20 + 0.001 * income + np.random.normal(0, 20, n)
+avg_purchase = np.clip(avg_purchase, 10, 200)
+
+# สร้าง DataFrame
+data = {
+    'income': income,
+    'purchase_count': purchase_count,
+    'avg_purchase_value': avg_purchase,
+    'total_spent': purchase_count * avg_purchase
+}
+
+df = pd.DataFrame(data)
+
+# สร้าง scatter plot
+plt.figure(figsize=(8, 5))
+sns.scatterplot(x='income', y='total_spent', data=df, alpha=0.7)
+plt.title('Income vs Total Spending')
+plt.xlabel('Income ($)')
+plt.ylabel('Total Spending ($)')
+      </textarea>
+      <div class="output mt-4 p-4 bg-gray-100 rounded-lg text-sm text-gray-800 overflow-auto"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: Quiz -->
+  <div class="p-6">
+    <div class="flex items-center mb-4">
+      <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+        <i class="fas fa-question text-sm"></i>
+      </div>
+      <h2 class="text-xl font-semibold text-sky-500">Quiz: ทดสอบความเข้าใจ</h2>
+    </div>
+
+    <div class="ml-6" id="quiz-container">
+      <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="font-medium text-gray-800 mb-3">1. LLM สามารถช่วยในการวิเคราะห์ข้อมูลได้อย่างไร?</p>
+        <div class="space-y-2">
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q1" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ช่วยสร้าง code สำหรับการวิเคราะห์และแสดงผลข้อมูล</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q1" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ทำการวิเคราะห์ข้อมูลโดยอัตโนมัติทั้งหมด โดยไม่ต้องมีนักวิเคราะห์ข้อมูล</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q1" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>แทนที่การใช้ไลบรารี่ Python เช่น pandas หรือ matplotlib</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q1" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ทำนายผลลัพธ์ในอนาคตได้อย่างแม่นยำ 100%</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="font-medium text-gray-800 mb-3">2. ประเภทกราฟใดเหมาะสำหรับแสดงความสัมพันธ์ระหว่างรายได้และยอดใช้จ่าย?</p>
+        <div class="space-y-2">
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q2" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Pie Chart</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q2" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Scatter Plot</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q2" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Bar Chart</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q2" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Donut Chart</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="font-medium text-gray-800 mb-3">3. หากต้องการทดสอบว่าเพศมีผลต่อการใช้จ่ายหรือไม่ ควรใช้การทดสอบทางสถิติใด?</p>
+        <div class="space-y-2">
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q3" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Chi-square test</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q3" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>T-test (สำหรับสองกลุ่ม)</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q3" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Pearson correlation</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q3" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Simple linear regression</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="font-medium text-gray-800 mb-3">4. ข้อใดไม่ใช่ประโยชน์ของ Data Visualization?</p>
+        <div class="space-y-2">
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q4" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ทำให้เข้าใจข้อมูลได้ง่ายขึ้น</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q4" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ช่วยในการสื่อสารข้อมูลเชิงลึกกับผู้อื่น</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q4" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ช่วยให้เห็นแนวโน้มและรูปแบบที่ซ่อนอยู่ในข้อมูล</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q4" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ช่วยเพิ่มความแม่นยำในการคำนวณทางสถิติ</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="font-medium text-gray-800 mb-3">5. ข้อใดเป็นหลักการสำคัญในการสร้าง prompt ที่ดีสำหรับการวิเคราะห์ข้อมูล?</p>
+        <div class="space-y-2">
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q5" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ใช้คำสั่งที่กว้างและไม่เฉพาะเจาะจง</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q5" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>หลีกเลี่ยงการให้ตัวอย่างข้อมูล</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q5" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ระบุรายละเอียดของข้อมูล คำถาม และเป้าหมายการวิเคราะห์อย่างชัดเจน</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q5" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ไม่จำเป็นต้องระบุชนิดของ visualization ที่ต้องการ</span>
+          </label>
+        </div>
+      </div>
+
+      <button id="submit-quiz"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+        ส่งคำตอบ
+      </button>
+
+      <div id="quiz-result" class="mt-6 hidden"></div>
+      <div id="quiz-feedback" class="mt-4 p-4 rounded-lg hidden"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+    async function runCode(button) {
+    const editor = button.closest('.code-editor');
+    const codeArea = editor.querySelector('.code-area');
+    const output = editor.querySelector('.output');
+
+    output.innerHTML = '<p style="color: #1976D2;">Running Python code...</p>';
+
+    const pyodide = await loadPyodide();
+
+    try {
+        await pyodide.loadPackage(['pandas', 'matplotlib', 'scipy', 'numpy']);
+        await pyodide.loadPackage('micropip');
+        const micropip = pyodide.pyimport('micropip');
+        await micropip.install('seaborn');
+
+        // เพิ่มโค้ดส่วน "ห้ามแก้โค้ด" โดยใช้ฟังก์ชัน wrapPythonCode
+        const wrappedCode = wrapPythonCode(codeArea.value);
+
+        let outputText = "";
+        pyodide.setStdout({ batched: (s) => outputText += s });
+        pyodide.setStderr({ batched: (s) => outputText += `<span style="color:red;">${s}</span>` });
+
+        const result = await pyodide.runPythonAsync(wrappedCode);
+        const parsedResult = JSON.parse(result);
+
+        // เอา text ใส่ใน <pre> และตามด้วยรูป
+        output.innerHTML = `
+        <pre style="background-color: #f5f5f5; padding: 10px; border-radius: 8px;">${parsedResult.text}</pre>
+        <img src="${parsedResult.image}" alt="Generated Plot" style="max-width: 100%; border-radius: 8px; margin-top: 10px;">
+        `;
+    } catch (error) {
+        output.innerHTML = `<p style="color: red;">Error: ${error}</p>`;
+    }
+}
+
+// ฟังก์ชันสำหรับเพิ่มโค้ดส่วน "ห้ามแก้โค้ด"
+function wrapPythonCode(userCode) {
+    const preCode = `
+import sys
+import io
+import base64
+import json
+
+# เตรียมตัวแปรไว้ดักข้อความ
+stdout_buffer = io.StringIO()
+sys.stdout = stdout_buffer
+`;
+    const postCode = `
+buf = io.BytesIO()
+plt.savefig(buf, format='png')
+buf.seek(0)
+img_base64 = "data:image/png;base64," + base64.b64encode(buf.read()).decode('utf-8')
+
+# พอทำเสร็จแล้ว ให้ reset stdout กลับมา
+sys.stdout = sys.__stdout__
+
+# ดึงข้อความที่ print ออกมาจาก buffer
+output_text = stdout_buffer.getvalue()
+
+result = json.dumps({
+    "text": output_text,
+    "image": img_base64
+})
+result
+`;
+    return preCode + userCode + postCode;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const submitButton = document.getElementById('submit-quiz');
+  const quizResult = document.getElementById('quiz-result');
+  const quizFeedback = document.getElementById('quiz-feedback');
+
+  const correctAnswers = {
+    q1: 'a',
+    q2: 'b',
+    q3: 'b',
+    q4: 'd',
+    q5: 'c',
+  };
+
+  submitButton.addEventListener('click', function () {
+    let score = 0;
+    let answeredAll = true;
+
+    // Check answers
+    Object.keys(correctAnswers).forEach(question => {
+      const selected = document.querySelector(`input[name="${question}"]:checked`);
+
+      if (!selected) {
+        answeredAll = false;
+        return;
+      }
+
+      const isCorrect = selected.value === correctAnswers[question];
+
+      if (isCorrect) score++;
+
+      // Style all answers
+      document.querySelectorAll(`input[name="${question}"]`).forEach(input => {
+        const label = input.parentElement;
+
+        if (input.value === correctAnswers[question]) {
+          // Correct answer
+          label.classList.remove('hover:bg-gray-100');
+          label.classList.add('bg-green-50', 'border', 'border-green-200');
+
+          // Add icon
+          const icon = document.createElement('i');
+          icon.className = 'fas fa-check-circle text-green-500 ml-2';
+          label.querySelector('span').appendChild(document.createTextNode(' '));
+          label.querySelector('span').appendChild(icon);
+        }
+        else if (input.checked && input.value !== correctAnswers[question]) {
+          // Incorrect selected answer
+          label.classList.remove('hover:bg-gray-100');
+          label.classList.add('bg-red-50', 'border', 'border-red-200');
+
+          // Add icon
+          const icon = document.createElement('i');
+          icon.className = 'fas fa-times-circle text-red-500 ml-2';
+          label.querySelector('span').appendChild(document.createTextNode(' '));
+          label.querySelector('span').appendChild(icon);
+        }
+
+        // Disable all inputs
+        input.disabled = true;
+      });
+    });
+
+    if (!answeredAll) {
+      alert('กรุณาเลือกคำตอบทุกข้อ');
+      return;
+    }
+
+    // Hide submit button
+    submitButton.classList.add('hidden');
+
+    // Show score
+    quizResult.classList.remove('hidden');
+    quizResult.innerHTML = `
+      <div class="text-center">
+        <div class="text-5xl font-bold ${score === 5 ? 'text-green-500' : score === 4 ? 'text-yellow-500' : 'text-red-500'}">${score}/5</div>
+        <p class="mt-2 text-gray-600">คะแนนของคุณ</p>
+      </div>
+    `;
+
+    // Show feedback
+    quizFeedback.classList.remove('hidden');
+
+    if (score === 5) {
+      quizFeedback.classList.add('bg-green-50', 'border-l-4', 'border-green-500');
+      quizFeedback.innerHTML = `
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <i class="fas fa-trophy text-green-500 text-lg"></i>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-lg font-medium text-green-800">ยอดเยี่ยม! 🎉</h3>
+            <div class="mt-2 text-green-700">
+              <p>คุณเข้าใจเรื่อง Data Analytics และ Data Visualization อย่างดี คุณพร้อมที่จะเรียนรู้เนื้อหาขั้นสูงต่อไป</p>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (score === 4) {
+      quizFeedback.classList.add('bg-yellow-50', 'border-l-4', 'border-yellow-500');
+      quizFeedback.innerHTML = `
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <i class="fas fa-thumbs-up text-yellow-500 text-lg"></i>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-lg font-medium text-yellow-800">ดี! 👍</h3>
+            <div class="mt-2 text-yellow-700">
+              <p>คุณเข้าใจหลักการพื้นฐานได้ดี แต่ยังมีบางส่วนที่ควรทบทวน ลองกลับไปอ่านเนื้อหาอีกครั้ง</p>
+            </div>
+          </div>
+        </div>
+      `;
+    } else {
+      quizFeedback.classList.add('bg-red-50', 'border-l-4', 'border-red-500');
+      quizFeedback.innerHTML = `
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <i class="fas fa-book text-red-500 text-lg"></i>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-lg font-medium text-red-800">พยายามต่อไป! 📚</h3>
+            <div class="mt-2 text-red-700">
+              <p>ลองทบทวนเนื้อหาทั้งหมดอีกครั้งเพื่อความเข้าใจที่มากขึ้น โดยเฉพาะหัวข้อเกี่ยวกับ Data Analytics และการใช้ Data Visualization</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Add retry button
+    setTimeout(() => {
+      const retryButton = document.createElement('button');
+      retryButton.className = 'mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors';
+      retryButton.innerHTML = '<i class="fas fa-redo mr-2"></i>ลองอีกครั้ง';
+      retryButton.onclick = resetQuiz;
+
+      quizFeedback.appendChild(retryButton);
+    }, 1000);
+  });
+
+  function resetQuiz() {
+    // Clear all radio selections
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+      input.checked = false;
+      input.disabled = false;
+
+      // Reset label styling
+      const label = input.parentElement;
+      label.classList.remove('bg-green-50', 'bg-red-50', 'border', 'border-green-200', 'border-red-200');
+      label.classList.add('hover:bg-gray-100');
+
+      // Remove icons
+      const span = label.querySelector('span');
+      while (span.querySelector('i')) {
+        span.removeChild(span.querySelector('i'));
+      }
+
+      // Fix any text issues from icon removal
+      span.textContent = span.textContent.trim();
+    });
+
+    // Hide results and feedback
+    quizResult.classList.add('hidden');
+    quizFeedback.classList.add('hidden');
+
+    // Show submit button
+    submitButton.classList.remove('hidden');
+  }
+});
+</script>
+</body>
+
+</html>

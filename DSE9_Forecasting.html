@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forecasting</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/9XTbtn9H/PIC.png">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Prompt', 'sans-serif'],
+                }
+            }
+        }
+    }
+  </script>
+  <style>
+    body {
+        font-family: 'Prompt', sans-serif;
+    }
+
+    .table-wapper {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .comparison-table {
+            width: 100%;
+            border-collapse: collapse;  
+            margin:0;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table thead {
+            background-color: skyblue;
+            color: white;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-light);
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .comparison-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        .step-number {
+            background-color: #18488b;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 550;
+            margin-top: 0.1rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            flex-shrink: 0;
+        }
+        .process-flow {
+            margin: 2rem 0;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-content h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            color: #18488b;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 0.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+  </style>
+  
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Course Header -->
+    <div class="bg-sky-500 text-white p-12 rounded-lg mx-auto my-8">
+      <div class="relative">
+          <!-- Main text content -->
+          <div class="z-10 relative flex justify-center">
+              <h1 class="text-5xl font-bold">Forecasting</h1>
+          </div>
+          
+          <!-- Circle decoration -->
+          <div class="absolute top-0 right-0 w-20 h-20 bg-sky-400 rounded-full opacity-40"></div>
+          <div class="absolute top-2 right-25 w-16 h-16 bg-sky-400 rounded-full opacity-40"></div>
+      </div>
+    </div>
+
+    <!-- Course Content -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-8">
+
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fa-solid fa-cloud" style="color: #ffffff;"></i>
+          </div> 
+          <h2 class="text-xl font-semibold text-sky-500">ความหมายของ Forecasting ?</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            การพยากรณ์ (Forecasting) คือ กระบวนการในการคาดการณ์เหตุการณ์หรือค่าในอนาคตโดยอาศัยข้อมูลในอดีตและปัจจุบัน ร่วมกับการใช้เทคนิคทางสถิติและแบบจำลองทางคณิตศาสตร์ในการวิเคราะห์แนวโน้มและรูปแบบของข้อมูล
+          </p>
+          <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+            <div class="text-blue-500 mr-3">
+              <i class="fas fa-info-circle mt-1"></i>
+            </div>
+            <div class="text-sm text-blue-700">
+              การพยากรณ์มีความสำคัญอย่างมากในการวางแผนธุรกิจ การจัดการห่วงโซ่อุปทาน การพยากรณ์ยอดขาย การคาดการณ์ความต้องการ การวางแผนการผลิต และการวางแผนกำลังคน เป็นต้น
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fa-solid fa-puzzle-piece" style="color: #f5f5f5;"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ความแตกต่างระหว่าง Forecasting กับ Prediction</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            แม้ว่าคำว่า "Forecasting" และ "Prediction" มักจะถูกใช้แทนกันในบางบริบท แต่ในทางเทคนิคแล้วมีความแตกต่างกัน
+          </p>
+          <div class="table-wapper">
+          <table class="comparison-table">
+            <thead >
+                <tr >
+                    <th>ประเด็น</th>
+                    <th>Forecasting (การพยากรณ์)</th>
+                    <th>Prediction (การทำนาย)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ความหมาย</td>
+                    <td>การคาดการณ์ค่าในอนาคตโดยอาศัยข้อมูลในอดีต</td>
+                    <td>การทำนายค่าหรือเหตุการณ์ที่ไม่จำเป็นต้องเกี่ยวข้องกับมิติของเวลา</td>
+                </tr>
+                <tr>
+                    <td>มิติของเวลา</td>
+                    <td>มักจะเกี่ยวข้องกับมิติของเวลาเสมอ (time series)</td>
+                    <td>ไม่จำเป็นต้องเกี่ยวข้องกับมิติของเวลา</td>
+                </tr>
+                <tr>
+                    <td>ข้อมูลที่ใช้</td>
+                    <td>ใช้ข้อมูลอนุกรมเวลา (time series data)</td>
+                    <td>ใช้ได้ทั้งข้อมูลอนุกรมเวลาและข้อมูลตัดขวาง (cross-sectional data)</td>
+                </tr>
+                <tr>
+                    <td>ตัวอย่างการใช้งาน</td>
+                    <td>การพยากรณ์ยอดขายในไตรมาสหน้า, การพยากรณ์สภาพอากาศ</td>
+                    <td>การทำนายว่าลูกค้าจะซื้อสินค้าหรือไม่, การวินิจฉัยโรค</td>
+                </tr>
+                <tr>
+                    <td>โมเดลที่ใช้</td>
+                    <td>ARIMA, Exponential Smoothing, Moving Average</td>
+                    <td>Regression, Classification, Clustering</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        </div>
+      </div>
+
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-database text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Time Series Data (ข้อมูลอนุกรมเวลา)</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            ข้อมูลอนุกรมเวลา (Time Series Data) คือ ชุดของการสังเกตหรือการวัดที่ถูกบันทึกเป็นลำดับตามเวลา โดยมีช่วงเวลาที่เท่ากันหรือสม่ำเสมอระหว่างการบันทึกแต่ละครั้ง เช่น ข้อมูลรายวัน รายสัปดาห์ รายเดือน หรือรายปี
+          </p>
+        </div>
+        <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+          <div class="text-blue-500 mr-3">
+            <i class="fas fa-info-circle mt-1"></i>
+          </div>
+          <div class="text-sm text-blue-700">
+            ลักษณะสำคัญของข้อมูลอนุกรมเวลาคือ การวัดหรือสังเกตการณ์แต่ละครั้งมีความสัมพันธ์กับค่าในอดีต ซึ่งแตกต่างจากข้อมูลตัดขวาง (Cross-sectional data) ที่เป็นการเก็บข้อมูลจากหลายหน่วยในช่วงเวลาเดียวกัน
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fa-solid fa-table" style="color: #ffffff;"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ลักษณะของ Time Series Data</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-3">
+            ข้อมูลอนุกรมเวลามีลักษณะเฉพาะที่สำคัญหลายประการ:
+          </p>
+            <ul class="list-disc ml-5">
+              <li class="mb-2"><strong style="color: #18488b;" >3การขึ้นต่อเวลา (Time-dependent)</strong>: ค่าสังเกตแต่ละค่ามีความสัมพันธ์กับเวลา</li>
+              <li class="mb-2"><strong style="color: #18488b;">ความสัมพันธ์เชิงลำดับ (Sequential Relationship)</strong>:
+                  ค่าในปัจจุบันมักขึ้นอยู่กับค่าในอดีต</li>
+              <li class="mb-2"><strong style="color: #18488b;">ความถี่คงที่ (Consistent Frequency)</strong>:
+                  ช่วงเวลาระหว่างการสังเกตแต่ละครั้งมักจะคงที่</li>
+              <li class="mb-2"><strong style="color: #18488b;">ความไม่เป็นอิสระต่อกัน (Non-independence)</strong>: ข้อมูลแต่ละจุดไม่เป็นอิสระจากกัน
+              </li>
+              <li class="mb-2"><strong style="color: #18488b;">รูปแบบและแนวโน้ม (Patterns and Trends)</strong>: มักมีรูปแบบที่เกิดขึ้นซ้ำๆ
+                  และแนวโน้มระยะยาว</li>
+             </ul>
+        </div>
+      </div>
+
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fa-solid fa-folder-tree" style="color: #ffffff;"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ส่วนประกอบของ Time Series Data</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            ข้อมูลอนุกรมเวลาประกอบด้วยองค์ประกอบหลัก 4 ส่วน ซึ่งการทำความเข้าใจองค์ประกอบเหล่านี้มีความสำคัญอย่างมากต่อการเลือกโมเดลและการพยากรณ์ที่แม่นยำ:
+          </p>
+          <div class="gap-4 mb-4">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fa-solid fa-arrow-trend-up"></i>
+                </div>
+                <h3 class="font-semibold" style="color: #18488b;">Trend (แนวโน้ม)</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">ทิศทางการเปลี่ยนแปลงระยะยาวของข้อมูล อาจเป็นแนวโน้มเพิ่มขึ้น (upward) หรือลดลง (downward) หรือคงที่ (stationary) โดยแนวโน้มสะท้อนถึงการเปลี่ยนแปลงระยะยาวในข้อมูล</p>
+            </div>
+          </div>
+          <div class="gap-4 mb-4">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fa-solid fa-wind"></i>
+                </div>
+                <h3 class="font-semibold" style="color: #18488b;">Seasonality (ฤดูกาล)</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">รูปแบบที่เกิดขึ้นซ้ำๆ ในช่วงเวลาที่แน่นอน เช่น รายวัน รายสัปดาห์ รายเดือน หรือรายปี
+                ตัวอย่างเช่น ยอดขายของเสื้อกันหนาวที่สูงขึ้นในฤดูหนาว
+                หรือการใช้ไฟฟ้าที่สูงขึ้นในช่วงเวลากลางวัน</p>
+            </div>
+          </div>
+          <div class="gap-4 mb-4">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fa-solid fa-arrows-spin"></i>
+                </div>
+                <h3 class="font-semibold" style="color: #18488b;">Cyclic (วัฏจักร)</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">รูปแบบที่เกิดขึ้นซ้ำๆ แต่ไม่มีความสม่ำเสมอเท่ากับ Seasonality และมักมีระยะเวลาที่ยาวกว่า เช่น
+                วัฏจักรเศรษฐกิจที่มีช่วงเติบโตและถดถอยสลับกันในระยะเวลาหลายปี</p>
+            </div>
+          </div>
+          <div class="gap-4 mb-4">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fa-solid fa-ghost"></i>
+                </div>
+                <h3 class="font-semibold" style="color: #18488b;">Irregular (ความไม่สม่ำเสมอ)</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">ความแปรปรวนที่ไม่สามารถอธิบายได้ด้วยองค์ประกอบอื่นๆ
+                มักเกิดจากเหตุการณ์ที่ไม่สามารถคาดเดาได้หรือความผันผวนแบบสุ่ม ซึ่งยากต่อการพยากรณ์ เช่น
+                ภัยธรรมชาติ เหตุการณ์ทางการเมือง หรือการเปลี่ยนแปลงนโยบาย</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fa-solid fa-robot" style="color: #ffffff;"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ตัวอย่าง Model Forecasting</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            โมเดลการพยากรณ์อนุกรมเวลามีหลากหลายประเภท แต่ละโมเดลมีความเหมาะสมกับลักษณะข้อมูลและปัญหาที่แตกต่างกัน ต่อไปนี้คือโมเดลที่นิยมใช้ในการพยากรณ์อนุกรมเวลา:
+          </p>
+          <div class="grid md:grid-cols-2 gap-4 mb-4" >
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fa-solid fa-mountain-sun"></i>
+                </div>
+                <h3 class="font-bold" style="color: #18488b;">Moving Average (MA)</h3>
+              </div>
+              <p>เป็นเทคนิคพื้นฐานที่คำนวณค่าเฉลี่ยของข้อมูลในช่วงเวลาก่อนหน้าเพื่อพยากรณ์ค่าในอนาคต
+                โดยให้น้ำหนักเท่ากันทุกค่าในหน้าต่างที่พิจารณา</p>
+              <p><strong>ข้อดี:</strong> เข้าใจง่าย ลดผลกระทบจากความผันผวนระยะสั้น</p>
+              <p><strong>ข้อจำกัด:</strong> ไม่สามารถจับแนวโน้มหรือฤดูกาลได้ดี</p>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fa-solid fa-meteor"></i>
+                </div>
+                <h3 class="font-bold" style="color: #18488b;">Exponential Smoothing</h3>
+              </div>
+              <p>เป็นเทคนิคที่ให้น้ำหนักกับข้อมูลล่าสุดมากกว่าข้อมูลเก่า
+                โดยน้ำหนักจะลดลงแบบเอกซ์โพเนนเชียลตามอายุของข้อมูล มีหลายรูปแบบ เช่น Simple, Double (Holt's
+                method) และ Triple (Holt-Winters) เพื่อรองรับแนวโน้มและฤดูกาล</p>
+            <p><strong>ข้อดี:</strong> มีความยืดหยุ่น สามารถปรับให้เหมาะกับแนวโน้มและฤดูกาลได้</p>
+            <p><strong>ข้อจำกัด:</strong> ต้องเลือกพารามิเตอร์การปรับให้เหมาะสม</p>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 class="font-bold" style="color: #18488b;">ARIMA (AutoRegressive Integrated Moving Average)</h3>
+              </div>
+              <p>เป็นโมเดลที่รวมองค์ประกอบของ AutoRegressive (AR), Integrated (I) และ Moving Average (MA)
+                ซึ่งเป็นโมเดลมาตรฐานที่ใช้กันอย่างแพร่หลายในการพยากรณ์อนุกรมเวลา</p>
+            <p><strong>ข้อดี:</strong> มีความยืดหยุ่นสูง สามารถจับรูปแบบซับซ้อนได้</p>
+            <p><strong>ข้อจำกัด:</strong> ต้องการข้อมูลนิ่ง (stationary) หรือต้องแปลงข้อมูลให้นิ่งก่อน</p>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fa-solid fa-chart-column"></i>
+                </div>
+                <h3 class="font-bold" style="color: #18488b;">SARIMA (Seasonal ARIMA)</h3>
+              </div>
+              <p>เป็นส่วนขยายของ ARIMA ที่เพิ่มความสามารถในการจัดการกับรูปแบบฤดูกาล
+                มีประโยชน์สำหรับข้อมูลที่มีรูปแบบซ้ำตามฤดูกาล</p>
+            <p><strong>ข้อดี:</strong> เหมาะกับข้อมูลที่มีฤดูกาลชัดเจน</p>
+            <p><strong>ข้อจำกัด:</strong> มีความซับซ้อนในการระบุพารามิเตอร์</p>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fa-solid fa-square-poll-vertical"></i>
+                </div>
+                <h3 class="font-bold" style="color: #18488b;">Prophet</h3>
+              </div>
+              <p>เป็นโมเดลที่พัฒนาโดย Facebook ออกแบบมาเพื่อจัดการกับข้อมูลที่มีแนวโน้ม ฤดูกาล และวันหยุด
+                โดยแยกองค์ประกอบต่างๆ ของอนุกรมเวลาและพยากรณ์แต่ละส่วนแยกกัน</p>
+            <p><strong>ข้อดี:</strong> ใช้งานง่าย รองรับวันหยุดและเหตุการณ์พิเศษ</p>
+            <p><strong>ข้อจำกัด:</strong> อาจไม่เหมาะกับข้อมูลที่มีความสัมพันธ์เชิงเส้นซับซ้อน</p>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fa-solid fa-circle-nodes"></i>
+                </div>
+                <h3 class="font-bold" style="color: #18488b;">LSTM (Long Short-Term Memory)</h3>
+              </div>
+              <p>เป็นประเภทของโครงข่ายประสาทเทียมแบบ Recurrent Neural Networks (RNN)
+                ที่ออกแบบมาเพื่อจดจำข้อมูลในระยะยาวและระยะสั้น
+                เหมาะสำหรับการพยากรณ์อนุกรมเวลาที่มีความซับซ้อนสูง</p>
+            <p><strong>ข้อดี:</strong> สามารถจับรูปแบบที่ซับซ้อนและไม่เป็นเส้นตรง</p>
+            <p><strong>ข้อจำกัด:</strong> ต้องการข้อมูลจำนวนมาก ต้องมีทรัพยากรคอมพิวเตอร์สูง</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fa-solid fa-bug" style="color: #ffffff;"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">การเลือกใช้โมเดลให้เหมาะสมกับข้อมูล</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            การเลือกโมเดลที่เหมาะสมขึ้นอยู่กับลักษณะของข้อมูลและวัตถุประสงค์ของการพยากรณ์:
+          </p>
+          <div class="table-wapper">
+          <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>ลักษณะข้อมูล</th>
+                    <th>โมเดลที่เหมาะสม</th>
+                    <th>เหตุผล</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ข้อมูลที่มีความผันผวนต่ำ ไม่มีแนวโน้มหรือฤดูกาลชัดเจน</td>
+                    <td>Moving Average, Simple Exponential Smoothing</td>
+                    <td>โมเดลเรียบง่ายเพียงพอ ลดความซับซ้อนที่ไม่จำเป็น</td>
+                </tr>
+                <tr>
+                    <td>ข้อมูลที่มีแนวโน้มชัดเจน แต่ไม่มีฤดูกาล</td>
+                    <td>Double Exponential Smoothing, ARIMA</td>
+                    <td>สามารถจับแนวโน้มได้ดี โดยไม่ต้องคำนึงถึงฤดูกาล</td>
+                </tr>
+                <tr>
+                    <td>ข้อมูลที่มีทั้งแนวโน้มและฤดูกาล</td>
+                    <td>Triple Exponential Smoothing, SARIMA, Prophet</td>
+                    <td>รองรับทั้งแนวโน้มและรูปแบบฤดูกาล</td>
+                </tr>
+                <tr>
+                    <td>ข้อมูลที่มีรูปแบบซับซ้อน ไม่เป็นเส้นตรง หรือมีความสัมพันธ์ระยะยาว</td>
+                    <td>LSTM, Neural Networks</td>
+                    <td>สามารถเรียนรู้รูปแบบซับซ้อนและความสัมพันธ์ที่ไม่เป็นเส้นตรง</td>
+                </tr>
+                <tr>
+                    <td>ข้อมูลที่มีจุดเปลี่ยนหรือเหตุการณ์พิเศษ</td>
+                    <td>Prophet, Intervention Models</td>
+                    <td>สามารถรองรับเหตุการณ์พิเศษหรือจุดเปลี่ยนในข้อมูล</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        </div>
+      </div>
+
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fa-solid fa-stairs" style="color: #f2f6fd;"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">กระบวนการทำ Time Series Forecasting</h2>
+        </div>
+
+        <div class="ml-11">
+          <p>กระบวนการพยากรณ์อนุกรมเวลาประกอบด้วยขั้นตอนสำคัญหลายขั้นตอน
+            ซึ่งแต่ละขั้นตอนมีความสำคัญต่อความแม่นยำของผลลัพธ์:</p>
+          
+            <div class="process-flow">
+              <div class="process-step card">
+                <div class="flex">
+                  <div class="step-number">1</div>
+                  <div class="step-content mb-5">
+                  <h4>การเตรียมข้อมูล (Data Preparation)</h4>
+                      <p>การรวบรวมข้อมูล การตรวจสอบค่าที่หายไป (missing values) การจัดการค่าผิดปกติ (outliers)
+                          และการแปลงข้อมูลให้เหมาะสม เช่น การทำ log transformation เพื่อลดความแปรปรวน</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-step card">
+                <div class="flex">
+                  <div class="step-number">2</div>
+                  <div class="step-content mb-5">
+                      <h4>การวิเคราะห์ลักษณะข้อมูล (Exploratory Data Analysis)</h4>
+                      <p>การสำรวจรูปแบบในข้อมูล เช่น แนวโน้ม ฤดูกาล วัฏจักร และความผันผวน
+                          โดยใช้การแสดงผลข้อมูลและการวิเคราะห์องค์ประกอบ</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-step card">
+                <div class="flex">
+                  <div class="step-number">3</div>
+                  <div class="step-content mb-5">
+                      <h4>การทดสอบความนิ่งของข้อมูล (Stationarity Testing)</h4>
+                      <p>การตรวจสอบว่าข้อมูลมีคุณสมบัติความนิ่ง (stationarity) หรือไม่ โดยใช้วิธีการทางสถิติ เช่น
+                          Augmented Dickey-Fuller test และการแปลงข้อมูลให้นิ่งถ้าจำเป็น เช่น การหาผลต่าง
+                          (differencing)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-step card">
+                <div class="flex">
+                  <div class="step-number">4</div>
+                  <div class="step-content mb-5">
+                      <h4>การแบ่งข้อมูล (Data Splitting)</h4>
+                      <p>การแบ่งข้อมูลเป็นชุดฝึกฝน (training set) และชุดทดสอบ (test set)
+                          โดยทั่วไปมักใช้ข้อมูลส่วนใหญ่สำหรับการฝึกฝนและเก็บข้อมูลล่าสุดไว้สำหรับการทดสอบ</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-step card">
+                <div class="flex">
+                  <div class="step-number">5</div>
+                  <div class="step-content mb-5">
+                      <h4>การเลือกและสร้างโมเดล (Model Selection and Building)</h4>
+                      <p>การเลือกโมเดลที่เหมาะสมกับลักษณะของข้อมูล การหาพารามิเตอร์ที่เหมาะสม เช่น การใช้ Grid
+                          Search หรือ Auto ARIMA เพื่อหาค่าพารามิเตอร์ที่ดีที่สุด</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-step card">
+                <div class="flex">
+                  <div class="step-number">6</div>
+                  <div class="step-content mb-5">
+                      <h4>การประเมินโมเดล (Model Evaluation)</h4>
+                      <p>การวัดประสิทธิภาพของโมเดลโดยใช้ค่า MAE, MSE, RMSE, MAPE ฯลฯ
+                          และการเปรียบเทียบกับโมเดลพื้นฐาน เช่น Naive Forecast</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-step card">
+                <div class="flex">
+                  <div class="step-number">7</div>
+                  <div class="step-content mb-5">
+                      <h4>การพยากรณ์ (Forecasting)</h4>
+                      <p>การใช้โมเดลที่ผ่านการฝึกฝนเพื่อพยากรณ์ค่าในอนาคต อาจมีการสร้างช่วงความเชื่อมั่น
+                          (confidence intervals) เพื่อแสดงความไม่แน่นอน</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-step card">
+                <div class="flex">
+                  <div class="step-number">8</div>
+                  <div class="step-content mb-5">
+                      <h4>การติดตามและปรับปรุง (Monitoring and Updating)</h4>
+                      <p>การติดตามประสิทธิภาพของโมเดลอย่างต่อเนื่องและการปรับปรุงโมเดลเมื่อมีข้อมูลใหม่หรือเมื่อประสิทธิภาพลดลง
+                      </p>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fa-solid fa-stopwatch" style="color: #ffffff;"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ตัวอย่างโค้ด Time Series Forecasting</h2>
+        </div>
+
+        <div class="ml-11">
+          <p class="text-gray-700 mb-4">
+            ต่อไปนี้เป็นตัวอย่างโค้ด Python สำหรับการพยากรณ์อนุกรมเวลาโดยใช้โมเดล ARIMA:
+          </p>
+          <iframe
+            src="https://marimo.app/l/t8w6mo?embed=true&show-chrome=false"
+            width="100%"
+            height="1000"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Section: Case Studies -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-briefcase text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Case Study: การใช้ Forecasting เพิ่มยอดขายในธุรกิจค้าปลีก</h2>
+        </div>
+
+        <div class="ml-11">
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow card">
+              <div class="flex items-center mb-4">
+                <div>
+                  <h3 class="font-semibold text-gray-900" style="color: #18488b;">พื้นหลังของธุรกิจ</h3>
+                  <p class="text-gray-600 mb-3">บริษัท ABC Mart เป็นร้านค้าปลีกขนาดกลางที่จำหน่ายสินค้าอุปโภคบริโภคในเขตเมืองชั้นใน เปิดดำเนินการมากว่า 5 ปี และมีสาขาทั้งหมด 8 แห่งทั่วกรุงเทพฯ ปัญหาหลักที่พบคือ สินค้าบางประเภทขาดสต็อกบ่อยครั้ง ในขณะที่สินค้าบางชนิดมีปริมาณค้างสต็อกสูง ทำให้สูญเสียยอดขายและเพิ่มต้นทุนในการเก็บรักษาสินค้า</p>
+                  <a href='https://postimg.cc/4nTNDnDV' target='_blank'><img src='https://i.postimg.cc/gcxX6Z4S/Chat-GPT-Image-May-7-2025-04-51-51-PM.png' border='0' alt='Chat-GPT-Image-May-7-2025-04-51-51-PM'/></a>
+                  <h3 class="font-semibold text-gray-900 mt-3" style="color: #18488b;">เป้าหมาย</h3>
+                  <p class="text-gray-600">บริษัทต้องการใช้เทคนิค Forecasting เพื่อ:</p>
+                  <ul class="list-disc ml-5">
+                    <li class="text-gray-600">คาดการณ์ยอดขายรายสัปดาห์ของสินค้าแต่ละหมวด</li>
+                    <li class="text-gray-600">ลดปริมาณสินค้าคงคลังที่เกินความจำเป็น</li>
+                    <li class="text-gray-600">เพิ่มความแม่นยำในการสั่งสินค้าเข้าร้าน</li>
+                   </ul>
+                  <h3 class="font-semibold text-gray-900 mt-3" style="color: #18488b;">วิธีการ</h3>
+                  <p class="text-gray-600">ทีมงานได้นำข้อมูลยอดขายย้อนหลัง 2 ปี มาใช้ร่วมกับข้อมูลพฤติกรรมผู้บริโภค เช่น:</p>
+                  <ul class="list-disc ml-5">
+                    <li class="text-gray-600">ฤดูกาล (เช่น ยอดขายน้ำดื่มเพิ่มช่วงหน้าร้อน)</li>
+                    <li class="text-gray-600">โปรโมชั่นและแคมเปญการตลาด</li>
+                    <li class="text-gray-600">วันหยุดนักขัตฤกษ์</li>
+                    <li class="text-gray-600">แนวโน้มตลาดจาก Google Trends</li>
+                   </ul>
+                  <p class="text-gray-600">นำมาวิเคราะห์โดยใช้เทคนิค Time Series Forecasting (ARIMA, SARIMA) และ Machine Learning เช่น Random Forest และ XGBoost เพื่อเปรียบเทียบความแม่นยำ</p>
+                  <h3 class="font-semibold text-gray-900 mt-3" style="color: #18488b;">ผลลัพธ์</h3>
+                  <p class="text-gray-600">หลังจากใช้โมเดล Forecasting เพียง 3 เดือน:</p>
+                  <ul class="list-disc ml-5">
+                    <li class="text-gray-600">ลดอัตราสินค้าขาดสต็อกจาก 18% เหลือ 6%</li>
+                    <li class="text-gray-600">ลดต้นทุนการจัดเก็บสต็อกเฉลี่ย 12%</li>
+                    <li class="text-gray-600">ยอดขายรวมเพิ่มขึ้น 9% เพราะสามารถตอบสนองลูกค้าได้ตรงจุดมากขึ้น</li>
+                   </ul>
+                  <h3 class="font-semibold text-gray-900 mt-3" style="color: #18488b;">บทเรียนที่ได้รับ</h3>
+                  <ol>
+                    <li class="text-gray-600">1. การ Forecast ที่ดีไม่ใช่แค่ใช้โมเดลที่ซับซ้อน แต่ต้องมี ข้อมูลคุณภาพสูงและบริบทที่ครบถ้วน</li>
+                    <li class="text-gray-600">2. ควรอัปเดตโมเดลเป็นประจำ เพราะพฤติกรรมผู้บริโภคเปลี่ยนแปลงอยู่เสมอ</li>
+                    <li class="text-gray-600">3. การมีทีม Data Analyst ร่วมกับฝ่ายจัดซื้อช่วยให้การตัดสินใจเร็วขึ้นและมีประสิทธิภาพมากขึ้น</li>
+                  </ol>
+                  <h3 class="font-semibold text-gray-900 mt-3" style="color: #18488b;">สรุป</h3>
+                  <p class="text-gray-600">Forecasting ไม่ใช่แค่เรื่องของตัวเลข แต่คือเครื่องมือสำคัญในการ วางกลยุทธ์ธุรกิจ ให้ตอบสนองลูกค้าได้อย่างทันท่วงที และลดต้นทุนได้ในระยะยาว</p>
+                </div>
+              </div>
+              <!--<p class="text-gray-700 text-sm mb-4">
+                Starbucks ใช้ CDP ในการรวบรวมข้อมูลจาก Mobile App, การ์ดสมาชิก และประวัติการสั่งซื้อ
+                เพื่อสร้างแคมเปญการตลาดแบบเฉพาะบุคคล ส่งผลให้ยอดขายเพิ่มขึ้น 20%
+              </p>-->
+            </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Quiz -->
+      <div class="p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-question text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Quiz: ทดสอบความรู้เกี่ยวกับการพยากรณ์</h2>
+        </div>
+
+        <div class="ml-11" id="quiz-container">
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">1. ความแตกต่างหลักระหว่าง Forecasting และ Prediction
+              คืออะไร?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Forecasting เกี่ยวข้องกับมิติของเวลาเสมอ
+                  ในขณะที่ Prediction ไม่จำเป็นต้องเกี่ยวข้องกับเวลา</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Forecasting ใช้ข้อมูลน้อยกว่า Prediction</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Forecasting มีความแม่นยำมากกว่า Prediction เสมอ</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Forecasting ใช้กับข้อมูลเชิงคุณภาพ ในขณะที่ Prediction
+                  ใช้กับข้อมูลเชิงปริมาณ</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">2. องค์ประกอบใดของ Time Series Data
+              ที่แสดงถึงรูปแบบที่เกิดขึ้นซ้ำๆ ในช่วงเวลาที่แน่นอน?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Trend</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Seasonality</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Cyclic</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Irregular</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">3.
+              ค่าวัดประสิทธิภาพใดที่แสดงค่าความคลาดเคลื่อนเฉลี่ยเป็นเปอร์เซ็นต์?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>MSE (Mean Squared Error)</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>RMSE (Root Mean Squared Error)</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>MAE (Mean Absolute Error)</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>MAPE (Mean Absolute Percentage Error)</span>
+              </label>
+            </div>
+          </div>
+
+          <button id="submit-quiz"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            ส่งคำตอบ
+          </button>
+
+          <div id="quiz-result" class="mt-6 hidden"></div>
+          <div id="quiz-feedback" class="mt-4 p-4 rounded-lg hidden"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const submitButton = document.getElementById('submit-quiz');
+      const quizResult = document.getElementById('quiz-result');
+      const quizFeedback = document.getElementById('quiz-feedback');
+
+      const correctAnswers = {
+        q1: 'a',
+        q2: 'b',
+        q3: 'd'
+      };
+
+      submitButton.addEventListener('click', function () {
+        let score = 0;
+        let answeredAll = true;
+
+        // Check answers
+        Object.keys(correctAnswers).forEach(question => {
+          const selected = document.querySelector(`input[name="${question}"]:checked`);
+
+          if (!selected) {
+            answeredAll = false;
+            return;
+          }
+
+          const isCorrect = selected.value === correctAnswers[question];
+
+          if (isCorrect) score++;
+
+          // Style all answers
+          document.querySelectorAll(`input[name="${question}"]`).forEach(input => {
+            const label = input.parentElement;
+
+            if (input.value === correctAnswers[question]) {
+              // Correct answer
+              label.classList.remove('hover:bg-gray-100');
+              label.classList.add('bg-green-50', 'border', 'border-green-200');
+
+              // Add icon
+              const icon = document.createElement('i');
+              icon.className = 'fas fa-check-circle text-green-500 ml-2';
+              label.querySelector('span').appendChild(document.createTextNode(' '));
+              label.querySelector('span').appendChild(icon);
+            }
+            else if (input.checked && input.value !== correctAnswers[question]) {
+              // Incorrect selected answer
+              label.classList.remove('hover:bg-gray-100');
+              label.classList.add('bg-red-50', 'border', 'border-red-200');
+
+              // Add icon
+              const icon = document.createElement('i');
+              icon.className = 'fas fa-times-circle text-red-500 ml-2';
+              label.querySelector('span').appendChild(document.createTextNode(' '));
+              label.querySelector('span').appendChild(icon);
+            }
+
+            // Disable all inputs
+            input.disabled = true;
+          });
+        });
+
+        if (!answeredAll) {
+          alert('กรุณาเลือกคำตอบทุกข้อ');
+          return;
+        }
+
+        // Hide submit button
+        submitButton.classList.add('hidden');
+
+        // Show score
+        quizResult.classList.remove('hidden');
+        quizResult.innerHTML = `
+          <div class="text-center">
+            <div class="text-5xl font-bold ${score === 3 ? 'text-green-500' : score === 2 ? 'text-yellow-500' : 'text-red-500'}">${score}/3</div>
+            <p class="mt-2 text-gray-600">คะแนนของคุณ</p>
+          </div>
+        `;
+
+        // Show feedback
+        quizFeedback.classList.remove('hidden');
+
+        if (score === 3) {
+          quizFeedback.classList.add('bg-green-50', 'border-l-4', 'border-green-500');
+          quizFeedback.innerHTML = `
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-trophy text-green-500 text-lg"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-green-800">ยอดเยี่ยม! 🎉</h3>
+                <div class="mt-2 text-green-700">
+                  <p>คุณเข้าใจเรื่องการพยากรณ์เป็นอย่างดี คุณพร้อมที่จะเรียนรู้เนื้อหาขั้นสูงต่อไป</p>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (score === 2) {
+          quizFeedback.classList.add('bg-yellow-50', 'border-l-4', 'border-yellow-500');
+          quizFeedback.innerHTML = `
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-thumbs-up text-yellow-500 text-lg"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-yellow-800">ดี! 👍</h3>
+                <div class="mt-2 text-yellow-700">
+                  <p>คุณเข้าใจหลักการพื้นฐานได้ดี แต่ยังมีบางส่วนที่ควรทบทวน ลองกลับไปอ่านเนื้อหาอีกครั้ง</p>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          quizFeedback.classList.add('bg-red-50', 'border-l-4', 'border-red-500');
+          quizFeedback.innerHTML = `
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-book text-red-500 text-lg"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-red-800">พยายามต่อไป! 📚</h3>
+                <div class="mt-2 text-red-700">
+                  <p>ลองทบทวนเนื้อหาทั้งหมดอีกครั้งเพื่อความเข้าใจที่มากขึ้น</p>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        // Add retry button
+        setTimeout(() => {
+          const retryButton = document.createElement('button');
+          retryButton.className = 'mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors';
+          retryButton.innerHTML = '<i class="fas fa-redo mr-2"></i>ลองอีกครั้ง';
+          retryButton.onclick = resetQuiz;
+
+          quizFeedback.appendChild(retryButton);
+        }, 1000);
+      });
+
+      function resetQuiz() {
+        // Clear all radio selections
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+          input.checked = false;
+          input.disabled = false;
+
+          // Reset label styling
+          const label = input.parentElement;
+          label.classList.remove('bg-green-50', 'bg-red-50', 'border', 'border-green-200', 'border-red-200');
+          label.classList.add('hover:bg-gray-100');
+
+          // Remove icons
+          const span = label.querySelector('span');
+          while (span.querySelector('i')) {
+            span.removeChild(span.querySelector('i'));
+          }
+
+          // Fix any text issues from icon removal
+          span.textContent = span.textContent.trim();
+        });
+
+        // Hide results and feedback
+        quizResult.classList.add('hidden');
+        quizFeedback.classList.add('hidden');
+
+        // Show submit button
+        submitButton.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+
+</html>

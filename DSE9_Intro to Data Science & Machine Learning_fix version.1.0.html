@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro to Data Science & Machine Learning</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Prompt', 'sans-serif'],
+                }
+            }
+        }
+    }
+  </script>
+  <style>
+    body {
+        font-family: 'Prompt', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Course Header -->
+    <div class="bg-sky-500 text-white p-12 rounded-lg mx-auto my-8">
+      <div class="relative">
+          <!-- Main text content -->
+          <div class="z-10 relative flex justify-center">
+              <h1 class="text-5xl font-bold">Intro to Data Science & Machine Learning</h1>
+          </div>
+          
+          <!-- Circle decoration -->
+          <div class="absolute top-0 right-0 w-32 h-32 bg-sky-400 rounded-full opacity-30"></div>
+      </div>
+    </div>
+
+    <!-- Course Content -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-8">
+      <!-- Section 1: Data Science -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-database text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Data Science (วิทยาศาสตร์ข้อมูล)</h2>
+        </div>
+        <div class="space-y-6 mb-6">
+          <center>
+            <img src="https://img5.pic.in.th/file/secure-sv1/DSab8b61635bdddf7c.png" alt="DS" border="0" width="800" height="300">
+          </center>
+        </div>
+
+
+         <!-- คำอธิบายหลัก -->
+          <div class="space-y-6 mb-6">
+              <div class="bg-white rounded-lg border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-blue-800 mb-4">
+                  <i class="fas fa-solid fa-quote-left mr-2"></i>Data Science Lifecycle คืออะไร?
+                  <i class="fas fa-solid fa-quote-right"></i>
+                </h3>
+                <p class="text-gray-700">แนวทางการทำงานที่เป็นระบบ ช่วยให้นักวิทยาศาสตร์ข้อมูลดำเนินการอย่างมีแบบแผน ไม่ข้ามขั้นตอน และลดความเสี่ยงจากความผิดพลาดที่อาจเกิดขึ้น 
+                การมีโครงสร้างการทำงานที่ชัดเจนยังช่วยให้สามารถเชื่อมโยงข้อมูลที่ได้กับเป้าหมายทางธุรกิจอย่างมีประสิทธิภาพ</p>
+              </div>
+          </div>
+
+          <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-4">
+            <h4 class="font-medium text-blue-700 mb-2">ตัวอย่าง:</h4>
+            <p class="text-sm text-gray-700">
+              ห้างสรรพสินค้ารวบรวมข้อมูลการซื้อสินค้าของลูกค้า เช่น ประเภทสินค้า เวลาที่ซื้อ ความถี่ในการซื้อ และพฤติกรรมบนแอปพลิเคชัน
+              จากนั้นนักวิทยาศาสตร์ข้อมูลนำข้อมูลเหล่านี้มาทำความสะอาด วิเคราะห์ และใช้โมเดลทางสถิติหรือ AI 
+              เพื่อค้นหารูปแบบพฤติกรรมการซื้อ เช่น ลูกค้าที่ซื้อผ้าอ้อมมักจะซื้อทิชชู่เปียกด้วย ผลลัพธ์จากการวิเคราะห์นี้จะถูกนำไปใช้ในการส่งโปรโมชั่นเฉพาะบุคคลผ่านแอป
+              เช่น แจ้งเตือนส่วนลดสินค้าที่ลูกค้ามักซื้อ ซึ่งช่วยเพิ่มโอกาสในการขายและสร้างความพึงพอใจให้กับลูกค้า
+            </p>
+          </div>
+      </div>
+
+      <!-- Section 2: ความสำคัญของ Data Science -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-thumbtack"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ความสำคัญของ Data Science</h2>
+        </div>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-chart-line text-sm"></i>
+                </div>
+                <h3 class="font-medium">ค้นหาแนวโน้มทางธุรกิจและพฤติกรรมลูกค้า</h3>
+              </div>
+              <!-- <p class="text-sm text-gray-600 ml-10">รวมข้อมูลลูกค้าจากหลายช่องทางได้อย่างเป็นระบบ</p> -->
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-brain text-sm"></i>
+                </div>
+                <h3 class="font-medium">เพิ่มประสิทธิภาพการดำเนินงาน</h3>
+              </div>
+              <!-- <p class="text-sm text-gray-600 ml-10">วิเคราะห์พฤติกรรมลูกค้าอย่างละเอียดเพื่อดึงข้อมูลเชิงลึก</p> -->
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-users text-sm"></i>
+                </div>
+                <h3 class="font-medium">ปรับปรุงประสบการณ์ผู้ใช้</h3>
+              </div>
+              <!-- <p class="text-sm text-gray-600 ml-10">สามารถแบ่งกลุ่มลูกค้า (Segmentation) ได้อย่างแม่นยำ</p> -->
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-solid fa-arrow-down"></i>
+                </div>
+                <h3 class="font-medium">ลดต้นทุนและเพิ่มขีดความสามารถในการแข่งขัน</h3>
+              </div>
+              <!-- <p class="text-sm text-gray-600 ml-10">ช่วยทำการตลาดแบบเฉพาะบุคคล (Personalized Marketing)</p> -->
+            </div>
+          </div>
+      </div>
+
+      <!-- Section 3: สาขาย่อยและความเชี่ยวชาญเฉพาะทาง -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-tv"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">สาขาย่อยและความเชี่ยวชาญเฉพาะทาง</h2>
+        </div>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-code text-sm"></i>
+                </div>
+                <h3 class="font-medium">Data Engineering</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">ทำหน้าที่ออกแบบและบริหารจัดการโครงสร้างข้อมูล (Data Pipeline) เพื่อเตรียมข้อมูลให้พร้อมใช้งาน</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-solid fa-robot"></i>
+                </div>
+                <h3 class="font-medium">Machine Learning Engineering</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">ทำหน้าที่พัฒนาโมเดล AI และบริหารระบบการเรียนรู้ของเครื่อง (MLOps)</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-solid fa-briefcase"></i>
+                </div>
+                <h3 class="font-medium">Business Analytics</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">ทำหน้าที่วิเคราะห์ข้อมูลเพื่อสร้างข้อมูลเชิงกลยุทธ์ และนำเสนอผ่านเครื่องมือเช่น Tableau หรือ Power BI</p>
+            </div>
+          
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-solid fa-camera"></i>
+                </div>
+                <h3 class="font-medium">Computer Vision และ NLP</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">ทำหน้าที่พัฒนาโมเดลที่เข้าใจภาพและข้อความ เช่น การรู้จำใบหน้าหรือการสรุปบทความอัตโนมัติ</p>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-solid fa-server"></i>
+                </div>
+                <h3 class="font-medium">Big Data Specialist</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">ใช้เทคโนโลยีอย่าง Hadoop และ Spark เพื่อจัดการข้อมูลขนาดใหญ่ที่มีความซับซ้อนสูง</p>
+            </div>
+          </div>
+      </div>
+
+      <!-- Section 4: เครื่องมือและเทคโนโลยีที่ใช้ใน Data Science -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-terminal"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">เครื่องมือและเทคโนโลยีที่ใช้ใน Data Science</h2>
+        </div>
+
+          <p class="text-gray-700 mb-4">
+            การทำงานด้าน Data Science ต้องอาศัยเครื่องมือที่หลากหลาย ได้แก่
+          </p>
+          <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-6">
+            <h4 class="font-medium text-blue-700 mb-2">ภาษาโปรแกรม</h4>
+            <p class="text-sm text-gray-700">
+              Python (เช่น Pandas, NumPy, Scikit-learn), R
+            </p>
+          </div>
+
+          <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-6">
+            <h4 class="font-medium text-blue-700 mb-2">ฐานข้อมูล</h4>
+            <p class="text-sm text-gray-700">
+              SQL สำหรับข้อมูลเชิงโครงสร้าง และ NoSQL เช่น MongoDB สำหรับข้อมูลที่ไม่เป็นโครงสร้าง
+            </p>
+          </div>
+
+          <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-6">
+            <h4 class="font-medium text-blue-700 mb-2">การสร้างภาพข้อมูล (Data Visualization)</h4>
+            <p class="text-sm text-gray-700">
+              Matplotlib, Seaborn, Tableau, Power BI
+            </p>
+          </div>
+
+          <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-6">
+            <h4 class="font-medium text-blue-700 mb-2">Big Data และ Cloud Platforms</h4>
+            <p class="text-sm text-gray-700">
+              Apache Spark, Hadoop, Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure
+            </p>
+          </div>
+
+          <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-6">
+            <h4 class="font-medium text-blue-700 mb-2">AutoML และ Augmented Analytics</h4>
+            <p class="text-sm text-gray-700">
+              เช่น H2O.ai, Google AutoML เพื่อช่วยเร่งกระบวนการวิเคราะห์
+            </p>
+          </div>
+      </div>
+
+      <!-- Section 5: ตัวอย่างการประยุกต์ใช้งาน Data Science -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-hotel"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ตัวอย่างการประยุกต์ใช้งาน Data Science</h2>
+        </div>
+
+          <div class="space-y-6 mb-6">
+            <!-- ตัวอย่างการประยุกต์ใช้งาน Data Science -->
+            <div class="bg-sky-100 rounded-lg border border-sky-200 p-6">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white rounded p-3 border border-blue-100">
+                  <h5 class="font-medium text-blue-700 mb-2">🌳 ภาครัฐและสิ่งแวดล้อม 🌳</h5>
+                  <p class="text-sm text-gray-600">พยากรณ์สภาพอากาศ และแจ้งเตือนภัยธรรมชาติล่วงหน้า</p>
+                </div>
+                <div class="bg-white rounded p-3 border border-blue-100">
+                  <h5 class="font-medium text-blue-700 mb-2">💊 การแพทย์ 💊</h5>
+                  <p class="text-sm text-gray-600">วิเคราะห์ภาพทางการแพทย์เพื่อช่วยวินิจฉัยโรคมะเร็ง</p>
+                </div>
+                <div class="bg-white rounded p-3 border border-blue-100">
+                  <h5 class="font-medium text-blue-700 mb-2">💹 E-Commerce 💹</h5>
+                  <p class="text-sm text-gray-600">ระบบแนะนำสินค้าตามพฤติกรรมผู้บริโภค (Recommendation Systems)</p>
+                </div>
+                <div class="bg-white rounded p-3 border border-blue-100">
+                  <h5 class="font-medium text-blue-700 mb-2">🏦 การเงิน 🏦</h5>
+                  <p class="text-sm text-gray-600">ตรวจจับการฉ้อโกง และประเมินความเสี่ยงสินเชื่อ</p>
+                </div>
+                <div class="bg-white rounded p-3 border border-blue-100">
+                  <h5 class="font-medium text-blue-700 mb-2">⚒️ การผลิต ⚒️</h5>
+                  <p class="text-sm text-gray-600">Predictive Maintenance เพื่อลดเวลาหยุดทำงานของเครื่องจักร</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+      <!-- Section 6: ความท้าทายในงาน Data Science -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-award"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ความท้าทายในงาน Data Science</h2>
+        </div>
+        
+        <!-- ตัวอย่างการใช้งาน -->
+        <div class="bg-sky-100 rounded-lg border border-sky-200 p-6">
+          <h4 class="font-medium text-blue-800 mb-3">
+            <i class="fas fa-lightbulb mr-2"></i>แม้จะมีศักยภาพสูง แต่ Data Science ก็เผชิญกับความท้าทายหลายประการ เช่น
+          </h4>
+          <div class="bg-white rounded-lg p-4 mb-4">
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-center">
+                <i class="fas fa-medal text-blue-800 mr-2"></i>
+                <b class="mr-2">คุณภาพข้อมูล:</b> ข้อมูลไม่ครบถ้วนหรือมีข้อผิดพลาดส่งผลกระทบโดยตรงต่อผลลัพธ์
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-upload text-blue-800 mr-2"></i>
+                <b class="mr-2">การรวมข้อมูลจากหลายแหล่ง:</b> ความแตกต่างของโครงสร้างข้อมูลทำให้การรวมข้อมูลซับซ้อน
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-expand text-blue-800 mr-2"></i>
+                <b class="mr-2">การสเกลระบบ:</b> การประมวลผลข้อมูลขนาดใหญ่อาจต้องใช้โครงสร้างพื้นฐานเฉพาะ
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-fingerprint text-blue-800 mr-2"></i>
+                <b class="mr-2">ความปลอดภัยและความเป็นส่วนตัว:</b> ต้องมีมาตรการปกป้องข้อมูลที่มีความอ่อนไหว
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-user-graduate text-blue-800 mr-2"></i>
+                <b class="mr-2">การขาดแคลนผู้เชี่ยวชาญ:</b> ความต้องการบุคลากรที่มีความรู้รอบด้านสูง
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Section 7: แนวโน้มสำคัญในอนาคตของ Data Science -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-globe"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">แนวโน้มสำคัญในอนาคตของ Data Science</h2>
+        </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-4">
+                <div>
+                  <h3 class="font-semibold text-gray-900">Generative AI และ AI Agentic</h3>
+                  <p class="text-sm text-gray-600">พัฒนาโค้ดหรือข้อมูลใหม่โดยอัตโนมัติ</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-4">
+                <div>
+                  <h3 class="font-semibold text-gray-900">Edge Computing และ IoT</h3>
+                  <p class="text-sm text-gray-600">วิเคราะห์ข้อมูลที่แหล่งกำเนิดแบบ Real-time</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-4">
+                <div>
+                  <h3 class="font-semibold text-gray-900">Federated Learning</h3>
+                  <p class="text-sm text-gray-600">ฝึกโมเดลร่วมกันโดยไม่เปิดเผยข้อมูลส่วนบุคคล</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-4">
+                <div>
+                  <h3 class="font-semibold text-gray-900">Ethical AI และ Responsible AI</h3>
+                  <p class="text-sm text-gray-600">การกำกับดูแลการใช้ AI อย่างมีจริยธรรม</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-4">
+                <div>
+                  <h3 class="font-semibold text-gray-900">Augmented Analytics</h3>
+                  <p class="text-sm text-gray-600">การใช้ AI ช่วยเร่งการวิเคราะห์และตีความข้อมูล</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+      <!-- Section 8: วัฏจักรการทำงานของ Data Science (Data Science Lifecycle) -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-retweet"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Data Science Lifecycle (วัฏจักรการทำงานของวิทยาศาสตร์ข้อมูล)</h2>
+        </div>
+        <center>
+          <img src="https://img2.pic.in.th/pic/DS_LifecycleI_info.png" alt="" width="700" height="500">
+        </center>
+        <!-- คำอธิบายหลัก -->
+          <div class="space-y-6 mb-6">
+              <div class="bg-white rounded-lg border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-blue-800 mb-4">
+                  <i class="fas fa-solid fa-quote-left mr-2"></i>Data Science Lifecycle คืออะไร?
+                  <i class="fas fa-solid fa-quote-right"></i>
+                </h3>
+                <p class="text-gray-700">แนวทางการทำงานที่เป็นระบบ ช่วยให้นักวิทยาศาสตร์ข้อมูลดำเนินการอย่างมีแบบแผน ไม่ข้ามขั้นตอน และลดความเสี่ยงจากความผิดพลาดที่อาจเกิดขึ้น 
+                การมีโครงสร้างการทำงานที่ชัดเจนยังช่วยให้สามารถเชื่อมโยงข้อมูลที่ได้กับเป้าหมายทางธุรกิจอย่างมีประสิทธิภาพ</p>
+              </div>
+          </div>
+          <div class="space-y-6 mb-6">
+            <!-- 1. การตั้งสมมติฐานและนิยามคำถาม -->
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-solid fa-list-ol"></i>
+                </div>
+                <h3 class="font-medium">1. การตั้งสมมติฐานและนิยามคำถาม</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">การตั้งสมมติฐานและนิยามคำถามธุรกิจอย่างชัดเจน คือจุดเริ่มต้นของการทำงาน เช่น "ปัจจัยใดทำให้ลูกค้าลดการใช้งานบริการ?" 
+                หรือ "ยอดขายในแต่ละภูมิภาคได้รับอิทธิพลจากปัจจัยใดบ้าง?"</p>
+              <p class="text-sm text-gray-600 ml-10"> <strong>จุดสำคัญ:</strong> คำถามต้องเฉพาะเจาะจง และสามารถวัดผลได้</p>
+              <p class="text-sm text-gray-600 ml-10"> <strong>ตัวอย่างเครื่องมือที่ใช้:</strong> Miro, Google Docs, Notion</p>
+            </div>
+
+            <!-- 2. การรวบรวมข้อมูล -->
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-solid fa-dice-d6"></i>
+                </div>
+                <h3 class="font-medium">2. การรวบรวมข้อมูล</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">หลังจากกำหนดคำถามแล้ว ขั้นตอนถัดไปคือการรวบรวมข้อมูลที่เกี่ยวข้อง ทั้งจากข้อมูลภายใน 
+                (ข้อมูลการขาย ประวัติการใช้บริการ) และข้อมูลภายนอก (ข้อมูลเศรษฐกิจ, สภาพอากาศ, โซเชียลมีเดีย)</p>
+              <p class="text-sm text-gray-600 ml-10"> <strong>จุดสำคัญ:</strong> คุณภาพของข้อมูลที่รวบรวมมา จะส่งผลโดยตรงต่อคุณภาพของการวิเคราะห์ในภายหลัง</p>
+              <p class="text-sm text-gray-600 ml-10"> <strong>ตัวอย่างเครื่องมือที่ใช้:</strong> SQL, APIs, Python (requests), Web Scraping Tools</p>
+            </div>
+
+            <!-- 3. การจัดการข้อมูล -->
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-solid fa-network-wired"></i>
+                </div>
+                <h3 class="font-medium">3. การจัดการข้อมูล</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">ข้อมูลดิบที่รวบรวมมา มักจะไม่พร้อมใช้งาน จำเป็นต้องผ่านการจัดการ 
+                เช่น การทำความสะอาดข้อมูล (Data Cleaning), การจัดโครงสร้างข้อมูล (Data Structuring) และการสร้างฟีเจอร์ใหม่ (Feature Engineering)</p>
+              <p class="text-sm text-gray-600 ml-10"> <strong>จุดสำคัญ:</strong> ขั้นตอนนี้มักใช้เวลามากถึง 70-80% ของโครงการ Data Science ทั้งหมด</p>
+              <p class="text-sm text-gray-600 ml-10"> <strong>ตัวอย่างเครื่องมือที่ใช้:</strong> Python (Pandas, NumPy), OpenRefine, Databricks</p>
+            </div>
+
+            <!-- 4. การวิเคราะห์ข้อมูลและการสร้างภาพข้อมูล -->
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-solid fa-chart-pie"></i>
+                </div>
+                <h3 class="font-medium">4. การวิเคราะห์ข้อมูลและการสร้างภาพข้อมูล</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">หลังจากจัดการข้อมูลเรียบร้อยแล้ว จึงเข้าสู่การวิเคราะห์ข้อมูลและการสร้างภาพข้อมูล ทั้งการวิเคราะห์สถิติพื้นฐานและ การทดสอบสมมติฐานทางสถิติ</p>
+              <p class="text-sm text-gray-600 ml-10"> <strong>จุดสำคัญ:</strong> การสื่อสารผลลัพธ์ผ่านกราฟและสถิติที่เหมาะสม เป็นหัวใจสำคัญในการทำให้ข้อมูลซับซ้อนเข้าใจง่ายขึ้น</p>
+              <p class="text-sm text-gray-600 ml-10"> <strong>ตัวอย่างเครื่องมือที่ใช้:</strong> Python (Matplotlib, Seaborn), Tableau, Power BI, R</p>
+            </div>
+
+            <!-- 5. การตอบคำถามเริ่มต้นและสร้างสมมติฐานใหม่ -->
+            <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                  <i class="fas fa-solid fa-list-ul"></i>
+                </div>
+                <h3 class="font-medium">5. การตอบคำถามเริ่มต้นและสร้างสมมติฐานใหม่</h3>
+              </div>
+              <p class="text-sm text-gray-600 ml-10">ตอบคำถามที่ตั้งไว้ตั้งแต่ต้น และอาจพบข้อมูลที่นำไปสู่คำถามหรือสมมติฐานใหม่ๆ ที่น่าสนใจ</p>
+              <p class="text-sm text-gray-600 ml-10"> <strong>จุดสำคัญ:</strong> Data Science เป็นกระบวนการเชิงวนลูปที่ต่อเนื่อง ไม่มีจุดสิ้นสุด เนื่องจากข้อมูลและสภาพแวดล้อมมีการเปลี่ยนแปลงอยู่ตลอดเวลา</p>
+              <p class="text-sm text-gray-600 ml-10"> <strong>ตัวอย่างเครื่องมือที่ใช้:</strong> Python (Scikit-learn, Statsmodels), PowerPoint, Confluence</p>
+            </div>
+          </div>
+      </div>
+      
+      <!-- Section 9: CRISP-DM -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-draw-polygon"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">CRISP-DM</h2>
+        </div>
+          <div class="space-y-6 mb-6">
+            <!-- Image CRISP-DM -->
+            <center>
+              <img src="https://img5.pic.in.th/file/secure-sv1/crisp-dm_info.png" alt="crisp dm info" border="0" width="450" height="450">
+            </center>
+            <p class="text-sm text-gray-500 text-center mt-2">
+              กระบวนการ CRISP-DM<br>
+            </p>
+
+            <!-- คำอธิบายหลัก -->
+            <div class="bg-white rounded-lg border border-gray-200 p-6">
+              <h3 class="text-lg font-semibold text-blue-800 mb-4">
+                <i class="fas fa-solid fa-quote-left mr-2"></i>CRISP-DM คืออะไร?
+                <i class="fas fa-solid fa-quote-right"></i>
+              </h3>
+              <p class="text-gray-700">CRISP-DM คือกระบวนการมาตรฐานในอุตสาหกรรมที่ใช้ในการวิเคราะห์ข้อมูลหรือทำเหมืองข้อมูล (Data Mining) โดยแต่ละขั้นตอนจะขึ้นอยู่กับผลลัพธ์ของขั้นตอนก่อนหน้า 
+                และสามารถย้อนกลับไปปรับปรุงขั้นตอนก่อนหน้าได้ตามความเหมาะสม</p>
+            </div>
+          </div>
+
+          <!-- องค์ประกอบของ CRISP-DM -->
+          <h4 class="font-medium text-blue-800 mb-3">
+            ขั้นตอนใน CRISP-DM มีทั้งหมด 6 ขั้นตอน ได้แก่
+          </h4>
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-white rounded p-3 border border-blue-100">
+                <h5 class="font-medium text-blue-700 mb-2">💼 1. Business Understanding</h5>
+                <p class="text-sm text-gray-600">เข้าใจเป้าหมาย ปัญหา และความต้องการของธุรกิจอย่างลึกซึ้ง เพื่อให้การวิเคราะห์ข้อมูลตอบโจทย์และสร้างคุณค่าทางธุรกิจได้สูงสุด</p>
+              </div>
+              <div class="bg-white rounded p-3 border border-blue-100">
+                <h5 class="font-medium text-blue-700 mb-2">🔍 2. Data Understanding</h5>
+                <p class="text-sm text-gray-600">สำรวจและวิเคราะห์ข้อมูลเบื้องต้น เพื่อให้เข้าใจโครงสร้าง คุณภาพ และศักยภาพของข้อมูล 
+                  ซึ่งเป็นรากฐานสำคัญสำหรับการเตรียมข้อมูลและการสร้างโมเดลในขั้นตอนถัดไป</p>
+              </div>
+              <div class="bg-white rounded p-3 border border-blue-100">
+                <h5 class="font-medium text-blue-700 mb-2">🧹 3. Data Preparation</h5>
+                <p class="text-sm text-gray-600">แปลงและปรับแต่งข้อมูลให้เหมาะสมกับการวิเคราะห์และสร้างโมเดล โดยครอบคลุมทั้งการเลือกข้อมูล ทำความสะอาด 
+                  สร้างคุณลักษณะใหม่ ผสานข้อมูล และจัดรูปแบบข้อมูล</p>
+              </div>
+              <div class="bg-white rounded p-3 border border-blue-100">
+                <h5 class="font-medium text-blue-700 mb-2">📊 4. Modeling</h5>
+                <p class="text-sm text-gray-600">เลือกเทคนิค สร้าง และประเมินโมเดลวิเคราะห์ข้อมูลจากชุดข้อมูลที่เตรียมไว้ 
+                  โดยมีเป้าหมายเพื่อให้ได้โมเดลที่ตอบโจทย์ปัญหาทางธุรกิจและพร้อมเข้าสู่ขั้นตอนการประเมินผล</p>
+              </div>
+              <div class="bg-white rounded p-3 border border-blue-100">
+                <h5 class="font-medium text-blue-700 mb-2">✅ 5. Evaluation</h5>
+                <p class="text-sm text-gray-600">ประเมินโมเดลทั้งในเชิงเทคนิคและเชิงธุรกิจ เพื่อให้มั่นใจว่าโมเดลตอบโจทย์เป้าหมายที่ตั้งไว้ 
+                  ก่อนตัดสินใจนำไปใช้งานจริง หากไม่ผ่านเกณฑ์ อาจต้องวนกลับไปปรับปรุงในขั้นตอนก่อนหน้า</p>
+              </div>
+              <div class="bg-white rounded p-3 border border-blue-100">
+                <h5 class="font-medium text-blue-700 mb-2">🚀 6. Deployment</h5>
+                <p class="text-sm text-gray-600">นำผลลัพธ์หรือโมเดลที่พัฒนาขึ้นไปใช้งานจริง พร้อมวางแผนติดตามผลและบำรุงรักษา จัดทำรายงาน และทบทวนโครงการ 
+                  เพื่อให้มั่นใจว่าธุรกิจได้รับประโยชน์สูงสุดจากโครงการวิเคราะห์ข้อมูล</p>
+              </div>
+          </div>
+      </div>
+
+      <!-- Section 10: CRISP-DM Scenario -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-paper-plane"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">CRISP-DM Scenario</h2>
+        </div>
+
+        <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-5 max-w-4xl mx-auto">
+          <div class="space-y-2 mb-3">
+            <h4 class="text-base font-semibold text-blue-800 mb-3 flex items-center">
+              <i class="fas fa-info-circle mr-2"></i>"จะทำอย่างไรให้ลูกค้าซื้อสินค้าเพิ่มขึ้น?"
+            </h4>
+            <p class="text-sm text-gray-600">นี่คือคำถามที่ทีมการตลาดยื่นให้เราทันทีที่เริ่มต้นโปรเจกต์ เราเป็นทีม Data Science ของบริษัท E-commerce ขนาดกลาง 
+              ที่กำลังเติบโตและเริ่มมองเห็นศักยภาพของการใช้ข้อมูลเพื่อขับเคลื่อนรายได้
+              เป้าหมายของโปรเจกต์ชัดเจน คือการใช้ข้อมูลที่มีอยู่ เพื่อพัฒนาระบบแนะนำสินค้า (Recommendation System) ซึ่งสามารถเพิ่มยอดขายได้จริง</p>
+          </div>
+          
+
+          <div class="space-y-3">
+          <!-- องค์ประกอบของ CRISP-DM -->
+              <!-- 1. Business Understanding -->
+              <h5 class="font-semibold text-blue-800 mb-2">💼 1. Business Understanding: ทำความเข้าใจธุรกิจอย่างลึกซึ้ง</h5>
+              <p class="text-sm text-gray-600">เราเริ่มต้นด้วยการประชุมร่วมกับผู้บริหารฝ่ายการตลาดและ CEO สิ่งที่พวกเขาต้องการไม่ใช่ระบบที่ "ดูดี" หรือ "ล้ำสมัย" แต่คือ 
+                ผลลัพธ์เชิงธุรกิจที่ชัดเจน — <strong>ยอดขายที่เพิ่มขึ้น</strong></p>
+              <div class="mt-4">
+                <span class="font-semibold text-gray-600">เราจึงกำหนดเป้าหมายให้ชัดเจนและวัดผลได้</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>ต้องสามารถวัดผลการเพิ่มขึ้นของยอดขายหลังจากใช้งานระบบ</li>
+                  <li>ตัวชี้วัดหลัก (KPI) คือยอดขายรวม ไม่ใช่เพียงแค่จำนวนคลิก</li>
+                </ul>
+              </div>
+              <!-- 2. Data Understanding -->
+              <h5 class="font-semibold text-blue-800 mb-2">🔍 2. Data Understanding: วิเคราะห์และสำรวจข้อมูล</h5>
+              <div class="mt-4">
+                <span class="font-semibold text-gray-600">เรารวบรวมข้อมูลที่เกี่ยวข้องทั้งหมด ไม่ว่าจะเป็น</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>ประวัติการสั่งซื้อของลูกค้า</li>
+                  <li>ข้อมูลสินค้า</li>
+                  <li>พฤติกรรมการเข้าชมเว็บไซต์</li>
+                </ul>
+                <span class="font-semibold text-gray-600">จากการสำรวจข้อมูลเบื้องต้น พบรูปแบบที่น่าสนใจ เช่น</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>ลูกค้าหลายรายมีพฤติกรรมซื้อสินค้าเป็นชุด เช่น ซื้อโทรศัพท์แล้วตามด้วยเคส</li>
+                  <li>หมวดหมู่บางประเภท เช่น อุปกรณ์กีฬา มีแนวโน้มถูกซื้อซ้ำภายในระยะเวลา 3 – 6 เดือน</li>
+                </ul>
+              </div>
+              <p class="text-sm text-gray-600">ข้อมูลเหล่านี้กลายเป็นพื้นฐานสำคัญในการวางแนวทางของระบบแนะนำ</p>
+              <!-- 3. Data Preparation -->
+              <h5 class="font-semibold text-blue-700 mb-2">🧹 3. Data Preparation: เตรียมข้อมูลอย่างเป็นระบบ</h5>
+              <p class="text-sm text-gray-600">ขั้นตอนนี้ใช้เวลาค่อนข้างมาก เพราะเป็นการเตรียมข้อมูลให้พร้อมสำหรับการสร้างโมเดล</p>
+              <div class="mt-4">
+                <span class="font-semibold text-gray-600">กระบวนการที่เราดำเนินการ ได้แก่</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>รวมข้อมูลจากหลายแหล่งให้เชื่อมโยงกันอย่างถูกต้อง</li>
+                  <li>ลบข้อมูลที่ผิดพลาด เช่น วันที่ผิดปี หรือค่าที่หายไป</li>
+                  <li>สร้างฟีเจอร์ใหม่ เช่น ระยะเวลาระหว่างการซื้อครั้งก่อน หมวดหมู่สินค้าที่ลูกค้าสนใจ</li>
+                </ul>
+              </div>
+              <p class="text-sm text-gray-600">คุณภาพของข้อมูล คือปัจจัยสำคัญที่ส่งผลโดยตรงต่อคุณภาพของโมเดล</p>
+              <!-- 4. Modeling -->
+              <h5 class="font-semibold text-blue-700 mb-2">📊 4. Modeling: สร้างโมเดลด้วยความเข้าใจทั้งข้อมูลและลูกค้า</h5>
+              <p class="text-sm text-gray-600">เมื่อข้อมูลพร้อมใช้งาน</p>
+              <div class="mt-4">
+                <span class="font-semibold text-gray-600">เราเริ่มต้นสร้างโมเดลโดยใช้เทคนิคหลัก 2 แนวทาง</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>Association Rules (เช่น Apriori): เพื่อค้นหาคู่สินค้าที่มักถูกซื้อร่วมกัน</li>
+                  <li>Collaborative Filtering: เพื่อแนะนำสินค้าที่ลูกค้าที่มีพฤติกรรมคล้ายกันเคยซื้อ</li>
+                </ul>
+              </div>
+              <p class="text-sm text-gray-600">เราทดลองปรับแต่งพารามิเตอร์ และทดสอบโมเดลหลายรูปแบบ เพื่อให้ผลลัพธ์ออกมาตรงกับพฤติกรรมของลูกค้าในโลกจริงที่สุด
+                ตัวอย่างเช่น บางครั้งโมเดลแนะนำสายชาร์จให้กับลูกค้าที่สนใจเสื้อผ้า ซึ่งไม่สอดคล้องกับพฤติกรรมจริง จึงต้องมีการปรับปรุง</p>
+              
+              
+              <!-- 5. Evaluationg -->
+              <h5 class="font-semibold text-blue-700 mb-2">✅ 5. Evaluation: ประเมินผลอย่างเป็นระบบ</h5>
+              <p class="text-sm text-gray-600">เพื่อประเมินประสิทธิภาพของระบบแนะนำ</p>
+              <div class="mt-4">
+                <span class="font-semibold text-gray-600">เราใช้วิธี A/B Testing โดยแบ่งกลุ่มลูกค้าออกเป็น 2 กลุ่ม</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>กลุ่ม A: เห็นคำแนะนำสินค้า</li>
+                  <li>กลุ่ม B: ไม่เห็นคำแนะนำใดๆ</li>
+                </ul>
+                <span class="font-semibold text-gray-600">ผลการทดลองแสดงให้เห็นว่า</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>กลุ่มที่เห็นคำแนะนำ มียอดขายเฉลี่ยสูงกว่ากลุ่มควบคุมถึง 12%</li>
+                </ul>
+              </div>
+              <p class="text-sm text-gray-600">ซึ่งถือเป็นหลักฐานเชิงสถิติที่ชัดเจนว่าโมเดลที่เราพัฒนามีประสิทธิภาพ</p>
+
+              <!-- 6. Deployment -->
+              <h5 class="font-semibold text-blue-700 mb-2">🚀 6. Deployment: นำระบบไปใช้จริง</h5>
+              <div class="mt-4">
+                <span class="font-semibold text-gray-600">สุดท้าย เรานำระบบแนะนำสินค้าขึ้นใช้งานบนเว็บไซต์จริง โดย</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>ลูกค้าแต่ละคนจะเห็นคำแนะนำเฉพาะตน (Personalized Recommendations)</li>
+                  <li>มี Dashboard ติดตามยอดขายแบบ Real-time</li>
+                </ul>
+                <span class="font-semibold text-gray-600">นอกจากนี้ เรายังวางแผนสำหรับการดูแลระยะยาว</span>
+                <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                  <li>มีการ retrain โมเดลทุก 2 เดือน เพื่อให้สอดคล้องกับพฤติกรรมลูกค้าที่เปลี่ยนแปลง</li>
+                </ul>
+              </div>
+              <p class="text-sm text-gray-600">ระบบนี้ไม่ได้เพียงแค่ช่วยเพิ่มยอดขาย แต่ยังช่วยให้ลูกค้าพึงพอใจมากขึ้นจากประสบการณ์ที่ตรงใจ</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 11: Machine Learning -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-robot"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Machine Learning</h2>
+        </div>
+        <div class="space-y-6 mb-6">
+          <center>
+            <img src="https://img2.pic.in.th/pic/ml_info.png" alt="DS" border="0" width="800" height="300">
+          </center>
+          <!-- คำอธิบายหลัก -->
+          <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 class="text-lg font-semibold text-blue-800 mb-4">
+              <i class="fas fa-solid fa-quote-left mr-2"></i>Machine Learning คืออะไร?
+              <i class="fas fa-solid fa-quote-right"></i>
+            </h3>
+            <p class="text-gray-700">Machine Learning คือกระบวนการพัฒนาระบบคอมพิวเตอร์ให้สามารถเรียนรู้จากข้อมูลและประสบการณ์ โดยไม่ต้องอาศัยการเขียนโปรแกรมอย่างตายตัว 
+            เพื่อให้สามารถทำงานในลักษณะที่เปลี่ยนแปลงตามข้อมูลใหม่ที่ได้รับ ซึ่งเป็นพื้นฐานสำคัญของ AI ในปัจจุบัน</p>
+          </div>
+            <h4 class="font-medium text-blue-800 mb-3">ประเภทของ Machine Learning</h4>
+
+        
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Supervised Learning</h3>
+                  <p class="text-sm text-gray-600">Supervised Learning เป็นรูปแบบการเรียนรู้ที่ใช้ข้อมูลที่มีการกำหนดป้ายกำกับ (label) 
+                    หรือผลลัพธ์ที่ถูกต้องไว้ล่วงหน้า เพื่อช่วยให้โมเดลสามารถเรียนรู้ความสัมพันธ์ระหว่างข้อมูลนำเข้า (input) และผลลัพธ์ที่ต้องการ (output)</p>
+                  <div class="mt-4">
+                    <span class="font-semibold text-gray-600">ตัวอย่าง</span>
+                    <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                      <li><strong>Classification:</strong> การจำแนกประเภทอีเมลว่าเป็นสแปมหรือไม่</li>
+                      <li><strong>Regression:</strong> การทำนายราคาบ้านจากปัจจัยต่างๆ</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Unsupervised Learning</h3>
+                  <p class="text-sm text-gray-600">Unsupervised Learning เป็นรูปแบบการเรียนรู้ที่ใช้กับข้อมูลที่ไม่มีการกำกับป้าย (unlabeled data) โดยโมเดลต้องค้นหารูปแบบหรือโครงสร้างในข้อมูลด้วยตัวเอง</p>
+                  <div class="mt-4">
+                    <span class="font-semibold text-gray-600">ตัวอย่าง</span>
+                    <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                      <li><strong>Clustering:</strong> การจัดกลุ่มลูกค้าตามพฤติกรรมการซื้อ</li>
+                      <li><strong>Dimensionality Reduction:</strong> การลดมิติข้อมูลเพื่อการวิเคราะห์ที่ง่ายขึ้น</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Reinforcement Learning</h3>
+                  <p class="text-sm text-gray-600">Reinforcement Learning เป็นรูปแบบการเรียนรู้ที่ตัวแทน (agent) เรียนรู้จากการโต้ตอบกับสภาพแวดล้อม โดยตัวแทนจะได้รับรางวัล (reward) 
+                    หรือบทลงโทษ (penalty) ตามการกระทำ ทำให้เรียนรู้ว่าควรทำอย่างไรเพื่อให้ได้รางวัลสูงสุด</p>
+                  <div class="mt-4">
+                    <span class="font-semibold text-gray-600">ตัวอย่าง</span>
+                    <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                      <li>การสอนหุ่นยนต์เล่นเกมเพื่อชนะ</strong></li>
+                      <li>การพัฒนาระบบขับรถอัตโนมัติที่เรียนรู้จากสภาพการจราจร</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6 mb-3">
+            <div>
+              <h4 class="font-medium text-blue-800 mb-3">ขั้นตอนในการพัฒนาโมเดล Machine Learning</h4>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-medium text-blue-700 mb-2">1. การรวบรวมและเตรียมข้อมูล (Data Collection & Preparation)</h3>
+                  <p class="text-sm text-gray-600">รวบรวมข้อมูลที่เกี่ยวข้อง ทำความสะอาด และแบ่งข้อมูลเป็นชุดฝึกสอน (Training) และชุดทดสอบ (Testing)</p>
+                </div>
+             </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-medium text-blue-700 mb-2">2. การเลือกโมเดลและอัลกอริทึม (Model Selection)</h3>
+                  <p class="text-sm text-gray-600">เลือกอัลกอริทึมที่เหมาะสมกับปัญหาและข้อมูล เช่น Random Forest, Neural Networks, SVM</p>
+                </div>
+             </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-medium text-blue-700 mb-2">3. การฝึกสอนโมเดล (Model Training)</h3>
+                  <p class="text-sm text-gray-600">ใช้ชุดข้อมูลฝึกสอนเพื่อให้โมเดลเรียนรู้ความสัมพันธ์และรูปแบบในข้อมูล</p>
+                </div>
+             </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-medium text-blue-700 mb-2">4. การประเมินและปรับปรุงโมเดล (Model Evaluation & Improvement)</h3>
+                  <p class="text-sm text-gray-600">ทดสอบประสิทธิภาพของโมเดลด้วยชุดข้อมูลทดสอบ และปรับแต่งโมเดลให้มีประสิทธิภาพสูงสุด</p>
+                </div>
+             </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-medium text-blue-700 mb-2">5. การนำโมเดลไปใช้งาน (Deployment)</h3>
+                  <p class="text-sm text-gray-600">นำโมเดลที่ฝึกสอนแล้วไปใช้ในการทำนายหรือตัดสินใจในสถานการณ์จริง</p>
+                </div>
+             </div>
+            </div>
+
+            <!-- ปัญหาพบบ่อยในการพัฒนาโมเดล Machine LearningM -->
+            <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-5 max-w-4xl mx-auto">
+              <div class="space-y-2 mb-3">
+                <h4 class="text-base font-semibold text-blue-800 mb-3 flex items-center">
+                  <i class="fas fa-info-circle mr-2"></i>ปัญหาพบบ่อยในการพัฒนาโมเดล Machine Learning
+                </h4>
+              </div>
+                  <div class="mt-4">
+                    <ul class="list-disc ml-6 mt-2 text-gray-800 text-sm space-y-1">
+                      <li>Overfitting: โมเดลเรียนรู้ข้อมูลชุดฝึกสอนมากเกินไป จนไม่สามารถทำนายข้อมูลใหม่ได้ดี</li>
+                      <li>Underfitting: โมเดลเรียนรู้ไม่เพียงพอ ทำให้ไม่สามารถจับรูปแบบของข้อมูลได้</li>
+                      <li>ข้อมูลไม่สมดุล (Imbalanced Data): ข้อมูลบางกลุ่มมีจำนวนน้อยเกินไป ทำให้โมเดลอาจมีอคติ</li>
+                      <li>คุณภาพข้อมูล: ข้อมูลผิดพลาด หรือไม่ครบถ้วน ส่งผลต่อคุณภาพของโมเดล</li>
+                    </ul>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 12: Glossary -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-solid fa-language"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Glossary (อภิธานศัพท์)</h2>
+        </div>
+        <div class="space-y-6 mb-6">
+            <h4 class="font-medium text-blue-800 mb-3">รายการศัพท์ที่สำคัญสำหรับ Data Science และ Machine Learning</h4>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Agent</h3>
+                  <p class="text-sm text-gray-600">ตัวดำเนินการใน Reinforcement Learning ที่เรียนรู้จากการโต้ตอบกับสภาพแวดล้อม</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Association Rules</h3>
+                  <p class="text-sm text-gray-600">การค้นหากฎความสัมพันธ์ระหว่างชุดของข้อมูล เช่น กฎว่าซื้อ A แล้วมักจะซื้อ B</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Big Data</h3>
+                  <p class="text-sm text-gray-600">การจัดการและประมวลผลข้อมูลขนาดใหญ่ที่มีความซับซ้อนสูงด้วยเทคโนโลยีอย่าง Hadoop และ Spark</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Business Analytics</h3>
+                  <p class="text-sm text-gray-600">การวิเคราะห์ข้อมูลเพื่อสร้างข้อมูลเชิงกลยุทธ์และนำเสนอผ่านเครื่องมือเช่น Tableau หรือ Power BI</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Clustering</h3>
+                  <p class="text-sm text-gray-600">เทคนิคใน Unsupervised Learning เพื่อจัดกลุ่มข้อมูลที่คล้ายกัน</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Computer Vision</h3>
+                  <p class="text-sm text-gray-600">การพัฒนาโมเดลที่เข้าใจและประมวลผลภาพ เช่น การรู้จำใบหน้า</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Data Cleaning</h3>
+                  <p class="text-sm text-gray-600">กระบวนการทำความสะอาดข้อมูล เช่น การแก้ไขข้อมูลผิดพลาดและเติมค่าที่หายไป</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Data Engineering</h3>
+                  <p class="text-sm text-gray-600">การออกแบบและบริหารจัดการโครงสร้างข้อมูล (Data Pipeline) เพื่อเตรียมข้อมูลให้พร้อมใช้งาน</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Data Pipeline</h3>
+                  <p class="text-sm text-gray-600">กระบวนการที่ช่วยเตรียมข้อมูลสำหรับการวิเคราะห์</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Data Science</h3>
+                  <p class="text-sm text-gray-600">การใช้ข้อมูลเพื่อค้นหาข้อมูลเชิงลึกและสนับสนุนการตัดสินใจในเชิงกลยุทธ์ โดยรวมการใช้งานสถิติ, การวิเคราะห์ข้อมูล, วิทยาการคอมพิวเตอร์ และ AI</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Data Visualization</h3>
+                  <p class="text-sm text-gray-600">การสร้างกราฟและแผนภาพเพื่อช่วยในการเข้าใจข้อมูลเชิงลึก</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Dimensionality Reduction</h3>
+                  <p class="text-sm text-gray-600">เทคนิคลดจำนวนฟีเจอร์ เพื่อทำให้ข้อมูลเข้าใจง่ายขึ้น หรือโมเดลทำงานเร็วขึ้นก</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Feature</h3>
+                  <p class="text-sm text-gray-600">คุณลักษณะ หรือ ตัวแปรอธิบายข้อมูล เช่น อายุ, รายได้, จำนวนคลิก</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Generative AI</h3>
+                  <p class="text-sm text-gray-600">การพัฒนา AI ที่สามารถสร้างข้อมูลหรือโค้ดใหม่ได้โดยอัตโนมัติ</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Label</h3>
+                  <p class="text-sm text-gray-600">ค่าคำตอบ หรือหมวดหมู่ที่กำกับข้อมูล (ใช้ใน Supervised Learning)</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Machine Learning (ML)</h3>
+                  <p class="text-sm text-gray-600">การใช้เทคนิคในการพัฒนาโมเดลที่สามารถเรียนรู้จากข้อมูลและทำนายผลลัพธ์ได้</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Natural Language Processing (NLP)</h3>
+                  <p class="text-sm text-gray-600">การประมวลผลและทำความเข้าใจข้อความจากภาษามนุษย์</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Overfitting</h3>
+                  <p class="text-sm text-gray-600">โมเดลเรียนรู้ข้อมูลชุดฝึกมากเกินไป จนทำงานไม่ดีบนข้อมูลใหม่</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Predictive Maintenance</h3>
+                  <p class="text-sm text-gray-600">การใช้การวิเคราะห์ข้อมูลเพื่อทำนายและป้องกันการเสียหายของเครื่องจักรในกระบวนการผลิต</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Reward</h3>
+                  <p class="text-sm text-gray-600">ค่าตอบแทนใน Reinforcement Learning ที่ตัว agent ได้รับเมื่อทำสิ่งที่ถูกต้อง</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Statistical Analysis</h3>
+                  <p class="text-sm text-gray-600">การใช้สถิติเพื่อวิเคราะห์ข้อมูล เช่น ค่าเฉลี่ย, มัธยฐาน และการทดสอบสมมติฐาน</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Training Data</h3>
+                  <p class="text-sm text-gray-600">ชุดข้อมูลที่ใช้สอนโมเดล</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Test Data</h3>
+                  <p class="text-sm text-gray-600">ชุดข้อมูลที่ใช้ทดสอบประสิทธิภาพของโมเดล</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center mb-2">
+                <div>
+                  <h3 class="font-semibold text-blue-800">Underfitting</h3>
+                  <p class="text-sm text-gray-600">โมเดลเรียนรู้ไม่เพียงพอ จนไม่สามารถจับรูปแบบของข้อมูลได้ดี</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Section 13: Quiz -->
+      <div class="p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-question text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Quiz: ทดสอบความเข้าใจ</h2>
+        </div>
+
+        <div id="quiz-container">
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">1. Data Science คืออะไร?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>การศึกษาการเก็บข้อมูลจากเซ็นเซอร์</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>การใช้เทคโนโลยี AI เพื่อตรวจจับข้อมูลผิดปกติ</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ศาสตร์ที่ผสานความรู้จากสถิติ การวิเคราะห์ข้อมูล วิทยาการคอมพิวเตอร์ และปัญญาประดิษฐ์ (AI) เพื่อค้นหาข้อมูลเชิงลึกและสนับสนุนการตัดสินใจในเชิงกลยุทธ์</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q1" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>การพัฒนาเว็บไซต์และแอปพลิเคชันสำหรับการจัดการข้อมูล</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">2. ใน Data Science Lifecycle, ขั้นตอนใดที่มักใช้เวลามากที่สุดและทำไม?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Data Collection เพราะต้องรวบรวมข้อมูลจากหลายแหล่ง</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Data Management เพราะต้องทำความสะอาดข้อมูลและจัดการให้พร้อมใช้งาน</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Statistical Analysis and Data Visualization เพราะต้องสร้างภาพข้อมูลให้เข้าใจง่าย</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q2" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Answering Initial Questions and Formulating New Hypotheses เพราะเป็นขั้นตอนสุดท้ายในการสรุปผล</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">3. อธิบายความแตกต่างระหว่าง Data Engineering, Machine Learning Engineering และ Business Analytics ในงาน Data Science?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>
+                  Data Engineering ดูแลการทำความสะอาดข้อมูล, Machine Learning Engineering ดูแลการพัฒนาโมเดล AI, Business Analytics วิเคราะห์ข้อมูลทางธุรกิจเพื่อสร้างกลยุทธ์</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Data Engineering ดูแลการพัฒนาโมเดล AI, Machine Learning Engineering วิเคราะห์ข้อมูลทางธุรกิจ, Business Analytics ดูแลการเก็บข้อมูล</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Data Engineering ดูแลการเก็บข้อมูล, Machine Learning Engineering วิเคราะห์ข้อมูลทางธุรกิจ, Business Analytics ดูแลการพัฒนาโมเดล AI</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q3" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Data Engineering ทำการสร้างภาพข้อมูล, Machine Learning Engineering ทำการพัฒนาโมเดล AI, Business Analytics ดูแลการสร้างรายงาน</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">4. เครื่องมือใดบ้างที่ใช้ในการวิเคราะห์ข้อมูลและสร้างภาพข้อมูลใน Data Science? และเครื่องมือใดที่นิยมใช้มากที่สุด?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q4" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Excel, Word, PowerPoint</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q4" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Python (Pandas, NumPy, Matplotlib), Tableau, Power BI</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q4" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>SQL, MongoDB, Photoshop</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q4" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Hadoop, Spark, Google Analytics</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">5. อะไรคือลักษณะความท้าทายในงาน Data Science และทำไมการมีข้อมูลคุณภาพจึงเป็นสิ่งสำคัญที่สุด?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q5" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ข้อมูลต้องมีความรวดเร็วในการประมวลผล</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q5" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>การจัดการข้อมูลขนาดใหญ่ (Big Data) ทำให้ต้องใช้โครงสร้างพื้นฐานที่ซับซ้อน</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q5" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>การขาดแคลนผู้เชี่ยวชาญที่มีความรู้รอบด้าน</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q5" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ข้อมูลที่ไม่ถูกต้องหรือไม่ครบถ้วนอาจส่งผลกระทบต่อผลลัพธ์การวิเคราะห์</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">6. ในกระบวนการ CRISP-DM, ขั้นตอน "Data Understanding" มีวัตถุประสงค์หลักเพื่อทำสิ่งใด?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q6" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>สร้างโมเดล Machine Learning ทันที</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q6" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ศึกษาและสำรวจข้อมูลเพื่อเข้าใจคุณภาพและรูปแบบ</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q6" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>นำข้อมูลไปทำ Dashboard</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q6" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>เตรียมข้อมูลสำหรับนำเสนอผู้บริหาร</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">7. ข้อใดคือลำดับขั้นตอนที่ถูกต้องในกระบวนการ CRISP-DM?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q7" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Data Preparation → Business Understanding → Deployment</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q7" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Business Understanding → Data Understanding → Modeling</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q7" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Deployment → Evaluation → Business Understanding</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q7" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Modeling → Data Understanding → Business Understanding</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">8. Supervised Learning แตกต่างจาก Unsupervised Learning อย่างไร?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q8" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Supervised Learning ไม่มีข้อมูล Label แต่ Unsupervised มี</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q8" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Supervised Learning มีการให้รางวัลหรือบทลงโทษ</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q8" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Supervised Learning มีข้อมูล Label ชัดเจน ส่วน Unsupervised ไม่มี</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q8" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Supervised Learning มักใช้กับ Clustering ปัญหา</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">9. ตัวอย่างใดที่เหมาะกับการใช้ Reinforcement Learning มากที่สุด?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q9" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>ทำนายราคาหุ้นในอนาคต</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q9" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>สร้างโมเดลจำแนกประเภทดอกไม้</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q9" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>สอน AI ให้เล่นเกมหมากรุกจนชนะมนุษย์</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q9" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>วิเคราะห์ความพึงพอใจของลูกค้าจากรีวิวข้อความ</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="font-medium text-gray-800 mb-3">10. การวิเคราะห์คุณภาพข้อมูล เช่น การดู Distribution, Missing Values, หรือ Outliers จะอยู่ในขั้นตอนใดของ CRISP-DM?</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q10" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Business Understanding</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q10" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Data Understanding</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q10" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Data Preparation</span>
+              </label>
+              <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+                <input type="radio" name="q10" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+                <span>Modeling</span>
+              </label>
+            </div>
+          </div>
+
+
+          <button id="submit-quiz"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            ส่งคำตอบ
+          </button>
+
+          <div id="quiz-result" class="mt-6 hidden"></div>
+          <div id="quiz-feedback" class="mt-4 p-4 rounded-lg hidden"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const submitButton = document.getElementById('submit-quiz');
+      const quizResult = document.getElementById('quiz-result');
+      const quizFeedback = document.getElementById('quiz-feedback');
+
+      const correctAnswers = {
+        q1: 'c',
+        q2: 'b',
+        q3: 'a',
+        q4: 'b',
+        q5: 'd',
+        q6: 'b',
+        q7: 'b',
+        q8: 'c',
+        q9: 'c',
+        q10: 'b',
+      };
+
+      submitButton.addEventListener('click', function () {
+        let score = 0;
+        let answeredAll = true;
+
+        // Check answers
+        Object.keys(correctAnswers).forEach(question => {
+          const selected = document.querySelector(`input[name="${question}"]:checked`);
+
+          if (!selected) {
+            answeredAll = false;
+            return;
+          }
+
+          const isCorrect = selected.value === correctAnswers[question];
+
+          if (isCorrect) score++;
+
+          // Style all answers
+          document.querySelectorAll(`input[name="${question}"]`).forEach(input => {
+            const label = input.parentElement;
+
+            if (input.value === correctAnswers[question]) {
+              // Correct answer
+              label.classList.remove('hover:bg-gray-100');
+              label.classList.add('bg-green-50', 'border', 'border-green-200');
+
+              // Add icon
+              const icon = document.createElement('i');
+              icon.className = 'fas fa-check-circle text-green-500 ml-2';
+              label.querySelector('span').appendChild(document.createTextNode(' '));
+              label.querySelector('span').appendChild(icon);
+            }
+            else if (input.checked && input.value !== correctAnswers[question]) {
+              // Incorrect selected answer
+              label.classList.remove('hover:bg-gray-100');
+              label.classList.add('bg-red-50', 'border', 'border-red-200');
+
+              // Add icon
+              const icon = document.createElement('i');
+              icon.className = 'fas fa-times-circle text-red-500 ml-2';
+              label.querySelector('span').appendChild(document.createTextNode(' '));
+              label.querySelector('span').appendChild(icon);
+            }
+
+            // Disable all inputs
+            input.disabled = true;
+          });
+        });
+
+        if (!answeredAll) {
+          alert('กรุณาเลือกคำตอบทุกข้อ');
+          return;
+        }
+
+        // Hide submit button
+        submitButton.classList.add('hidden');
+
+        // Show score
+        quizResult.classList.remove('hidden');
+        quizResult.innerHTML = `
+          <div class="text-center">
+            <div class="text-5xl font-bold ${score === 3 ? 'text-green-500' : score === 2 ? 'text-yellow-500' : 'text-red-500'}">${score}/10</div>
+            <p class="mt-2 text-gray-600">คะแนนของคุณ</p>
+          </div>
+        `;
+
+        // Show feedback
+        quizFeedback.classList.remove('hidden');
+
+        if (score === 10) {
+          quizFeedback.classList.add('bg-green-50', 'border-l-4', 'border-green-500');
+          quizFeedback.innerHTML = `
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-trophy text-green-500 text-lg"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-green-800">ยอดเยี่ยม! 🎉</h3>
+                <div class="mt-2 text-green-700">
+                  <p>คุณเข้าใจเรื่อง Intro to Data Science & Machine Learning อย่างดี คุณพร้อมที่จะเรียนรู้เนื้อหาขั้นสูงต่อไป</p>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (score >= 7) {
+          quizFeedback.classList.add('bg-yellow-50', 'border-l-4', 'border-yellow-500');
+          quizFeedback.innerHTML = `
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-thumbs-up text-yellow-500 text-lg"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-yellow-800">ดี! 👍</h3>
+                <div class="mt-2 text-yellow-700">
+                  <p>คุณเข้าใจหลักการพื้นฐานได้ดี แต่ยังมีบางส่วนที่ควรทบทวน ลองกลับไปอ่านเนื้อหาอีกครั้ง</p>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          quizFeedback.classList.add('bg-red-50', 'border-l-4', 'border-red-500');
+          quizFeedback.innerHTML = `
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <i class="fas fa-book text-red-500 text-lg"></i>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-lg font-medium text-red-800">พยายามต่อไป! 📚</h3>
+                <div class="mt-2 text-red-700">
+                  <p>ลองทบทวนเนื้อหาทั้งหมดอีกครั้งเพื่อความเข้าใจที่มากขึ้น </p>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        // Add retry button
+        setTimeout(() => {
+          const retryButton = document.createElement('button');
+          retryButton.className = 'mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors';
+          retryButton.innerHTML = '<i class="fas fa-redo mr-2"></i>ลองอีกครั้ง';
+          retryButton.onclick = resetQuiz;
+
+          quizFeedback.appendChild(retryButton);
+        }, 1000);
+      });
+
+      function resetQuiz() {
+        // Clear all radio selections
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+          input.checked = false;
+          input.disabled = false;
+
+          // Reset label styling
+          const label = input.parentElement;
+          label.classList.remove('bg-green-50', 'bg-red-50', 'border', 'border-green-200', 'border-red-200');
+          label.classList.add('hover:bg-gray-100');
+
+          // Remove icons
+          const span = label.querySelector('span');
+          while (span.querySelector('i')) {
+            span.removeChild(span.querySelector('i'));
+          }
+
+          // Fix any text issues from icon removal
+          span.textContent = span.textContent.trim();
+        });
+
+        // Hide results and feedback
+        quizResult.classList.add('hidden');
+        quizFeedback.classList.add('hidden');
+
+        // Show submit button
+        submitButton.classList.remove('hidden');
+      }
+    });
+  </script>
+<div class="fixed bottom-8 right-8 z-50">
+    <a href="index.html" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-lg transition-all duration-300 hover:scale-105">
+        <i class="fas fa-home"></i>
+        <span>กลับหน้าหลัก</span>
+    </a>
+</div>
+</body>
+
+</html>

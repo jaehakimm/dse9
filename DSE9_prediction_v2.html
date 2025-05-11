@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSE9 Prediction</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Prompt', 'sans-serif'],
+                }
+            }
+        }
+    }
+  </script>
+  <style>
+    body {
+        font-family: 'Prompt', sans-serif;
+    }
+
+    /* Carousel Styles */
+    .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            overflow: hidden;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            text-align: center;
+        }
+        
+        .carousel-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .carousel-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+            z-index: 10;
+        }
+        
+        .carousel-control.prev {
+            left: 10px;
+        }
+        
+        .carousel-control.next {
+            right: 10px;
+        }
+
+        /* Workshop Button */
+        .workshop-button {
+            display: block;
+            background-color: #1976D2;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 30px auto;
+            width: 300px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .workshop-button:hover {
+            background-color: #1976D2;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Course Header -->
+    <div class="bg-sky-500 text-white p-12 rounded-lg mx-auto my-8">
+      <div class="relative">
+          <!-- Main text content -->
+          <div class="z-10 relative flex justify-center">
+              <h1 class="text-5xl font-bold">Prediction</h1>
+          </div>
+          
+          <!-- Circle decoration -->
+          <div class="absolute top-0 right-0 w-32 h-32 bg-sky-400 rounded-full opacity-30"></div>
+      </div>
+    </div>
+
+    <!-- Course Content -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-8">
+
+
+      <!-- Section 1: -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-flag text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">Predictive Model คืออะไร</h2>
+        </div>
+
+        <div class="ml-11">     
+            <p class="text-gray-700 mb-4">
+                Predictive Model หรือ "โมเดลการทำนาย" คือ อัลกอริทึมทางคณิตศาสตร์ที่เรียนรู้จากข้อมูลในอดีต เพื่อคาดการณ์ผลลัพธ์ในอนาคตหรือเหตุการณ์ที่ยังไม่เกิดขึ้น โดยอาศัยเทคนิคทางสถิติและ Machine Learning สามารถช่วยตัดสินใจอย่างชาญฉลาด ลดความไม่แน่นอน และเพิ่มประสิทธิภาพในทุกอุตสาหกรรม
+            </p>
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex items-center mb-4">
+                  <h2 class="text-xl font-semibold text-sky-500">ตัวอย่างการใช้งานในชีวิตประจำวัน:</h2>
+                </div>
+        
+                <div class="ml-11">
+                  <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                      <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                          <i class="fas fa-dollar-sign text-sm"></i>
+                        </div>
+                        <h3 class="font-medium">การเงิน</h3>
+                      </div>
+                      <p class="text-sm text-gray-600 ml-10">ธนาคารใช้โมเดลทำนายความเสี่ยงการผิดชำระหนี้ก่อนอนุมัติสินเชื่อ</p>
+                    </div>
+        
+                    <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                      <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                          <i class="fas fa-heart text-sm"></i>
+                        </div>
+                        <h3 class="font-medium">สุขภาพ</h3>
+                      </div>
+                      <p class="text-sm text-gray-600 ml-10">แอปพลิเคชันสุขภาพทำนายความเสี่ยงโรคเบาหวานจากพฤติกรรมการใช้ชีวิต</p>
+                    </div>
+        
+                    <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                      <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                          <i class="fas fa-shopping-cart text-sm"></i>
+                        </div>
+                        <h3 class="font-medium">การซื้อของออนไลน์</h3>
+                      </div>
+                      <p class="text-sm text-gray-600 ml-10">ระบบแนะนำสินค้า (Recommendation System) ทำนายว่าคุณอาจสนใจอะไรจากประวัติการซื้อ</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                        <div class="flex items-center mb-2">
+                          <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                            <i class="fas fa-truck text-sm"></i>
+                          </div>
+                          <h3 class="font-medium">การขนส่ง</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 ml-10">แอปแผนที่ทำนายเวลาถึงจุดหมายโดยวิเคราะห์สภาพการจราจรแบบเรียลไทม์</p>
+                      </div>
+        
+                    <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                      <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                          <i class="fas fa-leaf text-sm"></i>
+                        </div>
+                        <h3 class="font-medium">การเกษตร</h3>
+                      </div>
+                      <p class="text-sm text-gray-600 ml-10">ทำนายผลผลิตพืชผลจากข้อมูลสภาพอากาศและดิน</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+                <div class="text-blue-500 mr-3">
+                  <i class="fas fa-info-circle mt-1"></i>
+                </div>
+                <div class="text-sm text-blue-700">
+                    <p><strong>Prediction ไม่ใช่ Forecasting!!! ถึงแม้ทั้งสองจะมีหน้าที่คือการพยากรณ์ผลลัพธ์ในอนาคตก็ตาม!!!</strong></p>
+                    <p><strong>Prediction</strong> เป็นการคาดการณ์ผลลัพธ์<strong>โดยไม่จำเป็นต้องอ้างอิงเวลา</strong> ไม่ต้องสนใจข้อมูลอนุกรมเวลา แต่มุ่งเน้นที่ความสัมพันธ์ระหว่างตัวแปร (Features) มากกว่า</p>
+                    <p>กลับกัน <strong>Forecasting</strong> จะเป็นการคาดการณ์ที่ต้องอ้างอิงเวลาเพื่อพยากรณ์สิ่งที่จะเกิดขึ้นในอนาคต</p>
+                </div>
+              </div>
+        </div>
+        </div>
+
+      <!-- ML -->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-sync-alt text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ML Life Cycle</h2>
+        </div>
+        <p class="text-gray-700 mb-4">
+            การสร้าง Machine Learning (ML) โครงการหนึ่งต้องผ่านกระบวนการเป็นขั้นตอนที่ชัดเจน ตั้งแต่การกำหนดปัญหา (Scoping), การเตรียมข้อมูล (Data), การสร้างโมเดล (Modeling) ไปจนถึงการนำไปใช้งานจริง (Deployment) และการดูแลรักษา ขั้นตอนเหล่านี้ถูกเรียกรวมกันว่า ML Project Lifecycle ซึ่งแต่ละช่วงสามารถย้อนกลับมาทำได้เพื่อให้ได้ผลลัพธ์ที่มีประสิทธิภาพมากที่สุด รูปด้านล่างจะแสดงให้เห็นภาพรวมของกระบวนการทั้งหมดอย่างชัดเจน
+        </p>
+        <img src="https://drive.google.com/thumbnail?id=1PAOXcDHa9ZIRscUVpN3AtBsEv_fmd5z9&sz=s800" alt="ML Life Cycle">
+        </div>
+      
+      <!-- ประเภทของ Predictive Model-->
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+            <i class="fas fa-flag text-sm"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-sky-500">ประเภทของ Predictive Model</h2>
+        </div>
+        <p class="text-gray-700 mb-4">
+          ก่อนที่จะเรียนรู้โครงสร้างของโมเดลแต่ละตัวไปพร้อมๆกัน เรามาทำความเข้าใจกับประเภทโมเดลในจักรวาล Data Science กันดีกว่า โดยการแบ่งประเภทโมเดลใน Data Science นั้นสามารถทำได้หลายแบบและไม่มีการยึดหลักหลักใดหลักหนึ่ง เราได้ยกตัวอย่างการแบ่งประเภทโมเดลที่ขึ้นอยู่กับเกณฑ์ที่ใช้ ดังต่อไปนี้
+        </p>
+        <div class="carousel">
+          <div class="carousel-inner">
+              <div class="carousel-item">
+                  <img src="https://drive.google.com/thumbnail?id=1Vdw9x-ZKLCkuoyOOTzmBjwYxl3f04l-H&sz=s800" alt="supervised">
+              </div>
+              <div class="carousel-item">
+                  <img src="https://drive.google.com/thumbnail?id=1NuG7z992nfw6fWANvOKF-c9tS0AzYCKK&sz=s800" alt="Regression">
+              </div>
+              <div class="carousel-item">
+                  <img src="https://drive.google.com/thumbnail?id=1aezoyjmwmJFvfJBEbMcQRn8VYKRYbfbW&sz=s800" alt="Linear">
+              </div>
+          </div>
+          <button class="carousel-control prev">&#10094;</button>
+          <button class="carousel-control next">&#10095;</button>
+        </div>
+        <p class="text-gray-700 mb-4">
+          เมื่อเรารู้จักประเภทของมันกันคร่าว ๆ แล้ว คราวนี้เรามาทำความรู้จักกับโมเดลในการทำนายกันเถอะ โดยเราจะแบ่งโมเดลออกเป็น 3 ประเภท อ้างอิงจากความแตกต่างของโครงสร้างโมเดลครับ เพราะการแบ่งดังกล่าวจะช่วยให้ผู้เริ่มต้นเรียนรู้เห็นภาพและความต่างของโมเดลในแต่ละประเภทได้ชัดเจนมากที่สุดนั่นเอง…
+        </p>
+      </div>
+
+
+        <!-- ประเภทแยกย่อย: -->
+<!-- linear -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-flag text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">โมเดลพื้นฐาน : Linear Based Model</h2>
+  </div>
+  <p class="text-gray-700 mb-4">
+    จากการเรียนรู้จาก Infographic คร่าว ๆ เราสามารถอธิบายเพิ่มเติมได้ว่าโมเดลประเภทนี้เป็นโมเดลที่มองหาความสัมพันธ์เชิงเส้นระหว่างตัวแปร โดยสมมติว่าข้อมูลสามารถอธิบายได้ด้วยเส้นตรงหรือระนาบในมิติที่สูงขึ้น โมเดลพวกนี้ง่ายต่อการตีความ และทำงานได้ดีถ้าความสัมพันธ์ของข้อมูลเป็นเส้นตรงจริง ๆ
+  </p>
+  <div class="p-6 border-b border-white bg-white">
+    <div class="flex items-center mb-4">
+      <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+        <i class="fas fa-star text-sm"></i>
+      </div>
+      <h2 class="text-xl font-semibold text-sky-500">Logistic Regression</h2>
+    </div>
+    <p class="text-gray-700 mb-4">
+      โมเดลประเภท Linear Based ที่ถูกนำมาใช้ในการทำนายค่าคลาส (classification) ของข้อมูล เช่น ทำนายว่าลูกค้าพอใจหรือไม่ ทำนายว่าอีเมลจะเป็นสแปมหรือไม่ หรือ ทำนายว่าแพทย์จะวินิจฉัยผู้ป่วยเป็นโรคหรือไม่
+    </p>
+    <div class="p-6 border-b border-white bg-white">
+      <div class="flex items-center mb-4">
+        <h2 class="text-xl font-semibold text-sky-500">ประเภทแยกย่อย:</h2>
+      </div>
+
+      <div class="ml-11">
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                <i class="fas fa-check-circle text-sm"></i>
+              </div>
+              <h3 class="font-medium">Binary Logistic Regression</h3>
+            </div>
+            <p class="text-sm text-gray-600 ml-10">ใช้เมื่อมีผลลัพธ์แค่ 2 คลาส (Dichotomous Variable) เช่น Yes/No, Male/Female, Pass/Fail, 1/0, ป่วย/ไม่ป่วย, ตั้งครรภ์/ไม่ตั้งครรภ์ เป็นต้น</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                <i class="fas fa-check-circle text-sm"></i>
+              </div>
+              <h3 class="font-medium">Multinomial Logistic Regression</h3>
+            </div>
+            <p class="text-sm text-gray-600 ml-10">ใช้เมื่อผลลัพธ์มีมากกว่า 2 คลาส เช่น ทำนายประเภทของสินค้าหรือความนิยม, จำแนกชนิดสัตว์, การพยากรณ์การเลือกซื้อของลูกค้า</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                <i class="fas fa-check-circle text-sm"></i>
+              </div>
+              <h3 class="font-medium">Ordinal Logistic Regression</h3>
+            </div>
+            <p class="text-sm text-gray-600 ml-10">ใช้เมื่อผลลัพธ์มีลำดับชั้น (Ordinal) แต่ไม่ใช่ Continuous ซึ่งเป็นตัวแปรประเภท Category ที่เรียงลำดับได้ เช่น ความพึงพอใจ (น้อย, ปานกลาง, มาก) ระดับการศึกษา (ประถม, มัธยม, ปริญญาตรี, ปริญญาโท) และ ความรุนแรงของโรค (ระดับ 1, 2, 3) เป็นต้น</p>
+          </div>
+
+          
+        </div>
+      </div>
+  </div>
+  <div class="p-6 border-b border-white bg-white">
+    <div class="flex items-center mb-4">
+      <h2 class="text-xl font-semibold text-sky-500">สูตรการคำนวณหลักของ Logistic Regression Model:</h2>
+    </div>
+    <img src="https://drive.google.com/thumbnail?id=1rqKIEOxBJfWDgpr9OwwjvHEoJDSZMs1N&sz=s800" alt="logistic_fml">
+    <p class="text-gray-700 mb-4">★ P<sub>y</sub> คือ ความน่าจะเป็น (probability) ของ class ใด ๆ</p>
+    <p class="text-gray-700 mb-4">★ β คือ ค่าสัมประสิทธิ์ (coefficients) ของแต่ละ feature (ตัวแปร x) ช่วยบอกได้ว่า feature แต่ละตัวมีผลกระทบต่อการคาดการณ์มากน้อยแค่ไหน</p>
+  </div>
+  </div>
+
+  <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+    <div class="text-blue-500 mr-3">
+      <i class="fas fa-info-circle mt-1"></i>
+    </div>
+    <div class="text-sm text-blue-700">
+      <p>จริง ๆ แล้ว Logistic Regression เป็นพื้นฐานของ Neural Network ถ้ามีหลาย logistic neuron มาต่อกัน ก็จะได้ neural network ชั้นแรก!</p>
+    </div>
+  </div>
+
+  <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+    <div class="text-blue-500 mr-3">
+      <i class="fas fa-info-circle mt-1"></i>
+    </div>
+    <div class="text-sm text-blue-700">
+      <p><strong>ใน Logistic Regression ผลลัพธ์จะได้ออกมาเป็นค่า p (probability) ระหว่าง 0 ถึง 1 เช่น </strong></p>
+      <p>   ★ ตัวอย่างหนึ่ง อาจได้ p = 0.82 → <strong>"น่าจะใช่"</strong></p>
+      <p>   ★ ตัวอย่างหนึ่ง อาจได้ p = 0.23 → <strong>"น่าจะไม่ใช่</strong></p>
+      <p>แต่เรายังต้องตัดสินใจว่าจะต้อวจัดให้อยู่ใน class ไหน ทำให้โมเดล Logistic Regression จึงมีค่าที่เรียกว่า <strong>Threshold</strong> ในการช่วยตัดสินใจ (ส่วนมากมองว่าถ้ามากกว่าค่า Treshold ให้เป็น 1 และถ้าต่อกว่าให้เป็น 0)</p>
+      <img src="https://drive.google.com/thumbnail?id=1c3cDAw1sb-TOqYhsOF-31V7K3HzcfN_A&sz=s800" alt="Treshold">
+    </div>
+  </div>
+</div>
+
+
+<!-- Tree -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-flag text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">โมเดลพื้นฐาน : Tree Based Model</h2>
+  </div>
+  <p class="text-gray-700 mb-4">
+    โมเดลแบบต้นไม้ (Tree-Based Models) ใช้ โครงสร้างต้นไม้ตัดสินใจ (Decision Tree) เป็นพื้นฐาน โดยมีองค์ประกอบหลักดังนี้
+  </p>
+  <p class="text-gray-700 mb-4"><strong>1. Node</strong></p>
+  <div class="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item">
+            <img src="https://drive.google.com/thumbnail?id=16w4ywLZHRr9397VxrUKM-5Pv3qxolszt&sz=s800" alt="root node">
+        </div>
+        <div class="carousel-item">
+            <img src="https://drive.google.com/thumbnail?id=1HpBUXLhXzFv84LiyulZ--zeKCwPUkKKe&sz=s800" alt="internal node">
+        </div>
+        <div class="carousel-item">
+            <img src="https://drive.google.com/thumbnail?id=1KecaiSlQmZOE6A24Ya5Ssz0LAl4Z__8g&sz=s800" alt="output node">
+        </div>
+    </div>
+    <button class="carousel-control prev">&#10094;</button>
+    <button class="carousel-control next">&#10095;</button>
+</div>
+<p class="text-gray-700 mb-4"><strong>2. การแบ่ง (Splitting)</strong></p>
+<ul><strong>★ Split Rule</strong> คือ กฎที่ใช้แบ่งข้อมูลในแต่ละโหนด (เช่น X > 5 ลงไปยัง node A)</ul>
+<ul><strong>★ Split Criterion</strong> คือ เกณฑ์วัดประสิทธิภาพของการแบ่ง เช่น</ul>
+<div class="carousel">
+  <div class="carousel-inner">
+      <div class="carousel-item">
+          <img src="https://drive.google.com/thumbnail?id=1GKTufyKyzllzRmse6Uq6wHVFldZkSQ9h&sz=s800" alt="Gini Impurity">
+      </div>
+      <div class="carousel-item">
+          <img src="https://drive.google.com/thumbnail?id=1S1wr6vPjjaFEkIvBooQbUF3EYvhVf2_x&sz=s800" alt="Variance Reduction">
+      </div>
+      <div class="carousel-item">
+          <img src="https://drive.google.com/thumbnail?id=1k3DydXtrAJPUMAbu_dzafO_pGsuxoBDt&sz=s800" alt="Information Gain" >
+      </div>
+  </div>
+  <button class="carousel-control prev">&#10094;</button>
+  <button class="carousel-control next">&#10095;</button>
+</div>
+
+<p class="text-gray-700 mb-4"><strong>3. การหยุดเติบโต (Stopping Criteria)</strong></p>
+<p class="text-gray-700 mb-4">การกำหนดจุดสิ้นสุดของโมเดลสามารถทำได้หลายวิธี เช่น กำหนดความลึกสูงสุด (Max Depth) ของต้นไม้ หยุดแบ่งเองอัตโนมัติเมื่อจำนวนตัวอย่างในโหนดน้อยเกินไป (Min Samples Split) หรือหยุดการแบ่งเมื่อไม่มีการลด Impurity อย่างมีนัยสำคัญ เป็นต้น</strong></p>
+
+
+  <div class="p-6 border-b border-white bg-white">
+    <div class="flex items-center mb-4">
+      <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+        <i class="fas fa-star text-sm"></i>
+      </div>
+      <h2 class="text-xl font-semibold text-sky-500">Random Forest</h2>
+    </div>
+    <p class="text-gray-700 mb-4">
+      โมเดล tree based model ที่เกิดจาก Dicision tree หลายโมเดลมารวมกัน หรือกล่าวให้ง่ายขึ้นคือ Dicision tree เปรียบเสมือนต้นไม้ 1 ต้น และ Random Forest คือการนำต้นไม่หลาย ๆ ต้นมารวมกัน โมเดลชนิดนี้สามารถใช้ได้ทั้ง Classification และ Regression เหมาะกับปัญหาที่ข้อมูลซับซ้อน มี feature interaction เยอะ และไม่แน่ใจว่าความสัมพันธ์เป็นเส้นตรงไหม
+    </p>
+    <p class="text-gray-700 mb-4">
+      โมเดล Random Forest อาจมีปัญหาคือการขาดข้อมูลที่เพียงพอสำหรับต้นไม้แต่ละต้นในป่า ดังนั้น มันจึงต้องมีวิธีเตรียมข้อมูลของมันก่อนเข้าโมเดล เรียกว่า “Bootstrapping” ซึ่งเป็นการสุ่มหยิบข้อมูลบางส่วนจากข้อมูลต้นฉบับนำมาสร้างเป็นข้อมูลชุดใหม่ ๆ ที่เพียงพอสำหรับต้นไม้ทุกต้นในป่า ตามรูป
+    </p>
+    <img src="https://drive.google.com/thumbnail?id=1oOYXA43zOSIACFP254NA3TKPrN758VC1&sz=s800" alt="bagging">
+    <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+      <div class="text-blue-500 mr-3">
+        <i class="fas fa-info-circle mt-1"></i>
+      </div>
+      <div class="text-sm text-blue-700">
+        จากรูปจะเรียกว่าเป็นการทำ Bagging ใน Random Forest ซึ่งคือเทคนิคการรวมผลจากหลายโมเดลที่ฝึกจากชุดข้อมูลที่สุ่ม (Bootstrap Sampling) เพื่อเพิ่มความแม่นยำและลดความเสี่ยงของ overfitting ครับ
+      </div>
+    </div>
+    <div class="p-6 border-b border-white bg-white">
+      <div class="flex items-center mb-4">
+        <h2 class="text-xl font-semibold text-sky-500">ประเภทแยกย่อย:</h2>
+      </div>
+
+      <div class="ml-11">
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                <i class="fas fa-check-circle text-sm"></i>
+              </div>
+              <h3 class="font-medium">Random Forest Classifier</h3>
+            </div>
+            <p class="text-sm text-gray-600 ml-10">ใช้สำหรับจำแนกหมวดหมู่ เช่น ทำนายว่าลูกค้าจะ "ซื้อ" หรือ "ไม่ซื้อ", จำแนกชนิดของดอกไม้, ตรวจจับอีเมลสแปม</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-2">
+                <i class="fas fa-check-circle text-sm"></i>
+              </div>
+              <h3 class="font-medium">Random Forest Regressor</h3>
+            </div>
+            <p class="text-sm text-gray-600 ml-10">ใช้สำหรับพยากรณ์ค่าต่อเนื่อง เช่น ราคาบ้าน, รายได้ของบริษัทในอนาคต</p>
+          </div>
+          
+        </div>
+      </div>
+  </div>
+  <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+    <div class="text-blue-500 mr-3">
+      <i class="fas fa-info-circle mt-1"></i>
+    </div>
+    <div class="text-sm text-blue-700">
+      <strong>Forest Classifier และ Logistic Regression มีจุดประสงค์ในการหา output แบบเดียวกันแต่มีโครงสร้างและการทำงานต่างกัน</strong> โดยเราแนะให้ใช้ Random Forest Classifier หากข้อมูลมีความซับซ้อนมาก (แต่แลกมากับการประมวลผลที่ช้ากว่า Logistic Regression
+    </div>
+  </div>
+  </div>
+  
+</div>
+
+<!-- Neural Network -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-flag text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">โมเดลพื้นฐาน : Neural Network</h2>
+  </div>
+  <p class="text-gray-700 mb-4">
+    คือโมเดลคอมพิวเตอร์ที่เลียนแบบโครงสร้างการทำงานของสมองมนุษย์ ประกอบด้วยชุดของ "neurons" (โหนด) ที่เชื่อมต่อกันเป็น ชั้น (layers)
+  </p>
+  <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+    <div class="text-blue-500 mr-3">
+      <i class="fas fa-info-circle mt-1"></i>
+    </div>
+    <div class="text-sm text-blue-700">
+      โมเดล Neural Network มักถูกนำมาใช้สำหรับเรียนรู้ข้อมูลที่มีรูปแบบซับซ้อน เช่น รูปภาพ ข้อความ หรือเสียง
+    </div>
+  </div>
+  <div class="p-6 border-b border-white bg-white">
+    <div class="flex items-center mb-4">
+      <h2 class="text-xl font-semibold text-sky-500">โครงสร้างโดยพื้นฐานของโมเดล Neural Network ประกอบไปด้วย</h2>
+    </div>
+    <p class="text-gray-700 mb-4"><strong>1. Input Layer</strong></p>
+    <p class="text-gray-700 mb-4">
+      รับข้อมูลเข้ามา (เช่น รูปภาพ, ตัวเลข)
+    </p>
+    <p class="text-gray-700 mb-4"><strong>2. Hidden Layers</strong></p>
+    <p class="text-gray-700 mb-4">
+      ประมวลผลข้อมูลด้วยการคำนวณถ่วงน้ำหนัก + ผ่านฟังก์ชันแปลง (activation function)
+    </p>
+    <p class="text-gray-700 mb-4"><strong>3. Output Layers</strong></p>
+    <p class="text-gray-700 mb-4">
+      ผลลัพธ์สุดท้ายจากการทำนาย
+    </p>
+    <img src="https://drive.google.com/thumbnail?id=14GPWKXGHznml_9BP-s-SMlQGyrg1wfJ2&sz=s800" alt="nn_arch">
+    <p class="text-gray-700 mb-4">
+      โดยการทำงานคร่าว ๆ ของโมเดลคือ เมื่อข้อมูลวิ่งเข้า network ผ่าน Input layer ทุกครั้งที่ผ่านออกไปชั้นอื่นๆ จะต้องมี<strong>การคำนวณน้ำหนัก (weights)</strong> และ<strong>ไบแอส (bias)</strong> ที่ neuron แต่ละตัวทุกครั้ง จากนั้นจึงใช้ <strong>activation function</strong> เพื่อแปลงข้อมูล และกระจายผลต่อไปยัง neuron ถัดไป สุดท้ายตอน train ใช้ <strong>Backpropagation</strong> ปรับ weights เพื่อให้โมเดลเก่งขึ้นเรื่อย ๆ
+    </p>
+    <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+      <div class="text-blue-500 mr-3">
+        <i class="fas fa-info-circle mt-1"></i>
+      </div>
+      <div class="text-sm text-blue-700">
+        <strong>คำศัพท์น่ารู้</strong></h4>
+        <p><strong>★ Weights</strong></p>
+        <p>เป็นค่าที่วัดว่าข้อมูลสำคัญแค่ไหนในการส่งผ่านจาก neuron หนึ่งไปยัง neuron ถัดไประบบจะเรียนรู้การปรับ weights เพื่อให้ทำนายได้แม่นยำที่สุด</p>
+        <p><strong>★ Bias</strong></p>
+        <p>ค่าคงที่ที่ช่วยเลื่อนเส้นการตัดสินใจเพื่อเพิ่มความยืดหยุ่น เหมือนเป็นการตั้ง offset เพิ่มเติมไม่ให้อิงแค่ input อย่างเดียว</p>
+        <p><strong>★ Activation function</strong></p>
+        <p> หรือ ฟังก์ชันแปลง คือฟังก์ชันที่ทำให้ model เข้าใจความสัมพันธ์ที่ไม่ใช่เส้นตรง (non-linear) ได้ ยกตัวอย่างเช่น ReLU, Sigmoid</p>
+        <p><strong>★ Backpropagation</strong></p>
+        <p>Backpropagation  หรือ กระบวนการย้อนกลับ มีหน้าที่ปรับ weights และ bias หลังจากคำนวณผลผิดพลาดหรือผลลัพธ์ออกมาไม่ได้ประสิทธิภาพพอ ทำให้ network เรียนรู้จากความผิดพลาดได้เรื่อย ๆ โดยใช้การหาค่าลงมาจากชั้น output → hidden layers → input (ย้อนกลับมา)</p>
+      </div>
+    </div>
+  </div>
+  <div class="p-6 border-b border-white bg-white">
+    <div class="flex items-center mb-4">
+      <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+        <i class="fas fa-star text-sm"></i>
+      </div>
+      <h2 class="text-xl font-semibold text-sky-500"> CNN (Convolutional Neural Network)</h2>
+    </div>
+    <p class="text-gray-700 mb-4">
+      CNN คือ Neural Network ประเภทหนึ่งที่ถูกออกแบบมาเพื่อ วิเคราะห์ข้อมูลที่มีโครงสร้างเป็นตาราง เช่น รูปภาพ (2D pixel grid) หรือเสียง (waveform) ใช้การทำ Convolution เพื่อตรวจจับ คุณสมบัติลักษณะ (features) เช่น ขอบ (edges), รูปทรง (shapes) และพื้นผิว (textures) เหมาะสำหรับงาน เช่น Image Recognition, Object Detection, Medical Imaging เป็นต้น
+    </p>
+    <img src="https://drive.google.com/thumbnail?id=1DVTBYKjKwokjejbT33MYaf3sobPYpJMN&sz=s800" alt="cnn">
+  </div>
+</div>
+
+<!-- Evaluation -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-flag text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">Evaluation Metrics</h2>
+  </div>
+  <p class="text-gray-700 mb-4">
+    Evaluation Metrics คือ ตัวชี้วัดที่ใช้ในการประเมินประสิทธิภาพของโมเดล Machine Learning ว่าโมเดลทำงานได้ดีแค่ไหน โดยใช้ข้อมูลที่เรารู้คำตอบจริงอยู่แล้ว เพื่อเปรียบเทียบกับผลลัพธ์ที่โมเดลทำนายออกมา
+  </p>
+  <div class="p-6 border-b border-white bg-white">
+    <div class="flex items-center mb-4">
+      <h2 class="text-xl font-semibold text-sky-500"> ประเภทของ Evaluation Metrics</h2>
+    </div>
+    <p class="text-gray-700 mb-4">
+      สามารถแบ่งออกได้ ดังนี้
+    </p>
+    <img src="https://drive.google.com/thumbnail?id=1JkmYiD5qACiDS3ShkNpPq4niPw60Zqqn&sz=s800" alt="Type of Evaluation Metrics">
+  </div>
+
+  <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+    <div class="text-blue-500 mr-3">
+      <i class="fas fa-info-circle mt-1"></i>
+    </div>
+    <div class="text-sm text-blue-700">
+      ตัวอย่างที่ยกมาคุยกันใน lecture ครั้งนี้เป็นเพียง Metrics บางตัวที่นิยมใช้งานทั่วไป แต่ในความเป็นจริงยังมี Metrics อื่น ๆ อีกมากมายที่สามารถเลือกใช้ได้ตามลักษณะของปัญหาและเป้าหมายของโมเดล
+    </div>
+  </div>
+
+  <div class="p-6 border-b border-white bg-white">
+    <div class="flex items-center mb-4">
+      <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+        <i class="fas fa-star text-sm"></i>
+      </div>
+      <h2 class="text-xl font-semibold text-sky-500">Metric สำหรับ Regression</h2>
+    </div>
+
+    <div class="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1g6XxcKm8GUkl-EbKCJEEKXllDukfJYpq&sz=s800" alt="MSE">
+          </div>
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1BeJjptkLt8cR2SirlYkFi4IyLBCt3u69&sz=s800" alt="RMSE">
+          </div>
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1t56yua6LJhFDKEH9UucdG9BBX_FHYVvP&sz=s800" alt="MAE" >
+          </div>
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1cgpxV375-Saxf6pzfl3WOPgeeCzOyH2q&sz=s800" alt="R-Square" >
+          </div>
+      </div>
+      <button class="carousel-control prev">&#10094;</button>
+      <button class="carousel-control next">&#10095;</button>
+    </div>
+  </div>
+
+  <div class="p-6 border-b border-white bg-white">
+    <div class="flex items-center mb-4">
+      <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+        <i class="fas fa-star text-sm"></i>
+      </div>
+      <h2 class="text-xl font-semibold text-sky-500">Metric สำหรับ Classification</h2>
+    </div>
+    <img src="https://drive.google.com/thumbnail?id=1-jbcPRZwCem1-PuTP4oy6s0T7ntqZf6R&sz=s800" alt="Confusion Metrix">
+  </div>
+
+  <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+    <div class="text-blue-500 mr-3">
+      <i class="fas fa-info-circle mt-1"></i>
+    </div>
+    <div class="text-sm text-blue-700">
+      <strong>Binary classification</strong> คือโมเดลที่ทำนายค่าแบบ binary (yes/ no) เช่น วันนี้ฝนจะตกหรือไม่ตก ลูกค้าจะซื้อหรือไม่ซื้อสินค้า churn prediction และ credit scoring เป็นต้น
+    </div>
+  </div>
+
+  <div class="p-6 border-b border-white bg-white">
+    <div class="flex items-center mb-4">
+      <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+        <i class="fas fa-lightbulb text-sm"></i>
+      </div>
+      <h2 class="text-xl font-semibold text-sky-500">Basic Terminology (คำศัพท์เบื้องต้น)</h2>
+    </div>
+    <p class="text-gray-700 mb-4">ก่อนที่จะอ่านผลของตาราง เราต้องมารู้จัก<u>คำศัพท์เบื้องต้น</u>กันก่อน... โดยในกรณีนี้เราจะยกตัวอย่าง Use Case เป็น “E-Commerce”</p>
+    <p class="text-gray-700 mb-4">★ <strong>Positive</strong> คือ class ที่เราสนใจเป็นหลัก หรือก็คือ <strong>“สั่งของ Yes = Positive”</strong></p>
+    <p class="text-gray-700 mb-4">★ <strong>Negative</strong> คือ class รอง หรือก็คือ <strong>“ไม่สั่งของ No = Negative”</strong></p>
+    <p class="text-gray-700 mb-4">จะเห็นว่าด้านในตารางจะมี<strong>ตัวอักษรย่ออยู่ 4 ตัว</strong>ที่เราจะต้องทำความรู้จักนั้นคือ</p>
+    <div class="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1PtoaamB-T-e01aQyLDme9iFzjlDDX2Vb&sz=s800" alt="True Positive">
+          </div>
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1vFPxe9ztzhdzrDDlqGP3CQYxb-wX8wlw&sz=s800" alt="True Negative">
+          </div>
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1luHyupde9dGdDkEaxhsvqs-MYFMsjBhy&sz=s800" alt="False Positive" >
+          </div>
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1cr446ca2YQNVDRs6wldHL-NM-gLqBWGX&sz=s800" alt="False Negative" >
+          </div>
+      </div>
+      <button class="carousel-control prev">&#10094;</button>
+      <button class="carousel-control next">&#10095;</button>
+    </div>
+    <p class="text-gray-700 mb-4">จาก Class(Positive / Negative) ที่กล่าวมาข้างต้นก็คือส่วนประกอบของ Confusion Matrix หรือเรียกอีกอย่างว่า “ตารางแห่งความมึนงง” นั่นเอง ถ้าเราสามารถจำ Concept ได้ ก็จะทำให้เราอธิบายผลได้ดียิ่งขึ้นนั่นเอง</p>
+    <p class="text-gray-700 mb-4">โดยเราสามารถคำนวณค่าสถิติหลายๆตัวจากตารางนี้ โดย Classification Metrics 5 ตัวที่นิยมใช้กัน คือ</p>
+
+    <div class="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1XAt9PSZkWr2oudHSUAi8ZlROKmYRStf4&sz=s800" alt="Accuracy">
+          </div>
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1tXjQvY88fwOd7Sg1-ypPMy0NVroenIcs&sz=s800" alt="Precision">
+          </div>
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1qK1ECpiKvklEjXA5i8By17zqL41nkRDG&sz=s800" alt="Recall" >
+          </div>
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1DZPP-Nqw5PiwRqVF-a7gkwOuD8t2vnEs&sz=s800" alt="F1-Score" >
+          </div>
+          <div class="carousel-item">
+              <img src="https://drive.google.com/thumbnail?id=1ssYHIOepxRwuZiKPWku3YwhNahOF1pAu&sz=s800" alt="ROC-AUC Curve" >
+          </div>
+      </div>
+      <button class="carousel-control prev">&#10094;</button>
+      <button class="carousel-control next">&#10095;</button>
+  </div>
+  </div>
+  <div class="flex bg-blue-50 rounded-lg p-4 mb-4">
+    <div class="text-blue-500 mr-3">
+      <i class="fas fa-info-circle mt-1"></i>
+    </div>
+    <div class="text-sm text-blue-700">
+      <p><strong>วิธีพิจารณากราฟและประเมินผล AUC</strong></p>
+      <figure class="single-image">
+          <img src="https://drive.google.com/thumbnail?id=1VTYH5PQJxukhUIUxpgpo642G2BvF6kdr&sz=s800" alt="AUC Evaluation Graph">
+      </figure>
+      <ul>
+        &nbsp;
+          <li>AUC = 0.4 โมเดลแย่มาก (ทำนายผิดเยอะกว่าถูก)</li>
+          <li>AUC = 0.5 ทำนายได้ไม่ต่างจากการเดา (Random Guessing)</li>
+          <li>AUC = 0.7 โมเดลทำงานได้ดี ตามมาตรฐานทั่วไป</li>
+          <li>AUC = 0.9 โมเดลทำนายได้ดีมาก (แยกแยะ Positive/Negative ได้ดี)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        
+<!-- Conclusion -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-key text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">Conclusion</h2>
+  </div>
+  <p class="text-gray-700 mb-4">
+    โดยสรุปแล้ว Predictive Model หรือแบบจำลองการพยากรณ์ เป็นเครื่องมือสำคัญที่ช่วยให้เราสามารถวิเคราะห์และคาดการณ์เหตุการณ์ในอนาคตได้อย่างมีประสิทธิภาพ โดยอาศัยข้อมูลในอดีตมาประมวลผลเพื่อสร้างแบบจำลองที่มีความแม่นยำช่วยอำนวยความสะดวกให้แก่ชีวิตประจำวันหรืออุตสาหกรรมต่าง ๆ ได้มากมาย !
+  </p>
+  <p class="text-gray-700 mb-4">
+    นอกจากนี้ ปัจจุบันการพัฒนาเทคโนโลยีด้านปัญญาประดิษฐ์ โดยเฉพาะ <strong>Large Language Models (LLMs)</strong> เช่น GPT Gemini หรือ BERT 
+                ยังมีบทบาทสำคัญในการสนับสนุนการทำ Predictive Model อีกด้วย ทั้งในด้านการสร้างฟีเจอร์จากข้อมูลไม่เป็นโครงสร้าง (Unstructured Data) 
+                อย่างข้อความ การสรุปผลเชิงสถิติจากข้อมูลจำนวนมาก ไปจนถึงการอธิบายผลลัพธ์ของแบบจำลองอย่างเข้าใจง่าย จึงกล่าวได้ว่า LLM เป็นอีกหนึ่งแรงผลักดันสำคัญที่ช่วยยกระดับความสามารถของ Predictive Modeling ให้มีประสิทธิภาพและเข้าถึงง่ายมากยิ่งขึ้น
+  </p>
+  </div>
+
+<!-- Workshop -->
+<div class="p-6 border-b border-gray-200">
+  <div class="flex items-center mb-4">
+    <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+      <i class="fas fa-pencil-alt text-sm"></i>
+    </div>
+    <h2 class="text-xl font-semibold text-sky-500">Workshop</h2>
+  </div>
+  <p class="text-gray-700 mb-4">
+    ในส่วน Workshop นี้ คุณจะได้ลองสร้างโมเดลการทำนายด้วยตัวเองผ่าน Google Colab ซึ่งเป็นเครื่องมือที่มีประสิทธิภาพสำหรับการเรียนรู้ Machine Learning
+  </p>
+  <p class="text-gray-700 mb-4">
+    คุณจะได้ลองใช้ข้อมูลจริงเพื่อ<strong>ทำนายผู้โดยสารที่ "รอดชีวิต" และ "เสียชีวิต" ในเหตุการณ์อับปางของเรือไททานิก</strong> ด้วยโมเดล <strong>Logistic Regression</strong> ทำการวัดประสิทธิภาพของโมเดล และใช้ LLM ในการช่วยพิจารณาการทำงาน
+  </p>
+  <iframe
+    src="https://marimo.app/l/q9dp5x?embed=true&show-chrome=false"
+    width="100%"
+    height="1000"
+    frameborder="0"
+    ></iframe>
+</div>
+
+
+<!--QUIZ-->
+<div class="p-6">
+    <div class="flex items-center mb-4">
+      <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white mr-3">
+        <i class="fas fa-question text-sm"></i>
+      </div>
+      <h2 class="text-xl font-semibold text-sky-500">Quiz: ทดสอบความเข้าใจ</h2>
+    </div>
+
+    <div class="ml-11" id="quiz-container">
+      <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="font-medium text-gray-800 mb-3">1. คุณเป็น Data Scientist ที่บริษัท FoodTech แห่งหนึ่งซึ่งกำลังจะพัฒนาแอปสั่งอาหารออนไลน์ ทีมงานต้องการสร้างระบบเพื่อ :</p>
+                    <ul><strong>ระบบที่ 1 : "พยากรณ์"</strong> ว่าลูกค้าคนไหนมีแนวโน้มจะสั่งอาหารอีกในอนาคต (ไม่ระบุช่วงเวลา)</ul>
+                    <ul><strong>ระบบที่ 2 : "พยากรณ์"</strong> ว่าวันเสาร์-อาทิตย์สั่งอาหารมากที่สุดกี่กล่อง เพื่อเตรียมวัตถุดิบ</ul>
+                    <p class="font-medium text-gray-800 mb-3">โดยทีมงานบางส่วน<u>มีความเห็น</u>ว่า "ทั้งสองระบบใช้ Forecasting เหมือนกัน เพราะเป็นการคาดการณ์อนาคตทั้งคู่"</p>
+                    <p class="font-medium text-gray-800 mb-3">ข้อสรุปใดถูกต้องเกี่ยวกับระบบทั้งสองแบบ?</p>
+        <div class="space-y-2">
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q1" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ระบบที่ 1 เป็น Classification ส่วนระบบที่ 2 เป็น Regression</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q1" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ระบบที่ 1 เป็น Prediction (ใช้ข้อมูลพฤติกรรมลูกค้า) ส่วนระบบที่ 2 เป็น Forecasting (อ้างอิงเวลา)</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q1" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ทั้งสองระบบเป็น Forecasting เพราะเกี่ยวข้องกับอนาคต</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q1" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>ทั้งสองระบบเป็น Prediction เพราะใช้ Machine Learning</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="font-medium text-gray-800 mb-3">2. ข้อใดไม่ใช่ประเภทย่อยของ Logistic Regression Model?</p>
+        <div class="space-y-2">
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q2" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Ordinal Logistic Regression</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q2" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Multinomial Logistic Regression</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q2" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Hyperspherical Logistic Regression</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q2" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Binary Logistic Regression</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="font-medium text-gray-800 mb-3">3. ปัญหา classification แบบ binary(0, 1) ถ้าเราต้องการลด "โอกาสในการผิดพลาด" ให้มากที่สุด โดย Case ที่ยกตัวอย่างมาคือ "การตรวจหาโรคร้ายแรงในผู้ป่วย"
+            &nbsp;ค่าชี้วัดใดควรให้ความสำคัญมากที่สุด? 
+        </p>
+        <div class="space-y-2">
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q3" value="a" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Accuracy</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q3" value="b" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Precision</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q3" value="c" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>Recall</span>
+          </label>
+          <label class="flex items-center p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
+            <input type="radio" name="q3" value="d" class="mr-3 text-blue-600 focus:ring-blue-500">
+            <span>F1-score</span>
+          </label>
+        </div>
+      </div>
+
+      <button id="submit-quiz"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+        ส่งคำตอบ
+      </button>
+
+      <div id="quiz-result" class="mt-6 hidden"></div>
+      <div id="quiz-feedback" class="mt-4 p-4 rounded-lg hidden"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  const submitButton = document.getElementById('submit-quiz');
+  const quizResult = document.getElementById('quiz-result');
+  const quizFeedback = document.getElementById('quiz-feedback');
+
+  const correctAnswers = {
+    q1: 'b',
+    q2: 'c',
+    q3: 'c'
+  };
+
+  submitButton.addEventListener('click', function () {
+    let score = 0;
+    let answeredAll = true;
+
+    // Check answers
+    Object.keys(correctAnswers).forEach(question => {
+      const selected = document.querySelector(`input[name="${question}"]:checked`);
+
+      if (!selected) {
+        answeredAll = false;
+        return;
+      }
+
+      const isCorrect = selected.value === correctAnswers[question];
+
+      if (isCorrect) score++;
+
+      // Style all answers
+      document.querySelectorAll(`input[name="${question}"]`).forEach(input => {
+        const label = input.parentElement;
+
+        if (input.value === correctAnswers[question]) {
+          // Correct answer
+          label.classList.remove('hover:bg-gray-100');
+          label.classList.add('bg-green-50', 'border', 'border-green-200');
+
+          // Add icon
+          const icon = document.createElement('i');
+          icon.className = 'fas fa-check-circle text-green-500 ml-2';
+          label.querySelector('span').appendChild(document.createTextNode(' '));
+          label.querySelector('span').appendChild(icon);
+        }
+        else if (input.checked && input.value !== correctAnswers[question]) {
+          // Incorrect selected answer
+          label.classList.remove('hover:bg-gray-100');
+          label.classList.add('bg-red-50', 'border', 'border-red-200');
+
+          // Add icon
+          const icon = document.createElement('i');
+          icon.className = 'fas fa-times-circle text-red-500 ml-2';
+          label.querySelector('span').appendChild(document.createTextNode(' '));
+          label.querySelector('span').appendChild(icon);
+        }
+
+        // Disable all inputs
+        input.disabled = true;
+      });
+    });
+
+    if (!answeredAll) {
+      alert('กรุณาเลือกคำตอบทุกข้อ');
+      return;
+    }
+
+    // Hide submit button
+    submitButton.classList.add('hidden');
+
+    // Show score
+    quizResult.classList.remove('hidden');
+    quizResult.innerHTML = `
+      <div class="text-center">
+        <div class="text-5xl font-bold ${score === 3 ? 'text-green-500' : score === 2 ? 'text-yellow-500' : 'text-red-500'}">${score}/3</div>
+        <p class="mt-2 text-gray-600">คะแนนของคุณ</p>
+      </div>
+    `;
+
+    // Show feedback
+    quizFeedback.classList.remove('hidden');
+
+    if (score === 3) {
+      quizFeedback.classList.add('bg-green-50', 'border-l-4', 'border-green-500');
+      quizFeedback.innerHTML = `
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <i class="fas fa-trophy text-green-500 text-lg"></i>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-lg font-medium text-green-800">ยอดเยี่ยม! 🎉</h3>
+            <div class="mt-2 text-green-700">
+              <p>คุณเข้าใจเรื่อง Prediction อย่างดี คุณพร้อมที่จะเรียนรู้เนื้อหาขั้นสูงต่อไป</p>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (score === 2) {
+      quizFeedback.classList.add('bg-yellow-50', 'border-l-4', 'border-yellow-500');
+      quizFeedback.innerHTML = `
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <i class="fas fa-thumbs-up text-yellow-500 text-lg"></i>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-lg font-medium text-yellow-800">ดี! 👍</h3>
+            <div class="mt-2 text-yellow-700">
+              <p>คุณเข้าใจหลักการพื้นฐานได้ดี แต่ยังมีบางส่วนที่ควรทบทวน ลองกลับไปอ่านเนื้อหาอีกครั้ง</p>
+            </div>
+          </div>
+        </div>
+      `;
+    } else {
+      quizFeedback.classList.add('bg-red-50', 'border-l-4', 'border-red-500');
+      quizFeedback.innerHTML = `
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <i class="fas fa-book text-red-500 text-lg"></i>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-lg font-medium text-red-800">พยายามต่อไป! 📚</h3>
+            <div class="mt-2 text-red-700">
+              <p>ลองทบทวนเนื้อหาทั้งหมดอีกครั้งเพื่อความเข้าใจที่มากขึ้น</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Add retry button
+    setTimeout(() => {
+      const retryButton = document.createElement('button');
+      retryButton.className = 'mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors';
+      retryButton.innerHTML = '<i class="fas fa-redo mr-2"></i>ลองอีกครั้ง';
+      retryButton.onclick = resetQuiz;
+
+      quizFeedback.appendChild(retryButton);
+    }, 1000);
+  });
+
+  function resetQuiz() {
+    // Clear all radio selections
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+      input.checked = false;
+      input.disabled = false;
+
+      // Reset label styling
+      const label = input.parentElement;
+      label.classList.remove('bg-green-50', 'bg-red-50', 'border', 'border-green-200', 'border-red-200');
+      label.classList.add('hover:bg-gray-100');
+
+      // Remove icons
+      const span = label.querySelector('span');
+      while (span.querySelector('i')) {
+        span.removeChild(span.querySelector('i'));
+      }
+
+      // Fix any text issues from icon removal
+      span.textContent = span.textContent.trim();
+    });
+
+    // Hide results and feedback
+    quizResult.classList.add('hidden');
+    quizFeedback.classList.add('hidden');
+
+    // Show submit button
+    submitButton.classList.remove('hidden');
+  }
+});
+
+// JavaScript สำหรับควบคุม Carousel ทั้งหมด
+document.addEventListener('DOMContentLoaded', function() {
+        const carousels = document.querySelectorAll('.carousel');
+        
+        carousels.forEach(carousel => {
+            const inner = carousel.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            const prevBtn = carousel.querySelector('.prev');
+            const nextBtn = carousel.querySelector('.next');
+            
+            let currentIndex = 0;
+            const itemWidth = items[0].clientWidth;
+            
+            function moveTo(index) {
+                if (index < 0) index = items.length - 1;
+                if (index >= items.length) index = 0;
+                
+                currentIndex = index;
+                inner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            }
+            
+            prevBtn.addEventListener('click', () => moveTo(currentIndex - 1));
+            nextBtn.addEventListener('click', () => moveTo(currentIndex + 1));
+            
+            // เริ่มต้นปรับตำแหน่งแรก
+            moveTo(0);
+        });
+    });
+
+</script>
+</body>
+
+</html>
